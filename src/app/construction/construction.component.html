@@ -1,15 +1,53 @@
-<p>construction works!</p>
+<div class="main">
 
-<div>
-    id = {{id}}
+  <div class="nav">
+    <a href="/">На галоўную</a>
+  </div>
+
+  <div class="common-info">
+    <h3>{{construction.name}}</h3>
+    <p>
+      {{construction.address.locality}}, {{construction.address.district}}, {{construction.address.region}},
+      {{construction.address.street}},
+      {{construction.address.houseNumber}}
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="photos carousel">
+      <input type="radio" name="slides" checked="checked" id="slide-1">
+      <div *ngFor="let photo of construction.photos">
+        <!-- <img src={{photo.urlAddressToPhoto}} /> -->
+        <input type="radio" name="slides" id={{photo.id}}>
+      </div>
+
+      <ul class="carousel__slides">
+        <div *ngFor="let photo of construction.photos">
+          <li class="carousel__slide">
+            <figure>
+              <div>
+                <img src={{photo.urlAddressToPhoto}} alt="">
+              </div>
+              <figcaption>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                <span class="credit">Photo: Tim Marshall</span>
+              </figcaption>
+            </figure>
+          </li>
+        </div>
+      </ul>
+
+      <ul class="carousel__thumbnails"> 
+        <div *ngFor="let photo of construction.photos">
+          <li>
+            <label for={{photo.id}}><img src="https://picsum.photos/id/1041/150/150" alt=""></label>
+        </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+
+  <div class="similar">
+    Падобнае
+  </div>
 </div>
-
-<figure class="effect-text-four item" *ngFor="let photo of construction.photos" onclick="enlargeImg()" id="img1">
-      <img class="effect-text-four minimized" src={{photo.urlAddressToPhoto}} onclick="enlargeImg()" id="img1" />
-      <!-- <figcaption class="mask-2 ">
-        <h3>{{photo.constructionName}}</h3>
-        <p>{{photo.address.locality}}, {{photo.address.district}}, {{photo.address.region}}, {{photo.address.street}},
-          {{photo.address.houseNumber}}</p>
-      </figcaption> -->
-    <!-- </a> -->
-  </figure>

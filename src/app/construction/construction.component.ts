@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Construction } from '../entity/construction';
 
 @Component({
   selector: 'app-construction',
@@ -10,16 +11,15 @@ import { Observable } from 'rxjs';
 })
 export class ConstructionComponent implements OnInit {
 
-  public construction : any;
-  public id : any;
+  construction!: Construction;
+  public id: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private _http: HttpClient){
-    
+  constructor(private activatedRoute: ActivatedRoute, private _http: HttpClient) {
+
     // this.activatedRoute.queryParams.subscribe(params => {
-      this.id = this.activatedRoute.snapshot.params['constructionId']
-      console.log(this.id); // Print the parameter to the console. 
-  // });
-    
+    this.id = this.activatedRoute.snapshot.params['constructionId']
+
+
     this.getPhoto();
   }
 
@@ -30,17 +30,17 @@ export class ConstructionComponent implements OnInit {
   //     });
   // }
 
-ngOnInit() {
-}
+  ngOnInit() {
+  }
 
-getPhoto(){
-  this.getResource("http://localhost:8080/constructions/" + this.id)
-  .subscribe(
-    data => this.construction = data
-  );
-}
+  getPhoto() {
+    this.getResource("http://localhost:8080/constructions/" + this.id)
+      .subscribe(
+        data => this.construction = data
+      );
+  }
 
- getResource(resourceUrl : string) : Observable<any> {
-  return this._http.get(resourceUrl);
- }
+  getResource(resourceUrl: string): Observable<any> {
+    return this._http.get(resourceUrl);
+  }
 }
