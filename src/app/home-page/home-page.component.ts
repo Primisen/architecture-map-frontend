@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { RandomPhoto } from '../entity/random-photo';
 
 @Component({
   selector: 'app-home-page',
@@ -8,6 +9,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
+
+  randomPhotos: RandomPhoto[] = [];
 
   public photos: any;
 
@@ -28,7 +31,7 @@ export class HomePageComponent implements OnInit {
   getPhotos() {
     this.getResource("http://localhost:8080/photos/")
       .subscribe(
-        data => this.photos = data
+        data => this.randomPhotos = data
       );
   }
 
