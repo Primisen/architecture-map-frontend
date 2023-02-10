@@ -11,7 +11,7 @@
 }
 
 
-/* common*/
+/*common content*/
 .content {
 	margin-left: 16rem;
 	margin-right: 16rem;
@@ -20,27 +20,31 @@
 .masonry {
 	/* Masonry container */
 	column-count: 3;
-	column-gap: 0.8rem;
+	/* column-gap: 0.8rem; */
 }
 
 .item {
 	/* Masonry bricks or child elements */
 	background-color: #eee;
 	display: inline-block;
-	margin: 0 0 0.8rem;
+	/* margin: 0 0 0.8rem; */
+	margin-top: 0.8rem;
 	width: 100%;
 }
-/*common end*/
+/*common content end*/
 
 
 
-/* a */
-a {
-	display: block;
+/* .foggin*/
+.foggin {
 	position: relative;
+  width: 100%;
 }
 
-a:after {
+.foggin:hover  {
+	display: block;
+}
+ .foggin:after {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -50,8 +54,7 @@ a:after {
 	background: rgba(0, 0, 0, .5);
 	opacity: 0;
 }
-
-a:before {
+.foggin:before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -60,9 +63,38 @@ a:before {
 	bottom: 0;
 	opacity: 0;
 }
-
-a:hover:before,
-a:hover:after {
+.foggin:hover:before,
+.foggin:hover:after {
 	opacity: 1;
-}
-/* a end*/
+} 
+/* .foggin end*/
+
+
+
+/* source-button */
+.source-button {
+	position: absolute;
+	width: 100%;
+	left:5%;
+	bottom: 10%;
+	opacity: 0;
+	transition: opacity .35s ease;
+	z-index: 4000;
+  }
+  .source-button a {
+	padding: 0.7rem 1rem;
+	font-family: "Lucida Console", "Courier New", monospace;
+	font-weight: 800;
+	text-align: center;
+	background: white;
+	color: black; 
+	border: 1px s white; 
+	border-radius: 3rem;
+	z-index: 1; 
+  }
+
+  .foggin:hover .source-button {
+	opacity: 1;
+  }
+  /* source-button */
+
