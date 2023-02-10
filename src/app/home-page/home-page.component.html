@@ -1,0 +1,61 @@
+<div class="main">
+
+  <div class="relative bg-image"
+    style="background-image: url(https://storage.googleapis.com/architecture-map-photos/%D0%BD%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%B1%D0%BE%D1%80%D0%BE%D0%B2%D0%B0%D1%8F%202.JPG); background-size: cover;">
+    <div class="mask">
+      <div class="d-flex flex-column justify-content-center align-items-center h-100">
+        <h1 class="text-white text-uppercase fw-bolt"><span>Belarus Architecture</span> map</h1>
+        <p></p>
+        <p class="text-white text-uppercase">Глядзі, натхняйся, вандруй</p>
+        <!-- Стрелка вниз -->
+        <svg class="arrow-bottom-3" viewBox="0 0 5 9">
+          <path d="M0.419,9.000 L0.003,8.606 L4.164,4.500 L0.003,0.394 L0.419,0.000 L4.997,4.500 L0.419,9.000 Z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- <div *ngFor="let phoo of photos"> -->
+
+    <!-- <div class="container" style="padding-top: 90px;"> -->
+
+    <!-- <div class="card-title"> -->
+      <!-- <h1 class="text-black text-uppercase fw-light">{{photoVisualTypes.name}}</h1> -->
+    <!-- </div> -->
+
+    <!-- <div *ngFor="let photo of photoVisualTypes.photos">
+        <img src={{photo.urlAddressToPhoto}} class="d-block w-100" alt="...">
+      </div> -->
+
+    <div class="hover-text-one masonry ">
+      <figure class="effect-text-four item" *ngFor="let photo of photos" onclick="enlargeImg()" id="img1">
+        <!-- <a [routerLink]="['constructions/', photo.constructionId]" routerLinkActive="active"> -->
+        <img class="effect-text-four " src={{photo.urlAddressToPhoto}} onclick="enlargeImg()" id="img1" />
+        <figcaption class="mask-2 ">
+          <h3>{{photo.constructionName}}</h3>
+          <p>{{photo.address.locality}}, {{photo.address.district}}, {{photo.address.region}},
+            {{photo.address.street}},
+            {{photo.address.houseNumber}}</p>
+        </figcaption>
+        <!-- </a> -->
+      </figure>
+    </div>
+    <!-- </div>
+  </div> -->
+
+
+    <!-- <div class="hover-text-one masonry lol-2">
+    <figure class="effect-text-four item" *ngFor="let photo of photos" onclick="enlargeImg()" id="img1">
+      <a [routerLink]="['constructions/', photo.constructionId]" routerLinkActive="active">
+        <img class="effect-text-four minimized" src={{photo.urlAddressToPhoto}} onclick="enlargeImg()" id="img1" />
+        <figcaption class="mask-2 ">
+          <h3>{{photo.constructionName}}</h3>
+          <p>{{photo.address.locality}}, {{photo.address.district}}, {{photo.address.region}}, {{photo.address.street}},
+            {{photo.address.houseNumber}}</p>
+        </figcaption>
+      </a>
+    </figure>
+  </div> -->
+
+  <!-- </div> -->

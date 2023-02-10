@@ -1,0 +1,15 @@
+<p>construction works!</p>
+
+<div>
+    id = {{id}}
+</div>
+
+<figure class="effect-text-four item" *ngFor="let photo of construction.photos" onclick="enlargeImg()" id="img1">
+      <img class="effect-text-four minimized" src={{photo.urlAddressToPhoto}} onclick="enlargeImg()" id="img1" />
+      <!-- <figcaption class="mask-2 ">
+        <h3>{{photo.constructionName}}</h3>
+        <p>{{photo.address.locality}}, {{photo.address.district}}, {{photo.address.region}}, {{photo.address.street}},
+          {{photo.address.houseNumber}}</p>
+      </figcaption> -->
+    <!-- </a> -->
+  </figure>
