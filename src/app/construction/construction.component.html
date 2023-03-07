@@ -4,50 +4,58 @@
     <a href="/">На галоўную</a>
   </div>
 
-  <div class="common-info">
-    <h3>{{construction.name}}</h3>
-    <p>
-      {{construction.address.locality}}, {{construction.address.district}}, {{construction.address.region}},
-      {{construction.address.street}},
-      {{construction.address.houseNumber}}
-    </p>
-  </div>
+  <div class="content">
 
-  <div class="container">
-    <div class="photos carousel">
-      <input type="radio" name="slides" checked="checked" id="slide-1">
-      <div *ngFor="let photo of construction.photos">
-        <!-- <img src={{photo.urlAddressToPhoto}} /> -->
-        <input type="radio" name="slides" id={{photo.id}}>
+    <div class="construction-info">
+      <div class="photo-carousel">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src={{construction.photos[0].urlAddressToPhoto}} class="d-block w-100" alt="...">
+              <p>{{construction.photos[0].source.url}}</p>
+            </div>
+            <div class="carousel-item" *ngFor="let photo of construction.photos">
+              <img src={{photo.urlAddressToPhoto}} class="d-block w-100" alt="...">
+              <p>Крыніца: {{photo.source.url}}</p>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
       </div>
 
-      <ul class="carousel__slides">
-        <div *ngFor="let photo of construction.photos">
-          <li class="carousel__slide">
-            <figure>
-              <div>
-                <img src={{photo.urlAddressToPhoto}} alt="">
-              </div>
-              <figcaption>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                <span class="credit">Photo: Tim Marshall</span>
-              </figcaption>
-            </figure>
-          </li>
-        </div>
-      </ul>
+      <div class="common-info">
+        <h3>{{construction.name}}</h3>
+        <p>
+          {{construction.address.locality}}, {{construction.address.district}}, {{construction.address.region}},
+          {{construction.address.street}},
+          {{construction.address.houseNumber}}
+        </p>
 
-      <ul class="carousel__thumbnails"> 
-        <div *ngFor="let photo of construction.photos">
-          <li>
-            <label for={{photo.id}}><img src="https://picsum.photos/id/1041/150/150" alt=""></label>
-        </li>
-        </div>
-      </ul>
+        <p>{{construction.buildingTime}}</p>
+      </div>
     </div>
-  </div>
 
-  <div class="similar">
-    Падобнае
+    <div class="similar">
+      <h1 class="text-black text-uppercase">Падобнае</h1>
+      <div class="masonry">
+        <div *ngFor="let construction of similarConstructions">
+          <div *ngFor="let photo of construction.photos">
+            <a href="constructions/{{construction.id}}" class="foggin">
+              <img class="item" src={{photo.urlAddressToPhoto}}>
+              <p>Крыніца: {{photo.source.url}}</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

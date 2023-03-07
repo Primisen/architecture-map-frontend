@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { ConstructionComponent } from './construction/construction.component';
 import { HomePageComponent } from './home-page/home-page.component';
 
+import { MatCardModule } from '@angular/material/card';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 const appRoutes: Routes =[
   { path: '', component : HomePageComponent},
   { path: 'constructions/:constructionId', component: ConstructionComponent}
@@ -23,7 +26,9 @@ const appRoutes: Routes =[
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatCardModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [

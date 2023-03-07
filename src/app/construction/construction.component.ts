@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Construction } from '../entity/construction';
@@ -12,35 +12,38 @@ import { Construction } from '../entity/construction';
 export class ConstructionComponent implements OnInit {
 
   construction!: Construction;
-  public id: any;
+  id: number;
+  similarConstructions: Construction[] = [];
+
+
 
   constructor(private activatedRoute: ActivatedRoute, private _http: HttpClient) {
-
-    // this.activatedRoute.queryParams.subscribe(params => {
-    this.id = this.activatedRoute.snapshot.params['constructionId']
-
-
+    this.id = this.activatedRoute.snapshot.params['constructionId'];
     this.getPhoto();
+  
   }
-
-  // constructor(private activatedRoute: ActivatedRoute) {
-  //   this.activatedRoute.queryParams.subscribe(params => {
-  //         let date = params['startdate'];
-  //         console.log(date); // Print the parameter to the console. 
-  //     });
-  // }
 
   ngOnInit() {
-  }
-
-  getPhoto() {
-    this.getResource("http://localhost:8080/constructions/" + this.id)
-      .subscribe(
-        data => this.construction = data
-      );
   }
 
   getResource(resourceUrl: string): Observable<any> {
     return this._http.get(resourceUrl);
   }
+
+  getPhoto() {
+    this.getResource("http://localhost:8080/constructions/" + this.id)
+      .subscribe(
+        data => { this.construction = data, this.findSimilarConstructions(data['architecturalStyle']) }
+      );
+
+  }
+
+  findSimilarConstructions(architecturalStyle : any) {
+    this.getResource("http://localhost:8080/constructions/architectural-styles/" + architecturalStyle.id)
+      .subscribe(
+        data => this.similarConstructions = data
+      );
+  }
+
+
 }

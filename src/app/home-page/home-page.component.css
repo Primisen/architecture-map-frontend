@@ -1,3 +1,35 @@
+.nav {
+    position: absolute;
+    /* top: 50%; */
+    /* left: 50%; */
+    background: #272727;
+	width: 100%;
+	/* position: center; */
+	/* background-color: rgba(0, 0, 0, 0.6); */
+
+	display: flex;
+  align-items: center;
+  padding-left: 16rem;
+  height: 4rem;
+
+}
+
+.nav a {
+	/* position: absolute;                */
+   /* top: 50%;                          */
+   /* transform: translate(0, -50%); */
+	padding-right: 10vh;
+    color: #f6f4e6;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    font-family: "Montserrat", sans-serif;
+}
+
 .main {
 	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.6);
@@ -5,9 +37,6 @@
 
 .main:hover {
 	background-color: rgba(0, 0, 0, 0.6);
-	/* padding: 200px; */
-	/* margin-top: 200px; */
-	/* height: 100vh; */
 }
 
 
@@ -18,19 +47,17 @@
 }
 
 .masonry {
-	/* Masonry container */
 	column-count: 3;
-	/* column-gap: 0.8rem; */
 }
 
 .item {
 	/* Masonry bricks or child elements */
 	background-color: #eee;
 	display: inline-block;
-	/* margin: 0 0 0.8rem; */
 	margin-top: 0.8rem;
 	width: 100%;
 }
+
 /*common content end*/
 
 
@@ -38,13 +65,14 @@
 /* .foggin*/
 .foggin {
 	position: relative;
-  width: 100%;
+	width: 100%;
 }
 
-.foggin:hover  {
+.foggin:hover {
 	display: block;
 }
- .foggin:after {
+
+.foggin:after {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -54,6 +82,7 @@
 	background: rgba(0, 0, 0, .5);
 	opacity: 0;
 }
+
 .foggin:before {
 	content: '';
 	position: absolute;
@@ -63,10 +92,12 @@
 	bottom: 0;
 	opacity: 0;
 }
+
 .foggin:hover:before,
 .foggin:hover:after {
 	opacity: 1;
-} 
+}
+
 /* .foggin end*/
 
 
@@ -75,26 +106,27 @@
 .source-button {
 	position: absolute;
 	width: 100%;
-	left:5%;
-	bottom: 10%;
+	left: 4%;
+	bottom: 8%;
 	opacity: 0;
-	transition: opacity .35s ease;
+	/* transition: opacity .35s ease; */
 	z-index: 4000;
-  }
-  .source-button a {
+}
+
+.source-button a {
 	padding: 0.7rem 1rem;
 	font-family: "Lucida Console", "Courier New", monospace;
 	font-weight: 800;
 	text-align: center;
 	background: white;
-	color: black; 
-	border: 1px s white; 
+	color: black;
+	border: 1px s white;
 	border-radius: 3rem;
-	z-index: 1; 
-  }
+	z-index: 1;
+}
 
-  .foggin:hover .source-button {
+.foggin:hover .source-button {
 	opacity: 1;
-  }
-  /* source-button */
+}
 
+/* source-button */
