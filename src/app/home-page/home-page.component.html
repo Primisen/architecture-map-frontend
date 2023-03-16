@@ -20,15 +20,16 @@
 
 
 <div class="content">
-  <div class="masonry">
-
-
-    <div
+  <div
   infinite-scroll
   [infiniteScrollDistance]="2"
   [infiniteScrollThrottle]="1000"
   (scrolled)="onScroll()"
 >
+  <div class="masonry">
+
+
+
 
     <div *ngFor="let photo of randomPhotos">
       <div>
@@ -38,5 +39,6 @@
         </a>
       </div>
     </div>
+  </div>
   </div>
 </div>
