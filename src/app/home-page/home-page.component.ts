@@ -10,6 +10,8 @@ import { RandomPhoto } from '../entity/random-photo';
 })
 export class HomePageComponent implements OnInit {
 
+  page = 1;
+
   randomPhotos: RandomPhoto[] = [];
 
   public photos: any;
@@ -30,9 +32,14 @@ export class HomePageComponent implements OnInit {
 
   getPhotos() {
     this.getResource("http://localhost:8080/photos/")
-      .subscribe(
-        data => this.randomPhotos = data
-      );
+      // .subscribe(
+      //   data => this.randomPhotos = data
+      // );
+
+
+      .subscribe((randomPhotos: RandomPhoto[]) => {
+        this.randomPhotos.push(...randomPhotos);
+      });
   }
 
   getPhotoVisualTypes() {
@@ -46,4 +53,13 @@ export class HomePageComponent implements OnInit {
     return this._http.get(resourceUrl);
   }
 
+
+
+
+
+
+  onScroll(): void {
+    ++this.page;
+    this.getPhotos();
+  }
 }

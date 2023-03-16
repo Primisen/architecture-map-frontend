@@ -21,6 +21,15 @@
 
 <div class="content">
   <div class="masonry">
+
+
+    <div
+  infinite-scroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="1000"
+  (scrolled)="onScroll()"
+>
+
     <div *ngFor="let photo of randomPhotos">
       <div>
         <a href="constructions/{{photo.constructionId}}" class="foggin">
