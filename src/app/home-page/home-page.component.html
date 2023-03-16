@@ -20,25 +20,29 @@
 
 
 <div class="content">
-  <div
-  infinite-scroll
-  [infiniteScrollDistance]="2"
-  [infiniteScrollThrottle]="1000"
-  (scrolled)="onScroll()"
->
-  <div class="masonry">
+  <div infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScroll()">
+    <div class="masonry">
+
+      <ngx-masonry>
+        <div ngxMasonryItem class="masonry-item" *ngFor="let photo of randomPhotos">
+          <div>
+            <a href="constructions/{{photo.constructionId}}" class="foggin">
+              <img class="item" src={{photo.urlAddressToPhoto}} />
+              <div class="source-button"><a href={{photo.source.url}}>Крыніца: {{photo.source.name}}</a></div>
+            </a>
+          </div>
+        </div>
+      </ngx-masonry>
 
 
-
-
-    <div *ngFor="let photo of randomPhotos">
-      <div>
-        <a href="constructions/{{photo.constructionId}}" class="foggin">
-          <img class="item" src={{photo.urlAddressToPhoto}} />
-          <div class="source-button"><a href={{photo.source.url}}>Крыніца: {{photo.source.name}}</a></div>
-        </a>
-      </div>
+      <!-- <div *ngFor="let photo of randomPhotos">
+        <div>
+          <a href="constructions/{{photo.constructionId}}" class="foggin">
+            <img class="item" src={{photo.urlAddressToPhoto}} />
+            <div class="source-button"><a href={{photo.source.url}}>Крыніца: {{photo.source.name}}</a></div>
+          </a>
+        </div>
+      </div> -->
     </div>
-  </div>
   </div>
 </div>

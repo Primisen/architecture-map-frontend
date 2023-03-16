@@ -1,3 +1,23 @@
+
+.masonry-item {
+	width: 30%;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+.masonry {
+	/* column-count: 3; */
+}
+
+.item {
+	/* Masonry bricks or child elements */
+	background-color: #eee;
+	/* display: inline-block; */
+	/* margin-top: 0.8rem; */
+	width: 100%;
+}
+
+
 .nav {
     position: absolute;
     /* top: 50%; */
@@ -46,17 +66,7 @@
 	margin-right: 16rem;
 }
 
-.masonry {
-	column-count: 3;
-}
 
-.item {
-	/* Masonry bricks or child elements */
-	background-color: #eee;
-	display: inline-block;
-	margin-top: 0.8rem;
-	width: 100%;
-}
 
 /*common content end*/
 
