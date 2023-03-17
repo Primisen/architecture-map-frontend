@@ -1,50 +1,20 @@
 <div class="main">
 
-  <div class="nav">
-    <a href="/">На галоўную</a>
-  </div>
-
   <div class="content">
 
     <div class="construction-info">
 
       <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
 
-
-      <div class="photo-carousel">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="false">
-          <!-- <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src={{construction.photos[0].urlAddressToPhoto}} class="d-block w-100" alt="...">
-              <p>{{construction.photos[0].source.url}}</p>
-            </div>
-            <div class="carousel-item" *ngFor="let photo of construction.photos">
-              <img src={{photo.urlAddressToPhoto}} class="d-block w-100" alt="...">
-              <p>Крыніца: {{photo.source.url}}</p>
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button> -->
-        </div>
-      </div>
-
       <div class="common-info">
-        <!-- <h3>{{construction.name}}</h3> -->
-        <!-- <p>
+        <h3>{{construction.name}}</h3>
+         <p>
           {{construction.address.locality}}, {{construction.address.district}}, {{construction.address.region}},
           {{construction.address.street}},
           {{construction.address.houseNumber}}
         </p>
 
-        <p>{{construction.buildingTime}}</p> -->
+        <p>{{construction.buildingTime}}</p> 
       </div>
     </div>
 

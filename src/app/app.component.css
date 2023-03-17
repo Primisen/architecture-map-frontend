@@ -1,0 +1,23 @@
+.nav {
+    position: absolute;
+    background: #272727;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    padding-left: 16rem;
+    height: 4rem;
+}
+
+.nav a {
+    padding-right: 10vh;
+    color: #f6f4e6;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    font-family: "Montserrat", sans-serif;
+}

@@ -14,37 +14,7 @@
 }
 
 
-.nav {
-    position: absolute;
-    /* top: 50%; */
-    /* left: 50%; */
-    background: #272727;
-	width: 100%;
-	/* position: center; */
-	/* background-color: rgba(0, 0, 0, 0.6); */
 
-	display: flex;
-  align-items: center;
-  padding-left: 16rem;
-  height: 4rem;
-
-}
-
-.nav a {
-	/* position: absolute;                */
-   /* top: 50%;                          */
-   /* transform: translate(0, -50%); */
-	padding-right: 10vh;
-    color: #f6f4e6;
-    text-decoration: none;
-    font-size: 1.2em;
-    text-transform: uppercase;
-    font-weight: 500;
-    display: inline-block;
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-    font-family: "Montserrat", sans-serif;
-}
 
 .main {
 	height: 100vh;

@@ -1,37 +1,23 @@
-.material-icons{
+.material-icons {
     font-family: 'Material Icons' !important;
 }
 
-
-
-.ngx-gallery { display: inline-block; margin-bottom: 20px; }
-
-
-
-
-.nav {
-    position: relative;
-    /* top: 50%; */
-    /* left: 50%; */
-    background: #272727;
+::ng-deep.ngx-gallery-thumbnails .ngx-gallery-thumbnail {
+    border: none !important;
 }
 
-.nav a {
-    margin-left: 16rem;
-    color: #f6f4e6;
-    text-decoration: none;
-    font-size: 1.2em;
-    text-transform: uppercase;
-    font-weight: 500;
+
+.ngx-gallery {
     display: inline-block;
-    width: 80px;
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-    font-family: "Montserrat", sans-serif;
 }
+
+.common-info {
+    margin-left: 2rem;
+}
+
 
 .content {
-    padding-top: 4rem;
+    padding-top: 8rem;
     margin-left: 16rem;
     margin-right: 16rem;
     height: 100vh;
@@ -74,40 +60,40 @@ h1 {
 
 
 /* .foggin*/
-.foggin {
-	/* position: relative; */
-	/* width: 100%; */
-    /* display: inline-block; */
-}
+/* .foggin { */
+/* position: relative; */
+/* width: 100%; */
+/* display: inline-block; */
+/* } */
 
-.foggin:hover {
+/* .foggin:hover { */
 
-}
+/* } */
 
 .foggin:after {
-	content: '';
-	/* position: absolute; */
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: rgba(0, 0, 0, .5);
-	opacity: 0;
+    content: '';
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+    opacity: 0;
 }
 
 .foggin:before {
-	content: '';
-	/* position: absolute; */
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	opacity: 0;
+    content: '';
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
 }
 
 .foggin:hover:before,
 .foggin:hover:after {
-	opacity: 1;
+    opacity: 1;
 }
 
 /* .foggin end*/
