@@ -1,3 +1,14 @@
+.material-icons{
+    font-family: 'Material Icons' !important;
+}
+
+
+
+.ngx-gallery { display: inline-block; margin-bottom: 20px; }
+
+
+
+
 .nav {
     position: relative;
     /* top: 50%; */

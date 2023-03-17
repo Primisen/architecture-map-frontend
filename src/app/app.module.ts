@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import {Routes, RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -8,12 +8,16 @@ import { AppComponent } from './app.component';
 import { ConstructionComponent } from './construction/construction.component';
 import { HomePageComponent } from './home-page/home-page.component';
 
-import { MatCardModule } from '@angular/material/card';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { NgxMasonryModule } from 'ngx-masonry';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { NgxGalleryModule } from '@rybos/ngx-gallery';
+import { FormsModule } from '@angular/forms';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const appRoutes: Routes =[
   { path: '', component : HomePageComponent},
@@ -31,10 +35,14 @@ const appRoutes: Routes =[
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     AppRoutingModule,
-    MatCardModule,
+
     InfiniteScrollModule,
     NgxMasonryModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxGalleryModule,
+    FormsModule,
+
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [

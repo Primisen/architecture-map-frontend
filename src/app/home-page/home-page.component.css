@@ -1,12 +1,8 @@
 
 .masonry-item {
-	width: 30%;
+	width: 32%;
 	margin-top: 10px;
 	margin-left: 10px;
-}
-
-.masonry {
-	/* column-count: 3; */
 }
 
 .item {
