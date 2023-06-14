@@ -5,4 +5,5 @@ export interface RandomPhoto {
     urlAddressToPhoto: string;
     constructionId: number;
     source: Source;
+    architecturalStyleName: string;
 }

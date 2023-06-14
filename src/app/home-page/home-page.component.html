@@ -24,7 +24,9 @@
         <div ngxMasonryItem class="masonry-item" *ngFor="let photo of randomPhotos">
           <div>
             <a href="constructions/{{photo.constructionId}}" class="foggin">
-              <img class="item" src={{photo.urlAddressToPhoto}} />
+              <img class="item" src={{photo.urlAddressToPhoto}}/>
+              <!-- <p>build  time</p> -->
+              <p>{{photo.architecturalStyleName}}</p>
               <div class="source-button"><a href={{photo.source.url}}>Крыніца: {{photo.source.name}}</a></div>
             </a>
           </div>
