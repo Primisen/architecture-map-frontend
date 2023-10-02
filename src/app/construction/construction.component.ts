@@ -172,12 +172,12 @@ export class ConstructionComponent implements OnInit {
 
   galleryInit() {
 
-    this.construction.photos.forEach(photo => {
+    this.construction.images.forEach(photo => {
 
       var image: NgxGalleryImage = {
-        small: photo.urlAddressToPhoto,
-        medium: photo.urlAddressToPhoto,
-        big: photo.urlAddressToPhoto
+        small: photo.url,
+        medium: photo.url,
+        big: photo.url
       };
       // console.log(photo.urlAddressToPhoto);
 

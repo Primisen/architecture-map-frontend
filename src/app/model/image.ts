@@ -1,9 +1,10 @@
 import { Source } from "./source";
 import { VisualType } from "./visual-type";
 
-export interface Photo {
+export interface Image {
     id: number;
-    urlAddressToPhoto: string;
-    source: Source;
+    url: string;
     show: boolean;
+    source: Source;
+    takenTime: string;
 }

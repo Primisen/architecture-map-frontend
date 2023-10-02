@@ -22,9 +22,9 @@
       <h1 class="text-black text-uppercase">Падобнае</h1>
       <div class="masonry">
         <div *ngFor="let construction of similarConstructions">
-          <div *ngFor="let photo of construction.photos">
+          <div *ngFor="let photo of construction.images">
             <a href="constructions/{{construction.id}}" class="foggin">
-              <img class="item" src={{photo.urlAddressToPhoto}}>
+              <img class="item" src={{photo.url}}>
               <p>Крыніца: {{photo.source.url}}</p>
             </a>
           </div>

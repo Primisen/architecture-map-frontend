@@ -1,8 +1,8 @@
 export interface Address {
     id: number;
-    region: string;
-    district: string;
     locality: string;
+    district: string;
+    region: string;
     street: string;
     houseNumber: string;
 }
