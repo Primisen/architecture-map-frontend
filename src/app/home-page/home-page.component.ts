@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RandomPhoto } from '../entity/random-photo';
+import { ConstructionImage } from '../model/constructionImage';
 
 @Component({
   selector: 'app-home-page',
@@ -11,52 +11,32 @@ import { RandomPhoto } from '../entity/random-photo';
 export class HomePageComponent implements OnInit {
 
   page = 1;
+  photos: ConstructionImage[] = [];
+  usedPhotosId: number[] = [];//for back
 
-  randomPhotos: RandomPhoto[] = [];
-
-  public photos: any;
-
-  public photoVisualTypes: any;
-
-
-  private urlBasic = "http://localhost:8080";
-  private urlPhotoVisualTypeBasic = this.urlBasic + "/visual-types/";
+  private url = "http://localhost:8080/construction-images/";
 
   constructor(private _http: HttpClient) {
   }
 
   ngOnInit() {
     this.getPhotos();
-    this.getPhotoVisualTypes();
   }
 
   getPhotos() {
-    this.getResource("http://localhost:8080/photos/")
-      // .subscribe(
-      //   data => this.randomPhotos = data
-      // );
-
-
-      .subscribe((randomPhotos: RandomPhoto[]) => {
-        this.randomPhotos.push(...randomPhotos);
+    this.getResource(this.url)
+      .subscribe((randomPhotos: ConstructionImage[]) => {
+        this.photos.push(...randomPhotos);
+        for (let index = 0; index < randomPhotos.length; index++) {
+          this.usedPhotosId.push(randomPhotos[index].id);
+        }
       });
   }
 
-  getPhotoVisualTypes() {
-    this.getResource("http://localhost:8080/visual-types/")
-      .subscribe(
-        data => this.photoVisualTypes = data
-      );
-  }
-
   getResource(resourceUrl: string): Observable<any> {
-    return this._http.get(resourceUrl);
+    let param = new HttpParams({ fromObject: { 'usedId': this.usedPhotosId } });
+    return this._http.get(resourceUrl, { params: param });
   }
-
-
-
-
-
 
   onScroll(): void {
     ++this.page;

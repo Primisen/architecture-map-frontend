@@ -1,9 +1,9 @@
 import { Source } from "./source";
+import { VisualType } from "./visual-type";
 
-export interface RandomPhoto {
+export interface Photo {
     id: number;
     urlAddressToPhoto: string;
-    constructionId: number;
     source: Source;
-    architecturalStyleName: string;
+    show: boolean;
 }

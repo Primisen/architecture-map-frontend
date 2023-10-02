@@ -18,17 +18,20 @@ import { NgxGalleryModule } from '@rybos/ngx-gallery';
 import { FormsModule } from '@angular/forms';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ArchitecturalStyleComponent } from './architectural-style/architectural-style.component';
 
 const appRoutes: Routes =[
   { path: '', component : HomePageComponent},
-  { path: 'constructions/:constructionId', component: ConstructionComponent}
+  { path: 'constructions/:constructionId', component: ConstructionComponent},
+  { path: 'architectural-style', component: ArchitecturalStyleComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     ConstructionComponent,
-    HomePageComponent
+    HomePageComponent,
+    ArchitecturalStyleComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ const appRoutes: Routes =[
   bootstrap: [
     AppComponent,
     ConstructionComponent,
-    HomePageComponent
+    HomePageComponent,
+    ArchitecturalStyleComponent
     ]
 })
 export class AppModule { }

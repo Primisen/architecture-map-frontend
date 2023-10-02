@@ -1,47 +1,37 @@
-<div class="relative bg-image"
-  style="background-image: url(https://storage.googleapis.com/architecture-map-photos/%D0%BD%D0%BE%D0%B2%D0%B0%D1%8F%20%D0%B1%D0%BE%D1%80%D0%BE%D0%B2%D0%B0%D1%8F%202.JPG); background-size: cover;">
-  <div class="main">
+<main>
 
- 
-    <div class="d-flex flex-column justify-content-center align-items-center h-100">
-      <h1 class="text-white text-uppercase fw-bolt"><span>Belarus Architecture</span> map</h1>
-      <p></p>
-      <p class="text-white text-uppercase">Глядзі, натхняйся, вандруй</p>
-      <!-- Стрелка вниз -->
-      <!-- <svg class="arrow-bottom-3" viewBox="0 0 5 9"> -->
-      <!-- <path d="M0.419,9.000 L0.003,8.606 L4.164,4.500 L0.003,0.394 L0.419,0.000 L4.997,4.500 L0.419,9.000 Z" /> -->
-      <!-- </svg> -->
+  <div class="background-image">
+    <div class="background centrisity">
+      <div class="title-container">
+        <h1 class="text-white text-uppercase fw-bolt main-title">Belarus Architecture map</h1>
+        <p class="text-white text-uppercase slogo">Глядзі, натхняйся, вандруй</p>
+      </div>
     </div>
   </div>
-</div>
 
-
-<div class="content">
-  <div infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScroll()">
-    <div class="masonry">
-
-      <ngx-masonry>
-        <div ngxMasonryItem class="masonry-item" *ngFor="let photo of randomPhotos">
-          <div>
-            <a href="constructions/{{photo.constructionId}}" class="foggin">
-              <img class="item" src={{photo.urlAddressToPhoto}}/>
-              <!-- <p>build  time</p> -->
-              <p>{{photo.architecturalStyleName}}</p>
-              <div class="source-button"><a href={{photo.source.url}}>Крыніца: {{photo.source.name}}</a></div>
-            </a>
+  <div class="content">
+    <div infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScroll()">
+      <div class="masonry">
+        <ngx-masonry>
+          <div ngxMasonryItem class="masonry-item" *ngFor="let photo of photos">
+            <div>
+              <a href="constructions/{{photo.construction.id}}" class="foggin">
+                <img class="item" src={{photo.url}} />
+                <p class="building-architect-style">{{photo.construction.architecturalStyle.name}}</p>
+                <p class="building-name">{{photo.construction.name}}</p>
+                <div class="building-address">
+                  <p classs="region">{{photo.construction.address.region}}</p>
+                  <p>{{photo.construction.address.district}}</p>
+                  <p>{{photo.construction.address.locality}}</p>
+                </div>
+                <!-- it is should  be link -->
+                <div class="source-button">Крыніца: {{photo.source.name}}</div>
+              </a>
+            </div>
           </div>
-        </div>
-      </ngx-masonry>
-
-
-      <!-- <div *ngFor="let photo of randomPhotos">
-        <div>
-          <a href="constructions/{{photo.constructionId}}" class="foggin">
-            <img class="item" src={{photo.urlAddressToPhoto}} />
-            <div class="source-button"><a href={{photo.source.url}}>Крыніца: {{photo.source.name}}</a></div>
-          </a>
-        </div>
-      </div> -->
+        </ngx-masonry>
+      </div>
     </div>
   </div>
-</div>
+
+</main>
