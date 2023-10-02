@@ -176,7 +176,7 @@
 /* building-address */
 .building-address {
 	position: absolute;
-	width: 100%;
+	width: 90%;
 	left: 6%;
 	bottom: 20%;
 	opacity: 0;
@@ -186,7 +186,7 @@
 
 	color: #ffffff;
 	font-family: 'Raleway', sans-serif;
-	font-size: 12px;
+	font-size: 15px;
 	font-weight: 1600;
 	/* line-height: 35px; */
 	/* margin: 0 0 24px; */
@@ -196,9 +196,6 @@
 .building-address p{
 	margin: 0;
 } 
-.building-address:has(p.region) {
-	font-size: 25px;
-}
 
 .building-address span {
 	font-size: 15px;

@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ConstructionImage } from '../model/constructionImage';
+import { IMAGES_URL } from '../constants/URL';
 
 @Component({
   selector: 'app-home-page',
@@ -14,7 +15,7 @@ export class HomePageComponent implements OnInit {
   photos: ConstructionImage[] = [];
   usedPhotosId: number[] = [];//for back
 
-  private url = "http://localhost:8080/construction-images/";
+  private url = IMAGES_URL;
 
   constructor(private _http: HttpClient) {
   }
