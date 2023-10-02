@@ -8,28 +8,15 @@
 
       <div class="common-info">
         <h3>{{construction.name}}</h3>
-         <p>
+        <p>
           {{construction.address.locality}}, {{construction.address.district}}, {{construction.address.region}},
           {{construction.address.street}},
           {{construction.address.houseNumber}}
         </p>
 
-        <p>{{construction.buildingTime}}</p> 
+        <p>{{construction.buildingTime}}</p>
       </div>
     </div>
-
-    <div class="similar">
-      <h1 class="text-black text-uppercase">Падобнае</h1>
-      <div class="masonry">
-        <div *ngFor="let construction of similarConstructions">
-          <div *ngFor="let photo of construction.images">
-            <a href="constructions/{{construction.id}}" class="foggin">
-              <img class="item" src={{photo.url}}>
-              <p>Крыніца: {{photo.source.url}}</p>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-similar-construction [architecturalStyleId]="construction.architecturalStyle.id" />
   </div>
 </div>

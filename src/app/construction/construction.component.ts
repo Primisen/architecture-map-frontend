@@ -157,8 +157,9 @@ export class ConstructionComponent implements OnInit {
     this.getResource("http://localhost:8080/constructions/" + this.id)
       .subscribe(
         data => { this.construction = data, 
-          this.galleryInit(),
-          this.findSimilarConstructions(data['architecturalStyle']) }
+          this.galleryInit()
+          // this.findSimilarConstructions(data['architecturalStyle']) 
+        }
       );
 
   }

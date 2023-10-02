@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ArchitecturalStyleComponent } from './architectural-style/architectural-style.component';
+import { SimilarConstructionComponent } from './similar-construction/similar-construction.component';
 
 const appRoutes: Routes =[
   { path: '', component : HomePageComponent},
@@ -31,7 +32,8 @@ const appRoutes: Routes =[
     AppComponent,
     ConstructionComponent,
     HomePageComponent,
-    ArchitecturalStyleComponent
+    ArchitecturalStyleComponent,
+    SimilarConstructionComponent
   ],
   imports: [
     BrowserModule,

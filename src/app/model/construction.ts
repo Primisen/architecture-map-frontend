@@ -1,6 +1,7 @@
 import { Address } from "./address";
 import { Architect } from "./architect";
 import { ArchitecturalStyle } from "./architecturalStyle";
+import { ConstructionImage } from "./constructionImage";
 import { Image } from "./image";
 
 export interface Construction {
@@ -11,5 +12,5 @@ export interface Construction {
     architecturalStyle: ArchitecturalStyle;
     architects: Architect[];
     description: string;
-    images: Image[];
+    images: ConstructionImage[];
 }

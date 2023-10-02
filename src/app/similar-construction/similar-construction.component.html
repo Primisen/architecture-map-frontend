@@ -1,0 +1,48 @@
+<div class="similar">
+    <h3 class="text-black text-uppercase">Падобнае</h3>
+
+    <div class="masonry">
+        <ngx-masonry>
+        <div *ngFor="let construction of similarConstructions">
+            <div ngxMasonryItem class="masonry-item" *ngFor="let image of construction.images">
+                <a href="constructions/{{construction.id}}" class="foggin">
+                    <img class="item" src={{image.url}}>
+                    <p>Крыніца: {{image.source.url}}</p>
+
+                    <p class="building-architect-style">{{construction.architecturalStyle.name}}</p>
+                            <p class="building-name">{{construction.name}}</p>
+                            <div class="building-address">
+                                <p>{{construction.address.region}}</p>
+                                <p>{{construction.address.district}}</p>
+                                <p>{{construction.address.locality}}</p>
+                            </div>
+                            <div class="source-button">Крыніца: {{image.source.name}}</div>
+                </a>
+            </div>
+        </div>
+    </ngx-masonry>
+    </div>
+
+    <div class="masonry">
+        <ngx-masonry>
+            <div *ngFor="let construction of similarConstructions">
+                <div ngxMasonryItem class="masonry-item" *ngFor="let photo of construction.images">
+                    <div>
+                        <a href="constructions/{{photo.construction.id}}" class="foggin">
+                            <img class="item" src={{photo.url}} />
+                            <p class="building-architect-style">{{photo.construction.architecturalStyle.name}}</p>
+                            <p class="building-name">{{photo.construction.name}}</p>
+                            <div class="building-address">
+                                <p>{{photo.construction.address.region}}</p>
+                                <p>{{photo.construction.address.district}}</p>
+                                <p>{{photo.construction.address.locality}}</p>
+                            </div>
+                            <div class="source-button">Крыніца: {{photo.source.name}}</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </ngx-masonry>
+    </div>
+
+</div>
