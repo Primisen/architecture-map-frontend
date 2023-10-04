@@ -12,7 +12,7 @@ import { IMAGES_URL } from '../constants/URL';
 export class HomePageComponent implements OnInit {
 
   page = 1;
-  photos: ConstructionImage[] = [];
+  constructionImages: ConstructionImage[] = [];
   usedPhotosId: number[] = [];//for back
 
   private url = IMAGES_URL;
@@ -27,7 +27,7 @@ export class HomePageComponent implements OnInit {
   getPhotos() {
     this.getResource(this.url)
       .subscribe((randomPhotos: ConstructionImage[]) => {
-        this.photos.push(...randomPhotos);
+        this.constructionImages.push(...randomPhotos);
         for (let index = 0; index < randomPhotos.length; index++) {
           this.usedPhotosId.push(randomPhotos[index].id);
         }

@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
-import { getResource } from '../function/getResource';
 import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { ArchitecturalStyle } from '../model/architecturalStyle';
+import { ARCHITECTURAL_STYLES_URL } from '../constants/URL';
 
 @Component({
   selector: 'app-architectural-style',
@@ -10,25 +12,22 @@ import { ArchitecturalStyle } from '../model/architecturalStyle';
 })
 export class ArchitecturalStyleComponent {
 
-  private url: string;
+  public architecturalStyle!: ArchitecturalStyle;
 
-  architecturalStyles: ArchitecturalStyle [];
-
-  constructor(private httpClient : HttpClient){
-
-    this.url = 'architectural-styles/';
-    this.architecturalStyles = [];
-
-    this.getArchitecturalStyles ();
+  constructor(private activatedRoute: ActivatedRoute, private httpClient: HttpClient) {
+    const id = this.activatedRoute.snapshot.params['id'];
+    this.getArchitecturalStyle(id);
   }
 
-
-  getArchitecturalStyles () {
-    getResource(this.url, this.httpClient)
-    .subscribe (
-      data => this.architecturalStyles = data
-    );
-
+  getResource(resourceUrl: string): Observable<any> {
+    return this.httpClient.get(resourceUrl  );
   }
 
+  getArchitecturalStyle(id: number) {
+    this.getResource(ARCHITECTURAL_STYLES_URL + id)
+      .subscribe(
+        data => this.architecturalStyle = data
+      );
+
+  }
 }

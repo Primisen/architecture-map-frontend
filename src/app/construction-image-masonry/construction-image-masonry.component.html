@@ -11,7 +11,7 @@
                     <p>{{construction.address.locality}}</p>
                 </div>
                 <div class="source-button">Крыніца: {{image.source.name}}</div>
-                <p>Аўтар: {{image.author}}</p>
+                <p class="author" *ngIf="image.author">Аўтар: {{image.author}}</p>
             </a>
         </div>
     </div>

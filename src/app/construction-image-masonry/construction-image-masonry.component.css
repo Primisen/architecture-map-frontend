@@ -52,7 +52,7 @@
 	position: absolute;
 	width: 90%;
 	left: 6%;
-	bottom: 2%;
+	bottom: 4%;
 	opacity: 0;
 	z-index: 4000;
 	text-align: left;
@@ -76,6 +76,29 @@
 	opacity: 1;
 }
 /* source-button end*/
+
+/* author */
+.author {
+	position: absolute;
+	width: 90%;
+	left: 6%;
+	bottom: 1%;
+	opacity: 0;
+	z-index: 4000;
+	text-align: left;
+	text-decoration: none;
+	color: #f8f8f8;
+	font-family: "Gill Sans", sans-serif;
+	font-size: 12px;
+	line-height: 12px;
+	letter-spacing: 2px;
+	margin: 0 0 24px;
+}
+
+.foggin:hover .author {
+	opacity: 1;
+}
+/* author end */
 
 /* architectural-style */
 .building-architect-style {

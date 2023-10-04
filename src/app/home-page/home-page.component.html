@@ -13,20 +13,20 @@
     <div infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScroll()">
       <div class="masonry">
         <ngx-masonry>
-          <div ngxMasonryItem class="masonry-item" *ngFor="let photo of photos">
+          <div ngxMasonryItem class="masonry-item" *ngFor="let image of constructionImages">
             <div>
-              <a href="constructions/{{photo.construction.id}}" class="foggin">
-                <img class="item" src={{photo.url}} />
-                <p class="building-architect-style">{{photo.construction.architecturalStyle.name}}</p>
-                <p class="building-name">{{photo.construction.name}}</p>
+              <a href="constructions/{{image.construction.id}}" class="foggin">
+                <img class="item" src={{image.url}} />
+                <p class="building-architect-style">{{image.construction.architecturalStyle.name}}</p>
+                <p class="building-name">{{image.construction.name}}</p>
                 <div class="building-address">
-                  <p>{{photo.construction.address.region}}</p>
-                  <p>{{photo.construction.address.district}}</p>
-                  <p>{{photo.construction.address.locality}}</p>
+                  <p>{{image.construction.address.region}}</p>
+                  <p>{{image.construction.address.district}}</p>
+                  <p>{{image.construction.address.locality}}</p>
                 </div>
                 <!-- it is should  be link -->
-                <div class="source-button">Крыніца: {{photo.source.name}}</div>
-                <p>Аўтар: {{photo.author}}</p>
+                <div class="source-button">Крыніца: {{image.source.name}}</div>
+                <p class="author" *ngIf="image.author">Аўтар: {{image.author}}</p>
               </a>
             </div>
           </div>

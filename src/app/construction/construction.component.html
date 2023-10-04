@@ -12,11 +12,21 @@
           {{construction.address.houseNumber}}<br>
         </p>
         <p>Час пабудавання: {{construction.buildingTime}}</p>
-        <p>{{construction.architecturalStyle.name}}</p>
-        <p>Архітэктары: {{construction.architects}}</p>
-        <p>{{construction.description}}</p>
+        <app-architectural-style-link [architecturalStyle]="construction.architecturalStyle" />
+        <div *ngIf="construction.architects.length; then architects else noArchitects">
+        </div>
+        <ng-template #architects>
+          <p>Архітэктары:</p>
+          <div *ngFor="let architect of construction.architects">
+            <app-architect-link [architect]="architect" />
+          </div>
+        </ng-template>
+        <ng-template #noArchitects>
+          <p>Архітэктары не вядомы</p>
+        </ng-template>
       </div>
     </div>
+    <p>{{construction.description}}</p>
     <app-similar-construction [architecturalStyleId]="construction.architecturalStyle.id" />
   </div>
 </div>
