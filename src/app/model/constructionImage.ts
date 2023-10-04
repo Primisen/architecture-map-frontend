@@ -11,4 +11,5 @@ export interface ConstructionImage {
     architecturalStyleName: string;
     addressDto: Address;
     takenTime: string;
+    author: string;
 }

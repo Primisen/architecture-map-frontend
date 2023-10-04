@@ -1,20 +1,20 @@
 <div class="main">
-
   <div class="content">
-
     <div class="construction-info">
-
       <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
-
       <div class="common-info">
-        <h3>{{construction.name}}</h3>
+        <h1>{{construction.name}}</h1>
         <p>
-          {{construction.address.locality}}, {{construction.address.district}}, {{construction.address.region}},
-          {{construction.address.street}},
-          {{construction.address.houseNumber}}
+          {{construction.address.region}}<br>
+          {{construction.address.district}}<br>
+          {{construction.address.locality}}<br>
+          {{construction.address.street}}<br>
+          {{construction.address.houseNumber}}<br>
         </p>
-
-        <p>{{construction.buildingTime}}</p>
+        <p>Час пабудавання: {{construction.buildingTime}}</p>
+        <p>{{construction.architecturalStyle.name}}</p>
+        <p>Архітэктары: {{construction.architects}}</p>
+        <p>{{construction.description}}</p>
       </div>
     </div>
     <app-similar-construction [architecturalStyleId]="construction.architecturalStyle.id" />
