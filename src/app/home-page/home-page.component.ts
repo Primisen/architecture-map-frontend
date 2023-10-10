@@ -17,7 +17,7 @@ export class HomePageComponent implements OnInit {
 
   private url = IMAGES_URL;
 
-  constructor(private _http: HttpClient) {
+  constructor(private httpClient: HttpClient) {
   }
 
   ngOnInit() {
@@ -36,7 +36,7 @@ export class HomePageComponent implements OnInit {
 
   getResource(resourceUrl: string): Observable<any> {
     let param = new HttpParams({ fromObject: { 'usedId': this.usedPhotosId } });
-    return this._http.get(resourceUrl, { params: param });
+    return this.httpClient.get(resourceUrl, { params: param });
   }
 
   onScroll(): void {

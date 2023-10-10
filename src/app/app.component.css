@@ -1,12 +1,12 @@
 .nav {
-    position: absolute;
     background: #272727;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.85);
     display: flex;
     align-items: center;
     padding-left: 16rem;
     height: 4rem;
+    box-shadow: 2px, 2px; 
 }
 
 .nav a {

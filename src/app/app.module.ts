@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, HammerModule } from '@angular/platform-browser';
-import {Routes, RouterModule} from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,12 +18,14 @@ import { ArchitectComponent } from './architect/architect.component';
 import { ArchitecturalStyleLinkComponent } from './architectural-style-link/architectural-style-link.component';
 import { ArchitecturalStyleComponent } from './architectural-style/architectural-style.component';
 import { ArchitectLinkComponent } from './architect-link/architect-link.component';
+import { ArchitecturalStyleListComponent } from './architectural-style-list/architectural-style-list.component';
 
-const appRoutes: Routes =[
-  { path: '', component : HomePageComponent},
-  { path: 'constructions/:constructionId/:imageId', component: ConstructionComponent},
-  { path: 'architectural-styles/:id', component: ArchitecturalStyleComponent},
-  { path: 'architects/:id', component: ArchitectComponent}
+const appRoutes: Routes = [
+  { path: '', component: HomePageComponent },
+  { path: 'constructions/:constructionId/:imageId', component: ConstructionComponent },
+  { path: 'architectural-styles/:id', component: ArchitecturalStyleComponent },
+  { path: 'architects/:id', component: ArchitectComponent },
+  { path: 'architectural-styles', component: ArchitecturalStyleListComponent }
 ];
 
 @NgModule({
@@ -36,7 +38,8 @@ const appRoutes: Routes =[
     ArchitectComponent,
     ArchitecturalStyleLinkComponent,
     ArchitecturalStyleComponent,
-    ArchitectLinkComponent
+    ArchitectLinkComponent,
+    ArchitecturalStyleListComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,6 @@ const appRoutes: Routes =[
   providers: [],
   bootstrap: [
     AppComponent
-    ]
+  ]
 })
 export class AppModule { }
