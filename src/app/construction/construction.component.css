@@ -44,3 +44,11 @@ h1 {
     line-height: 120%;
     font-family: 'Open sans', sans-serif;
 }
+
+.description {
+    margin-top: 6%;
+    font-size: 1.2rem;
+    line-height: 120%;
+    font-family: sans-serif;
+    color: #303030;
+}

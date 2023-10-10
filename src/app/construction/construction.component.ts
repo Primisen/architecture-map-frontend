@@ -6,6 +6,7 @@ import { Construction } from '../model/construction';
 import { NgxGalleryOptions } from '@rybos/ngx-gallery';
 import { NgxGalleryImage } from '@rybos/ngx-gallery';
 import { NgxGalleryAnimation } from '@rybos/ngx-gallery';
+import { GET_CONSTRUCTION_IMAGES_BY_ARCHITECTURAL_STYLE_URL } from '../constants/URL';
 
 @Component({
   selector: 'app-construction',
@@ -69,13 +70,13 @@ export class ConstructionComponent {
       .subscribe(
         data => {
           this.construction = data,
-          this.galleryInit()
+            this.galleryInit()
         }
       );
   }
 
   findSimilarConstructions(architecturalStyle: any) {
-    this.getResource("http://localhost:8080/constructions/architectural-styles/" + architecturalStyle.id)
+    this.getResource(GET_CONSTRUCTION_IMAGES_BY_ARCHITECTURAL_STYLE_URL + architecturalStyle.id)
       .subscribe(
         data => this.similarConstructions = data
       );
@@ -83,10 +84,20 @@ export class ConstructionComponent {
 
   galleryInit() {
     this.construction.images.forEach(photo => {
+
+      let imageDescription = '';
+      if (photo.author) {
+        imageDescription = " Аўтар: " + photo.author + "; Крыніца: " + photo.source.name + ' (' + photo.source.url + ')'
+      } else {
+        imageDescription = "Крыніца: " + photo.source.name + ' (' + photo.source.url + ')'
+      }
+
+
       var image: NgxGalleryImage = {
         small: photo.url,
         medium: photo.url,
-        big: photo.url
+        big: photo.url,
+        description: imageDescription,
       };
       this.galleryImages.push(image);
     });

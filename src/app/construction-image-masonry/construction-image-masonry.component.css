@@ -9,7 +9,6 @@
 	width: 100%;
 }
 
-
 /* .foggin*/
 .foggin {
 	position: relative;
@@ -45,14 +44,14 @@
 .foggin:hover:after {
 	opacity: 1;
 }
+
 /* .foggin end*/
 
 /* source-button */
 .source-button {
 	position: absolute;
-	width: 90%;
 	left: 6%;
-	bottom: 4%;
+	bottom: 15%;
 	opacity: 0;
 	z-index: 4000;
 	text-align: left;
@@ -63,26 +62,65 @@
 	line-height: 12px;
 	letter-spacing: 2px;
 	margin: 0 0 24px;
-	/* transition: opacity .35s ease; */
-	/* font-weight: 570; */
-	/* background: white; */
-	/* color: white; */
-	/* border: 1px s white; */
-	/* border-radius: 3rem; */
-	/* text-transform: uppercase; */
 }
 
 .foggin:hover .source-button {
 	opacity: 1;
 }
+
+.source-button:hover {
+	background: #A9A9A9;
+	color: black;
+	border-radius: 0.3rem;
+}
+
 /* source-button end*/
+
+/* details-button */
+.details-button {
+	position: absolute;
+	width: 40%;
+	height: 10%;
+	right: 5%;
+	bottom: 0%;
+	opacity: 0;
+	z-index: 4000;
+	text-align: left;
+	text-decoration: none;
+	font-family: "Gill Sans", sans-serif;
+	font-size: 12px;
+	line-height: 12px;
+	letter-spacing: 2px;
+	margin: 0 0 24px;
+	transition: opacity .35s ease;
+	font-weight: 570;
+	background: #BEBEBE;
+	color: black;
+	border-radius: 3rem;
+	text-transform: uppercase;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.foggin:hover .details-button {
+	opacity: 1;
+}
+
+.details-button:hover {
+	opacity: 1;
+	background: white;
+}
+
+/* details-button end*/
 
 /* author */
 .author {
 	position: absolute;
 	width: 90%;
 	left: 6%;
-	bottom: 1%;
+	bottom: 10%;
 	opacity: 0;
 	z-index: 4000;
 	text-align: left;
@@ -98,6 +136,7 @@
 .foggin:hover .author {
 	opacity: 1;
 }
+
 /* author end */
 
 /* architectural-style */
@@ -121,6 +160,7 @@
 .foggin:hover .building-architect-style {
 	opacity: 1;
 }
+
 /* architectural-style end */
 
 /* building-address */
@@ -128,7 +168,7 @@
 	position: absolute;
 	width: 90%;
 	left: 6%;
-	bottom: 20%;
+	bottom: 30%;
 	opacity: 0;
 	z-index: 4000;
 	color: #ffffff;
@@ -138,9 +178,10 @@
 	text-align: left;
 	text-transform: uppercase;
 }
-.building-address p{
+
+.building-address p {
 	margin: 0;
-} 
+}
 
 .building-address span {
 	font-size: 15px;
@@ -149,6 +190,7 @@
 .foggin:hover .building-address {
 	opacity: 1;
 }
+
 /* building-address end */
 
 /* building-name */
@@ -156,7 +198,7 @@
 	position: absolute;
 	width: 90%;
 	left: 6%;
-	bottom: 40%;
+	bottom: 50%;
 	opacity: 0;
 	z-index: 4000;
 	color: #ffffff;
@@ -176,4 +218,5 @@
 .foggin:hover .building-name {
 	opacity: 1;
 }
+
 /* building name end */

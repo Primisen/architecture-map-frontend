@@ -12,4 +12,5 @@ export interface ConstructionImage {
     addressDto: Address;
     takenTime: string;
     author: string;
+    description: string;
 }

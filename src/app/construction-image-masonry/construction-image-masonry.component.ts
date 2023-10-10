@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Construction } from '../model/construction';
 import { ConstructionImage } from '../model/constructionImage';
 
 @Component({
@@ -9,6 +8,6 @@ import { ConstructionImage } from '../model/constructionImage';
 })
 export class ConstructionImageMasonryComponent {
 
-  @Input() constructions: Construction[] = [];
+  @Input() constructionImages: ConstructionImage[] = [];
 
 }

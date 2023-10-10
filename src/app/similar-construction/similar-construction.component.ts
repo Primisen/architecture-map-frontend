@@ -1,20 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Construction } from '../model/construction';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { GET_CONSTRUCTIONS_BY_ARCHITECTURAL_STYLE_URL } from '../constants/URL';
+import { GET_CONSTRUCTION_IMAGES_BY_ARCHITECTURAL_STYLE_URL } from '../constants/URL';
+import { ConstructionImage } from '../model/constructionImage';
 
 @Component({
   selector: 'app-similar-construction',
   templateUrl: './similar-construction.component.html',
   styleUrls: ['./similar-construction.component.css']
 })
-export class SimilarConstructionComponent implements OnInit{
+export class SimilarConstructionComponent implements OnInit {
 
-  similarConstructions: Construction[] = [];
   @Input() architecturalStyleId: number = 0;
+  similarConstructionImages: ConstructionImage[] = [];
 
-  constructor(private _http: HttpClient) {  
+  constructor(private httpClient: HttpClient) {
   }
 
   ngOnInit() {
@@ -22,13 +22,13 @@ export class SimilarConstructionComponent implements OnInit{
   }
 
   getResource(resourceUrl: string): Observable<any> {
-    return this._http.get(resourceUrl);
+    return this.httpClient.get(resourceUrl);
   }
 
   findSimilarConstructions(architecturalStyle: number) {
-    this.getResource(GET_CONSTRUCTIONS_BY_ARCHITECTURAL_STYLE_URL + architecturalStyle)
+    this.getResource(GET_CONSTRUCTION_IMAGES_BY_ARCHITECTURAL_STYLE_URL + architecturalStyle)
       .subscribe(
-        data => this.similarConstructions = data
+        data => this.similarConstructionImages = data
       );
   }
 }
