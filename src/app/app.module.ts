@@ -21,7 +21,7 @@ import { ArchitectLinkComponent } from './architect-link/architect-link.componen
 
 const appRoutes: Routes =[
   { path: '', component : HomePageComponent},
-  { path: 'constructions/:constructionId', component: ConstructionComponent},
+  { path: 'constructions/:constructionId/:imageId', component: ConstructionComponent},
   { path: 'architectural-styles/:id', component: ArchitecturalStyleComponent},
   { path: 'architects/:id', component: ArchitectComponent}
 ];
@@ -43,21 +43,16 @@ const appRoutes: Routes =[
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     AppRoutingModule,
-
     InfiniteScrollModule,
     NgxMasonryModule,
     BrowserAnimationsModule,
     NgxGalleryModule,
     FormsModule,
-
     FontAwesomeModule
   ],
   providers: [],
   bootstrap: [
-    AppComponent,
-    ConstructionComponent,
-    HomePageComponent,
-    ArchitecturalStyleComponent
+    AppComponent
     ]
 })
 export class AppModule { }

@@ -5,8 +5,7 @@ import { Observable } from 'rxjs';
 import { Construction } from '../model/construction';
 import { NgxGalleryOptions } from '@rybos/ngx-gallery';
 import { NgxGalleryImage } from '@rybos/ngx-gallery';
-import { NgxGalleryAnimation } from '@rybos/ngx-gallery';
-import { GET_CONSTRUCTION_IMAGES_BY_ARCHITECTURAL_STYLE_URL } from '../constants/URL';
+import { ConstructionImage } from '../model/constructionImage';
 
 @Component({
   selector: 'app-construction',
@@ -17,68 +16,68 @@ export class ConstructionComponent {
 
   construction!: Construction;
   id: number;
+  imageId: number;
+  clickedImage: ConstructionImage | undefined;
   similarConstructions: Construction[] = [];
-  galleryOptions: NgxGalleryOptions[] = [];
+  clickedGalleryOptions: NgxGalleryOptions[] = [];
   galleryImages: NgxGalleryImage[] = [];
+  galleryOptions: NgxGalleryOptions[] = [];
+  clickedGalleryImages: NgxGalleryImage[] = [];
+  startIndex: number = 0;
 
   constructor(private activatedRoute: ActivatedRoute, private _http: HttpClient) {
     this.id = this.activatedRoute.snapshot.params['constructionId'];
-    this.getPhoto();
+    this.imageId = this.activatedRoute.snapshot.params['imageId'];
+
+    this.getConstructionData();
+
+    this.clickedGalleryOptions = [
+      {
+        previewZoom: true,
+        previewZoomStep: 0.2,
+        previewZoomMax: 3,
+        imageArrows: false,
+        width: "100%",
+        height: "90%",
+        imageSwipe: true,
+        thumbnails: false,
+        thumbnailsArrows: false,
+        thumbnailsSwipe: true,
+        previewSwipe: true,
+        previewCloseOnClick: true,
+        arrowNextIcon: '',
+        arrowPrevIcon: '',
+      },
+    ]
 
     this.galleryOptions = [
-
-      //small
       {
-        width: '600px',
-        height: '100vh',
-        thumbnailsColumns: 4,
-        arrowPrevIcon: 'fa fa-arrow-circle-left',
-        arrowNextIcon: 'fa fa-arrow-circle-right',
-        closeIcon: 'fa fa-times-circle',
-        imageAnimation: NgxGalleryAnimation.Slide,
-      },
-      //big
-      // max-width 800
-      {
-        width: '70%',
-        height: '80vh',
-        imagePercent: 80,
-        thumbnailsPercent: 20,
-        thumbnailsMargin: 10,
-        thumbnailMargin: 10,
-        imageAnimation: NgxGalleryAnimation.Slide,
-      },
-      //big
-      // max-width 400
-      {
-        breakpoint: 400,
-        preview: false,
-        lazyLoading: false,
-        imageAnimation: NgxGalleryAnimation.Slide,
-        linkTarget: 'dddd',
-
+        image: false,
+        thumbnailsRemainingCount: true,
+        height: "100px",
+        width: "100%",
+        previewZoom: true,
+        previewZoomStep: 0.2,
+        previewZoomMax: 3,
+        previewSwipe: true,
+        thumbnailsColumns: 6
       }
-    ];
+    ]
   }
 
   getResource(resourceUrl: string): Observable<any> {
     return this._http.get(resourceUrl);
   }
 
-  getPhoto() {
+  getConstructionData() {
     this.getResource("http://localhost:8080/constructions/" + this.id)
       .subscribe(
         data => {
           this.construction = data,
+            this.clickedImage = this.construction.images.find(element => element.id == this.imageId),
+            this.startIndex = this.construction.images.findIndex(image => image.id == this.imageId),
             this.galleryInit()
         }
-      );
-  }
-
-  findSimilarConstructions(architecturalStyle: any) {
-    this.getResource(GET_CONSTRUCTION_IMAGES_BY_ARCHITECTURAL_STYLE_URL + architecturalStyle.id)
-      .subscribe(
-        data => this.similarConstructions = data
       );
   }
 
@@ -92,7 +91,6 @@ export class ConstructionComponent {
         imageDescription = "Крыніца: " + photo.source.name + ' (' + photo.source.url + ')'
       }
 
-
       var image: NgxGalleryImage = {
         small: photo.url,
         medium: photo.url,
@@ -101,6 +99,21 @@ export class ConstructionComponent {
       };
       this.galleryImages.push(image);
     });
+
+    let imageDescription = '';
+    if (this.clickedImage!.author) {
+      imageDescription = " Аўтар: " + this.clickedImage!.author + "; Крыніца: " + this.clickedImage!.source.name + ' (' + this.clickedImage!.source.url + ')'
+    } else {
+      imageDescription = "Крыніца: " + this.clickedImage!.source.name + ' (' + this.clickedImage!.source.url + ')'
+    }
+
+    var bla: NgxGalleryImage = {
+      // small: this.clickedImage!.url,
+      medium: this.clickedImage!.url,
+      big: this.clickedImage!.url,
+      description: imageDescription,
+    };
+    this.clickedGalleryImages.push(bla)
   }
 
 }

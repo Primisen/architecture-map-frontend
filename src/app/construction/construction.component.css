@@ -7,7 +7,7 @@
 }
 
 .ngx-gallery {
-    display: inline-block;
+    display: flex;
 }
 
 .common-info {
@@ -25,30 +25,45 @@
     display: flex;
 }
 
-.photo-carousel {
-    margin-right: 8rem;
-    text-align: center;
-    width: 1120px;
-    height: 100vh;
-}
-
-img {
-    object-fit: cover;
-    max-height: 60vh;
-}
-
 h1 {
-    font-weight: 300;
-    font-size: 38px;
-    margin: 0px 0px 0px 0px;
-    line-height: 120%;
-    font-family: 'Open sans', sans-serif;
+    text-decoration: none;
+    color: black;
+    font-size: 5rem;
+    line-height: 5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* letter-spacing: 2px; */
+    font-size: 20px;
+    line-height: 60px;
+    letter-spacing: 5px;
 }
+
 
 .description {
     margin-top: 6%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 120%;
     font-family: sans-serif;
     color: #303030;
+}
+
+.construction-images-container {
+    width: 60em;
+    height: 60em;
+}
+
+.address {
+    margin: 0;
+}
+
+.building-time {
+    color: black;
+    font-size: 5rem;
+    line-height: 5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* letter-spacing: 2px; */
+    font-size: 10px;
+    line-height: 60px;
+    letter-spacing: 5px;
 }

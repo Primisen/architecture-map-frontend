@@ -1,18 +1,20 @@
 <div class="main">
   <div class="content">
     <div class="construction-info">
-      <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+      <div class="construction-images-container">
+        <ngx-gallery [options]="clickedGalleryOptions" [images]="clickedGalleryImages"
+          class="ngx-gallery"></ngx-gallery>
+        <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+      </div>
       <div class="common-info">
-        <h1>{{construction.name}}</h1>
-        <p>
-          {{construction.address.region}}<br>
-          {{construction.address.district}}<br>
-          {{construction.address.locality}}<br>
-          {{construction.address.street}}<br>
-          {{construction.address.houseNumber}}<br>
-        </p>
-        <p>Час пабудавання: {{construction.buildingTime}}</p>
         <app-architectural-style-link [architecturalStyle]="construction.architecturalStyle" />
+        <h1>{{construction.name}}</h1>
+        <p class="address">{{construction.address.region}}</p>
+        <p class="address">{{construction.address.district}}</p>
+        <p class="address">{{construction.address.locality}}</p>
+        <p class="address">{{construction.address.street}}</p>
+        <p class="address">{{construction.address.houseNumber}}</p>
+        <p class="building-time">Час пабудавання: {{construction.buildingTime}}</p>
         <div *ngIf="construction.architects.length; then architects else noArchitects">
         </div>
         <ng-template #architects>
