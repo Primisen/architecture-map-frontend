@@ -19,13 +19,15 @@ import { ArchitecturalStyleLinkComponent } from './architectural-style-link/arch
 import { ArchitecturalStyleComponent } from './architectural-style/architectural-style.component';
 import { ArchitectLinkComponent } from './architect-link/architect-link.component';
 import { ArchitecturalStyleListComponent } from './architectural-style-list/architectural-style-list.component';
+import { SourceListComponent } from './source-list/source-list.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'constructions/:constructionId/:imageId', component: ConstructionComponent },
   { path: 'architectural-styles/:id', component: ArchitecturalStyleComponent },
   { path: 'architects/:id', component: ArchitectComponent },
-  { path: 'architectural-styles', component: ArchitecturalStyleListComponent }
+  { path: 'architectural-styles', component: ArchitecturalStyleListComponent },
+  { path: 'sources', component: SourceListComponent},
 ];
 
 @NgModule({
@@ -39,7 +41,8 @@ const appRoutes: Routes = [
     ArchitecturalStyleLinkComponent,
     ArchitecturalStyleComponent,
     ArchitectLinkComponent,
-    ArchitecturalStyleListComponent
+    ArchitecturalStyleListComponent,
+    SourceListComponent,
   ],
   imports: [
     BrowserModule,
