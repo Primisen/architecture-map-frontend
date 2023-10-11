@@ -21,6 +21,7 @@ import { ArchitectLinkComponent } from './architect-link/architect-link.componen
 import { ArchitecturalStyleListComponent } from './architectural-style-list/architectural-style-list.component';
 import { SourceListComponent } from './source-list/source-list.component';
 import { ArchitectListComponent } from './architect-list/architect-list.component';
+import { ContactsComponent } from './contacts/contacts.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent },
@@ -28,8 +29,9 @@ const appRoutes: Routes = [
   { path: 'architectural-styles/:id', component: ArchitecturalStyleComponent },
   { path: 'architects/:id', component: ArchitectComponent },
   { path: 'architectural-styles', component: ArchitecturalStyleListComponent },
-  { path: 'sources', component: SourceListComponent},
-  { path: 'architects', component: ArchitectListComponent},
+  { path: 'sources', component: SourceListComponent },
+  { path: 'architects', component: ArchitectListComponent },
+  { path: 'contacts', component: ContactsComponent }
 ];
 
 @NgModule({
@@ -46,6 +48,7 @@ const appRoutes: Routes = [
     ArchitecturalStyleListComponent,
     SourceListComponent,
     ArchitectListComponent,
+    ContactsComponent,
   ],
   imports: [
     BrowserModule,
