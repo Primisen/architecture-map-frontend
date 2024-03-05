@@ -34,15 +34,16 @@
 
 /* cover end */
 
+@media screen and (min-width: 1500px){
+	
+	.content {
+		/* margin-left: 18%; */
+		/* margin-right: 18%; */
+		margin-left: 36vh;
+		margin-right: 36vh;
+	}
 
-/*common content*/
-.content {
-	margin-left: 18%;
-	margin-right: 18%;
 }
-
-/*common content end*/
-
 
 .masonry-item {
 	width: 32%;

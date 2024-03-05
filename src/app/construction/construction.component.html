@@ -14,7 +14,15 @@
         <p class="address">{{construction.address.locality}}</p>
         <p class="address">{{construction.address.street}}</p>
         <p class="address">{{construction.address.houseNumber}}</p>
-        <p class="building-time">Час пабудавання: {{construction.buildingTime}}</p>
+        <div *ngIf="construction.buildingTime.length; then buildingTime else noBuildingTime">
+        </div>
+        <ng-template #buildingTime>
+          <p class="building-time">Час пабудавання: {{construction.buildingTime}}</p>
+        </ng-template>
+        <ng-template #noBuildingTime>
+          <!-- <p>Архітэктары не вядомы</p> -->
+        </ng-template>
+        
         <div *ngIf="construction.architects.length; then architects else noArchitects">
         </div>
         <ng-template #architects>
@@ -24,7 +32,7 @@
           </div>
         </ng-template>
         <ng-template #noArchitects>
-          <p>Архітэктары не вядомы</p>
+          <!-- <p>Архітэктары не вядомы</p> -->
         </ng-template>
       </div>
     </div>

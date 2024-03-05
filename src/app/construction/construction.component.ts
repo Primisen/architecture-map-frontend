@@ -75,7 +75,10 @@ export class ConstructionComponent {
         data => {
           this.construction = data,
             this.clickedImage = this.construction.images.find(element => element.id == this.imageId),
-            this.startIndex = this.construction.images.findIndex(image => image.id == this.imageId),
+            this.startIndex = this.construction.images.findIndex(
+              image => {
+                  image.id == this.imageId
+              }),
             this.galleryInit()
         }
       );
@@ -99,6 +102,10 @@ export class ConstructionComponent {
       };
       this.galleryImages.push(image);
     });
+
+    if (!this.clickedImage) {
+      this.clickedImage = this.construction.images[0];
+    }
 
     let imageDescription = '';
     if (this.clickedImage!.author) {

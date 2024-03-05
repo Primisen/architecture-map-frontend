@@ -22,10 +22,12 @@ import { ArchitecturalStyleListComponent } from './architectural-style-list/arch
 import { SourceListComponent } from './source-list/source-list.component';
 import { ArchitectListComponent } from './architect-list/architect-list.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { NavComponent } from './nav/nav.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'constructions/:constructionId/:imageId', component: ConstructionComponent },
+  { path: 'constructions/:constructionId', component: ConstructionComponent },
   { path: 'architectural-styles/:id', component: ArchitecturalStyleComponent },
   { path: 'architects/:id', component: ArchitectComponent },
   { path: 'architectural-styles', component: ArchitecturalStyleListComponent },
@@ -49,6 +51,7 @@ const appRoutes: Routes = [
     SourceListComponent,
     ArchitectListComponent,
     ContactsComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
