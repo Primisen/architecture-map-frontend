@@ -6,6 +6,7 @@ import { Construction } from '../model/construction';
 import { NgxGalleryOptions } from '@rybos/ngx-gallery';
 import { NgxGalleryImage } from '@rybos/ngx-gallery';
 import { ConstructionImage } from '../model/constructionImage';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-construction',
@@ -70,7 +71,7 @@ export class ConstructionComponent {
   }
 
   getConstructionData() {
-    this.getResource("http://localhost:8080/constructions/" + this.id)
+    this.getResource(environment.backendUrl + "/constructions/" + this.id)
       .subscribe(
         data => {
           this.construction = data,
