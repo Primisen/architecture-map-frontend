@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendUrl: "http://architecture-map.by"
+  backendUrl: "http://architecture-map.by:8080"
 };
 
 /*
