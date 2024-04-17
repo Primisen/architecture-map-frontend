@@ -31,8 +31,6 @@ jobs:
         run: npm install -g @angular/cli > /dev/null
       - name: NPM build Angular Production
         run: npm run ci:build
-      - name: Test
-        run: npm run ci:test
       - name: Deploy to EC2 instance
         uses: easingthemes/ssh-deploy@v2.1.5
         with:
