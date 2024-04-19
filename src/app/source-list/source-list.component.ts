@@ -20,9 +20,9 @@ export class SourceListComponent {
 
   private getSources() {
     this.getResource(this.sourcesUrl)
-      .subscribe((sources: Source[]) => {
-        this.sources.push(...sources);
-      });
+      .subscribe(
+        (sources: Source[]) => { this.sources = sources.sort((a, b) => a.name.localeCompare(b.name)) }
+      );
   }
 
   private getResource(url: string): Observable<any> {

@@ -20,8 +20,8 @@ export class ArchitecturalStyleListComponent {
 
   getArchitecturalStyles() {
     this.getResource(this.architecturalStylesUrl)
-      .subscribe((architecturalStyles: ArchitecturalStyle[]) => {
-        this.architecturalStyles.push(...architecturalStyles);
+      .subscribe(
+        (architecturalStyles: ArchitecturalStyle[]) => { this.architecturalStyles = architecturalStyles.sort((a, b) => a.name.localeCompare(b.name));
       });
   }
 
