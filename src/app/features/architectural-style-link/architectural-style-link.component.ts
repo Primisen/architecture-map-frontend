@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ArchitecturalStyle } from '../model/architecturalStyle';
+import { ArchitecturalStyle } from '../../core/models/architecturalStyle';
 
 @Component({
   selector: 'app-architectural-style-link',

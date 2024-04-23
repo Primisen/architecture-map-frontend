@@ -1,0 +1,48 @@
+.background {
+	height: 80vh;
+	background:
+		linear-gradient(rgba(0, 0, 0, 0.6),
+			rgba(0, 0, 0, 0.6)),
+		url(../../assets/images/background.JPG);
+
+	background-size: cover;
+}
+
+.title {
+	font-size: 40px;
+	line-height: 60px;
+	letter-spacing: 5px;
+}
+
+.slogo {
+	font-size: 25px;
+	letter-spacing: 2px;
+	line-height: 40px;
+}
+
+@media screen and (min-width: 1500px) {
+
+	.content {
+		/* margin-left: 18%; */
+		/* margin-right: 18%; */
+		margin-left: 36vh;
+		margin-right: 36vh;
+	}
+
+}
+
+@media screen and (max-width: 1028px) {
+
+	.title {
+		font-size: 30px;
+		line-height: 50px;
+		letter-spacing: 5px;
+	}
+
+	.slogo {
+		font-size: 20px;
+		letter-spacing: 2px;
+		line-height: 40px;
+	}
+
+}

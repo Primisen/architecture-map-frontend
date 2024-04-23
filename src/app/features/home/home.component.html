@@ -1,0 +1,15 @@
+<main>
+
+  <article class="background flex items-center justify-center text-center">
+    <div>
+      <h1 class="text-white text-uppercase fw-bolt title">Belarus Architecture map</h1>
+      <p class="text-white text-uppercase slogo">Глядзі, натхняйся, вандруй</p>
+    </div>
+  </article>
+
+  <section class="content" infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000"
+    (scrolled)="onScroll()">
+    <app-construction-image-masonry [constructionImages]="constructionImages" />
+  </section>
+
+</main>

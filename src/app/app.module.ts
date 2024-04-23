@@ -4,28 +4,28 @@ import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ConstructionComponent } from './construction/construction.component';
-import { HomePageComponent } from './home-page/home-page.component';
+import { ConstructionComponent } from './features/construction/construction.component';
+import { HomeComponent } from './features/home/home.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxGalleryModule } from '@rybos/ngx-gallery';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SimilarConstructionComponent } from './similar-construction/similar-construction.component';
-import { ConstructionImageMasonryComponent } from './construction-image-masonry/construction-image-masonry.component';
-import { ArchitectComponent } from './architect/architect.component';
-import { ArchitecturalStyleLinkComponent } from './architectural-style-link/architectural-style-link.component';
-import { ArchitecturalStyleComponent } from './architectural-style/architectural-style.component';
-import { ArchitectLinkComponent } from './architect-link/architect-link.component';
-import { ArchitecturalStyleListComponent } from './architectural-style-list/architectural-style-list.component';
-import { SourceListComponent } from './source-list/source-list.component';
-import { ArchitectListComponent } from './architect-list/architect-list.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { NavComponent } from './nav/nav.component';
+import { SimilarConstructionComponent } from './features/similar-construction/similar-construction.component';
+import { ConstructionImageMasonryComponent } from './shared/construction-image-masonry/construction-image-masonry.component';
+import { ArchitectComponent } from './features/architect/architect.component';
+import { ArchitecturalStyleLinkComponent } from './features/architectural-style-link/architectural-style-link.component';
+import { ArchitecturalStyleComponent } from './features/architectural-style/architectural-style.component';
+import { ArchitectLinkComponent } from './features/architect-link/architect-link.component';
+import { ArchitecturalStyleListComponent } from './features/architectural-style-list/architectural-style-list.component';
+import { SourceListComponent } from './features/source-list/source-list.component';
+import { ArchitectListComponent } from './features/architect-list/architect-list.component';
+import { ContactsComponent } from './features/contacts/contacts.component';
+import { NavComponent } from './core/componetns/nav/nav.component';
 
 const appRoutes: Routes = [
-  { path: '', component: HomePageComponent },
+  { path: '', component: HomeComponent },
   { path: 'constructions/:constructionId/:imageId', component: ConstructionComponent },
   { path: 'constructions/:constructionId', component: ConstructionComponent },
   { path: 'architectural-styles/:id', component: ArchitecturalStyleComponent },
@@ -40,7 +40,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ConstructionComponent,
-    HomePageComponent,
+    HomeComponent,
     SimilarConstructionComponent,
     ConstructionImageMasonryComponent,
     ArchitectComponent,

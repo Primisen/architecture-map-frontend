@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Source } from '../model/source';
-import { SOURCES_URL } from '../constants/URL';
+import { Source } from '../../core/models/source';
+import { SOURCES_URL } from '../../core/constants/URL';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 

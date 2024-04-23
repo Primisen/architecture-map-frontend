@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ConstructionImage } from '../model/constructionImage';
+import { ConstructionImage } from '../../core/models/constructionImage';
 
 @Component({
   selector: 'app-construction-image-masonry',

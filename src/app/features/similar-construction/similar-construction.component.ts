@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { GET_CONSTRUCTION_IMAGES_BY_ARCHITECTURAL_STYLE_URL } from '../constants/URL';
-import { ConstructionImage } from '../model/constructionImage';
+import { GET_CONSTRUCTION_IMAGES_BY_ARCHITECTURAL_STYLE_URL } from '../../core/constants/URL';
+import { ConstructionImage } from '../../core/models/constructionImage';
 
 @Component({
   selector: 'app-similar-construction',

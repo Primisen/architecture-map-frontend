@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Architect } from '../model/architect';
+import { Architect } from '../../core/models/architect';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ARCHITECTS_URL } from '../constants/URL';
+import { ARCHITECTS_URL } from '../../core/constants/URL';
 
 @Component({
   selector: 'app-architect',

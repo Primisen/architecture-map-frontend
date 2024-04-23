@@ -2,10 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Construction } from '../model/construction';
+import { Construction } from '../../core/models/construction';
 import { NgxGalleryOptions } from '@rybos/ngx-gallery';
 import { NgxGalleryImage } from '@rybos/ngx-gallery';
-import { ConstructionImage } from '../model/constructionImage';
+import { ConstructionImage } from '../../core/models/constructionImage';
 import { environment } from 'src/environments/environment';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Architect } from '../model/architect';
+import { Architect } from '../../core/models/architect';
 
 @Component({
   selector: 'app-architect-link',

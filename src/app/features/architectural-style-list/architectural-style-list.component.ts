@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ARCHITECTURAL_STYLES_URL } from '../constants/URL';
-import { ArchitecturalStyle } from '../model/architecturalStyle';
+import { ARCHITECTURAL_STYLES_URL } from '../../core/constants/URL';
+import { ArchitecturalStyle } from '../../core/models/architecturalStyle';
 
 @Component({
   selector: 'app-architectural-style-list',
