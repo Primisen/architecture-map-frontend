@@ -1,19 +1,15 @@
 <ngx-masonry>
-    <article ngxMasonryItem class="masonry-item " *ngFor="let image of constructionImages">
-        <!-- <div> -->
-            <div class="foggin">
-                <img class="item" src={{image.url}} />
-                <p class="building-architect-style">{{image.construction.architecturalStyle.name}}</p>
-                <p class="building-name">{{image.construction.name}}</p>
-                <div class="building-address">
-                    <p>{{image.construction.address.region}}</p>
-                    <p>{{image.construction.address.district}}</p>
-                    <p>{{image.construction.address.locality}}</p>
-                </div>
-                <a class="source-button" href={{image.source.url}}>Крыніца здымку: {{image.source.name}}</a>
-                <p class="author" *ngIf="image.author">Аўтар здымку: {{image.author}}</p>
-                <a class="details-button" href="constructions/{{image.construction.id}}/{{image.id}}">Падрабязней</a>
-            </div>
-        <!-- </div> -->
+    <article ngxMasonryItem class="masonry-item foggin" *ngFor="let image of constructionImages">
+        <img src={{image.url}} />
+        <p class="building-architect-style">{{image.construction.architecturalStyle.name}}</p>
+        <p class="building-name">{{image.construction.name}}</p>
+        <div class="building-address">
+            <p>{{image.construction.address.region}}</p>
+            <p>{{image.construction.address.district}}</p>
+            <p>{{image.construction.address.locality}}</p>
+        </div>
+        <a class="source-button" href={{image.source.url}}>Крыніца здымку: {{image.source.name}}</a>
+        <p class="author" *ngIf="image.author">Аўтар здымку: {{image.author}}</p>
+        <a class="details-button" href="constructions/{{image.construction.id}}/{{image.id}}">Падрабязней</a>
     </article>
 </ngx-masonry>
