@@ -20,15 +20,18 @@
 	line-height: 40px;
 }
 
-@media screen and (min-width: 1500px) {
-
+@media screen and (min-width: 2000px) {
 	.content {
-		/* margin-left: 18%; */
-		/* margin-right: 18%; */
 		margin-left: 36vh;
 		margin-right: 36vh;
 	}
+}
 
+@media screen and (max-width: 2000px) and (min-width: 1028px) {
+	.content {
+		margin-left: 18vh;
+		margin-right: 18vh;
+	}
 }
 
 @media screen and (max-width: 1028px) {
