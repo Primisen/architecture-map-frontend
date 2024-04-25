@@ -30,10 +30,10 @@
 		top: 4%;
 	}
 
-	.building-address {
+	.building-address{
 		position: absolute;
 		width: 100%;
-		bottom: 10%;
+		bottom: 15%;
 		z-index: 4000;
 		color: #eee;
 		font-family: 'Raleway', sans-serif;
@@ -42,6 +42,7 @@
 		letter-spacing: 4px;
 		text-align: left;
 		text-transform: uppercase;
+		text-align: center;
 	}
 
 	.building-address p {
@@ -50,11 +51,13 @@
 	}
 
 	.building-address .district {
-		visibility: hidden;
+		/* visibility: hidden; */
+		display: none;
 	}
 
 	.building-address .locality {
-		visibility: hidden;
+		/* visibility: hidden; */
+		display: none;
 	}
 
 	.source-link {
