@@ -6,8 +6,8 @@
             <p class="building-name">{{image.construction.name}}</p>
             <div class="building-address">
                 <p class="region">{{image.construction.address.region}}</p>
-                <p class="district">{{image.construction.address.district}}</p>
-                <p class="locality">{{image.construction.address.locality}}</p>
+                <p *ngIf="image.construction.address.district !== '-'" class="district">{{image.construction.address.district}}</p>
+                <p *ngIf="image.construction.address.locality !== '-'" class="locality">{{image.construction.address.locality}}</p>
             </div>
             <a class="source-link" href={{image.source.url}}>Крыніца здымку: {{image.source.name}}</a>
             <p class="author" *ngIf="image.author">Аўтар здымку: {{image.author}}</p>
