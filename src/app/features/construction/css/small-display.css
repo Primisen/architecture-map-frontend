@@ -1,0 +1,51 @@
+@media screen and (max-width: 1000px) {
+
+    .content {
+        padding-top: 2rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        max-width: 90%;
+    }
+
+ 
+
+    .common-info {
+        margin-top: 4rem;
+    }
+
+    .construction-info {
+        display: grid;
+    }
+
+    h1 {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 16px;
+        letter-spacing: 5px;
+    }
+
+    .description {
+        margin-top: 6%;
+        font-size: 1.1rem;
+        line-height: 120%;
+        font-family: sans-serif;
+        color: #303030;
+    }
+
+    .address {
+        margin: 0;
+    }
+
+    .building-time {
+        color: black;
+        font-size: 5rem;
+        line-height: 5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 10px;
+        line-height: 60px;
+        letter-spacing: 5px;
+    }
+}

@@ -23,6 +23,7 @@ import { SourceListComponent } from './features/source-list/source-list.componen
 import { ArchitectListComponent } from './features/architect-list/architect-list.component';
 import { ContactsComponent } from './features/contacts/contacts.component';
 import { NavComponent } from './core/componetns/nav/nav.component';
+import { LightgalleryModule } from 'lightgallery/angular';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -63,7 +64,8 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     NgxGalleryModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    LightgalleryModule
   ],
   providers: [],
   bootstrap: [

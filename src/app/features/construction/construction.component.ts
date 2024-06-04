@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, ElementRef,ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Construction } from '../../core/models/construction';
-import { NgxGalleryOptions } from '@rybos/ngx-gallery';
-import { NgxGalleryImage } from '@rybos/ngx-gallery';
 import { ConstructionImage } from '../../core/models/constructionImage';
 import { environment } from 'src/environments/environment';
+import { BeforeSlideDetail, InitDetail } from 'lightgallery/lg-events';
+import lgZoom from 'lightgallery/plugins/zoom';
+import { LightGallery } from 'lightgallery/lightgallery';
+import lgThumbnail from 'lightgallery/plugins/thumbnail';
+import lightGallery from 'lightgallery'; // Правільны імпарт
 
 @Component({
   selector: 'app-construction',
@@ -15,56 +18,77 @@ import { environment } from 'src/environments/environment';
 })
 export class ConstructionComponent {
 
+  title = 'angular-demo';
+
   construction!: Construction;
   id: number;
   imageId: number;
   clickedImage: ConstructionImage | undefined;
   similarConstructions: Construction[] = [];
-  clickedGalleryOptions: NgxGalleryOptions[] = [];
-  galleryImages: NgxGalleryImage[] = [];
-  galleryOptions: NgxGalleryOptions[] = [];
-  clickedGalleryImages: NgxGalleryImage[] = [];
+  loadedImages: any[] = [];
   startIndex: number = 0;
 
-  constructor(private activatedRoute: ActivatedRoute, private _http: HttpClient) {
+  private lightGallery!: LightGallery;
+  private needRefresh = false;
+
+  settings = {
+    counter: false,
+    allowMediaOverlap: true,
+
+    enableThumbSwipe: true,
+    enableThumbDrag: true,
+
+    plugins: [lgZoom],
+    
+
+    // counter: false,
+    // thumbnail: true,
+    // allowMediaOverlap: true,
+    // enableThumbSwipe: true,
+    // enableThumbDrag: true,
+    // plugins: [lgZoom, lgThumbnail],
+
+
+    subHtmlSelectorRelative: true,
+
+  };
+
+
+
+
+
+  
+
+  constructor(private activatedRoute: ActivatedRoute, private _http: HttpClient,  private _elementRef: ElementRef) {
     this.id = this.activatedRoute.snapshot.params['constructionId'];
     this.imageId = this.activatedRoute.snapshot.params['imageId'];
 
+    this._elementRef = _elementRef;
+
     this.getConstructionData();
-
-    this.clickedGalleryOptions = [
-      {
-        previewZoom: true,
-        previewZoomStep: 0.2,
-        previewZoomMax: 3,
-        imageArrows: false,
-        width: "100%",
-        height: "90%",
-        imageSwipe: true,
-        thumbnails: false,
-        thumbnailsArrows: false,
-        thumbnailsSwipe: true,
-        previewSwipe: true,
-        previewCloseOnClick: true,
-        arrowNextIcon: '',
-        arrowPrevIcon: '',
-      },
-    ]
-
-    this.galleryOptions = [
-      {
-        image: false,
-        thumbnailsRemainingCount: true,
-        height: "100px",
-        width: "100%",
-        previewZoom: true,
-        previewZoomStep: 0.2,
-        previewZoomMax: 3,
-        previewSwipe: true,
-        thumbnailsColumns: 6
-      }
-    ]
   }
+
+  onBeforeSlide = (detail: BeforeSlideDetail): void => {
+    const { index, prevIndex } = detail;
+    console.log(index, prevIndex);
+  };
+
+  ngAfterViewChecked(): void {
+    if (this.needRefresh) {
+      this.lightGallery.refresh();
+      this.needRefresh = false;
+    }
+  }
+
+  @ViewChild('lightgallery') lightGalleryElem!: ElementRef;
+
+  ngAfterViewInit(): void {
+    lightGallery(this.lightGalleryElem.nativeElement, this.settings);
+  }
+
+  onInit = (detail: InitDetail): void => {
+    this.lightGallery = detail.instance;
+  };
 
   getResource(resourceUrl: string): Observable<any> {
     return this._http.get(resourceUrl);
@@ -78,50 +102,27 @@ export class ConstructionComponent {
             this.clickedImage = this.construction.images.find(element => element.id == this.imageId),
             this.startIndex = this.construction.images.findIndex(
               image => {
-                  image.id == this.imageId
-              }),
-            this.galleryInit()
+                image.id == this.imageId
+              })
         }
       );
   }
 
-  galleryInit() {
-    this.construction.images.forEach(photo => {
+  loadImages() {
 
-      let imageDescription = '';
-      if (photo.author) {
-        imageDescription = " Аўтар: " + photo.author + "; Крыніца: " + photo.source.name + ' (' + photo.source.url + ')'
-      } else {
-        imageDescription = "Крыніца: " + photo.source.name + ' (' + photo.source.url + ')'
-      }
+    const DEFAULT_NUMBER_OF_IMAGE_LOADING = 10;
 
-      var image: NgxGalleryImage = {
-        small: photo.url,
-        medium: photo.url,
-        big: photo.url,
-        description: imageDescription,
+    for (let i = this.loadedImages.length; i < this.loadImages.length + DEFAULT_NUMBER_OF_IMAGE_LOADING; i++) {
+
+      let image = {
+        src: this.construction.images[i].url,
+        thumb: this.construction.images[i].url,
+        subHtml: this.construction.images[i].source + ' ' + this.construction.images[i].author
       };
-      this.galleryImages.push(image);
-    });
 
-    if (!this.clickedImage) {
-      this.clickedImage = this.construction.images[0];
+      this.loadedImages.push(image);
     }
 
-    let imageDescription = '';
-    if (this.clickedImage!.author) {
-      imageDescription = " Аўтар: " + this.clickedImage!.author + "; Крыніца: " + this.clickedImage!.source.name + ' (' + this.clickedImage!.source.url + ')'
-    } else {
-      imageDescription = "Крыніца: " + this.clickedImage!.source.name + ' (' + this.clickedImage!.source.url + ')'
-    }
-
-    var bla: NgxGalleryImage = {
-      // small: this.clickedImage!.url,
-      medium: this.clickedImage!.url,
-      big: this.clickedImage!.url,
-      description: imageDescription,
-    };
-    this.clickedGalleryImages.push(bla)
+    this.lightGallery.refresh();
   }
-
 }
