@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendUrl: "https://api.architecture-map.by"
+  backendUrl: "http://localhost:8080"
 };
 
 /*
