@@ -24,6 +24,7 @@ import { ArchitectListComponent } from './features/architect-list/architect-list
 import { ContactsComponent } from './features/contacts/contacts.component';
 import { NavComponent } from './core/components/nav/nav.component';
 import { LightgalleryModule } from 'lightgallery/angular';
+import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
   { path: 'architectural-styles', component: ArchitecturalStyleListComponent },
   { path: 'sources', component: SourceListComponent },
   { path: 'architects', component: ArchitectListComponent },
-  { path: 'contacts', component: ContactsComponent }
+  { path: 'contacts', component: ContactsComponent },
+  { path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
@@ -53,6 +55,7 @@ const appRoutes: Routes = [
     ArchitectListComponent,
     ContactsComponent,
     NavComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
