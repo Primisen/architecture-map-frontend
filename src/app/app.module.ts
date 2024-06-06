@@ -22,7 +22,7 @@ import { ArchitecturalStyleListComponent } from './features/architectural-style-
 import { SourceListComponent } from './features/source-list/source-list.component';
 import { ArchitectListComponent } from './features/architect-list/architect-list.component';
 import { ContactsComponent } from './features/contacts/contacts.component';
-import { NavComponent } from './core/componetns/nav/nav.component';
+import { NavComponent } from './core/components/nav/nav.component';
 import { LightgalleryModule } from 'lightgallery/angular';
 
 const appRoutes: Routes = [
