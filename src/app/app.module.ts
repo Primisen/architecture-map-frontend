@@ -27,7 +27,7 @@ import { LightgalleryModule } from 'lightgallery/angular';
 import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
 import { CustomPageTitleStrategy } from './core/services/custom-page-title-strategy';
 import { ConstructionTitleResolver } from './core/services/construction-page-title-resolve';
-// import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, title: 'Architecture Map' },
@@ -72,7 +72,7 @@ const appRoutes: Routes = [
     FormsModule,
     FontAwesomeModule,
     LightgalleryModule,
-    // MatProgressSpinnerModule
+    MatProgressSpinnerModule
   ],
   providers: [
     {provide: TitleStrategy, useClass: CustomPageTitleStrategy},

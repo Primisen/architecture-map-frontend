@@ -9,5 +9,5 @@ import { ConstructionImage } from '../../core/models/constructionImage';
 export class ConstructionImageMasonryComponent {
 
   @Input() constructionImages: ConstructionImage[] = [];
-
+  @Input() loading = true;
 }

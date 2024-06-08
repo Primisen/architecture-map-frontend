@@ -13,12 +13,14 @@ export class SimilarConstructionComponent implements OnInit {
 
   @Input() constructionId: number = 0;
   similarConstructionImages: ConstructionImage[] = [];
+  loading = true;
 
   constructor(private httpClient: HttpClient) {
   }
 
   ngOnInit() {
-    this.findSimilarConstructions(this.constructionId)
+    this.findSimilarConstructions(this.constructionId);
+    this.loading = false;
   }
 
   getResource(resourceUrl: string): Observable<any> {
@@ -26,6 +28,7 @@ export class SimilarConstructionComponent implements OnInit {
   }
 
   findSimilarConstructions(constructionId: number) {
+    this.loading = true;
     this.getResource(GET_SIMILAR_CONSTRUCTION_IMAGES_URL + constructionId)
       .subscribe(
         data => this.similarConstructionImages = data

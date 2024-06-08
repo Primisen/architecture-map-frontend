@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit{
   constructionImages: ConstructionImage[] = [];
   gotImagesId: number[] = [];//for getting only unique images
   param = new HttpParams({ fromObject: { 'usedId': this.gotImagesId } });
+  loading = true;
 
   private url = IMAGES_URL;
 
@@ -22,9 +23,11 @@ export class HomeComponent implements OnInit{
 
   ngOnInit() {
     this.getRandomConstructionImages();
+    this.loading = false;
   }
 
   getRandomConstructionImages() {
+    this.loading = true;
     this.apiService.getWithParams(this.url, this.param)
       .subscribe((randomConstructionImages: ConstructionImage[]) => {
 
