@@ -26,6 +26,7 @@
     "@fortawesome/angular-fontawesome": "^0.12.1",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@rybos/ngx-gallery": "^15.0.0",
+    "angular-gtag": "^1.0.4",
     "flowbite": "^2.3.0",
     "font-awesome": "^4.7.0",
     "lg-zoom": "^1.3.0",
