@@ -1,5 +1,6 @@
 <ngx-masonry>
     <article ngxMasonryItem class="masonry-item " *ngFor="let image of constructionImages">
+
         <a class="foggin" href="constructions/{{image.construction.id}}/{{image.id}}">
             <img src={{image.url}} />
             <p class="building-architect-style">{{image.construction.architecturalStyle.name}}</p>
@@ -15,7 +16,7 @@
             <p class="author" *ngIf="image.author">Аўтар здымку: {{image.author}}</p>
         </a>
     </article>
+    <div *ngIf="loading" class="flex justify-center">
+        <mat-spinner [diameter]="70"></mat-spinner>
+    </div>
 </ngx-masonry>
-<div *ngIf="loading" class="flex justify-center">
-    <mat-spinner [diameter]="70"></mat-spinner>
-</div>
