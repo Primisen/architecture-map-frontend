@@ -6,3 +6,4 @@ export const GET_SIMILAR_CONSTRUCTION_IMAGES_URL = BASE_URL + "/construction-ima
 export const ARCHITECTURAL_STYLES_URL = BASE_URL + "/architectural-styles/"
 export const ARCHITECTS_URL = BASE_URL + "/architects/"
 export const SOURCES_URL = BASE_URL +  "/sources/"
+export const CONSTRUCTIONS_URL = BASE_URL + "/constructions/"

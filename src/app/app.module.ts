@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, TitleStrategy } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,18 +25,21 @@ import { ContactsComponent } from './features/contacts/contacts.component';
 import { NavComponent } from './core/components/nav/nav.component';
 import { LightgalleryModule } from 'lightgallery/angular';
 import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
+import { CustomPageTitleStrategy } from './core/services/custom-page-title-strategy';
+import { ConstructionTitleResolver } from './core/services/construction-page-title-resolve';
+// import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'constructions/:constructionId/:imageId', component: ConstructionComponent },
-  { path: 'constructions/:constructionId', component: ConstructionComponent },
+  { path: '', component: HomeComponent, title: 'Architecture Map' },
+  { path: 'constructions/:constructionId/:imageId', component: ConstructionComponent, title: ConstructionTitleResolver },
+  { path: 'constructions/:constructionId', component: ConstructionComponent, title: ConstructionTitleResolver },
   { path: 'architectural-styles/:id', component: ArchitecturalStyleComponent },
   { path: 'architects/:id', component: ArchitectComponent },
-  { path: 'architectural-styles', component: ArchitecturalStyleListComponent },
-  { path: 'sources', component: SourceListComponent },
-  { path: 'architects', component: ArchitectListComponent },
-  { path: 'contacts', component: ContactsComponent },
-  { path: '**', component: PageNotFoundComponent}
+  { path: 'architectural-styles', component: ArchitecturalStyleListComponent, title: 'Архітэктурныя стылі' },
+  { path: 'sources', component: SourceListComponent, title: 'Крыніцы' },
+  { path: 'architects', component: ArchitectListComponent, title: 'Архітэктары' },
+  { path: 'contacts', component: ContactsComponent, title: 'Адваротная сувязь' },
+  { path: '**', component: PageNotFoundComponent, title: 'Старонка не знойдзена'}
 ];
 
 @NgModule({
@@ -68,9 +71,12 @@ const appRoutes: Routes = [
     NgxGalleryModule,
     FormsModule,
     FontAwesomeModule,
-    LightgalleryModule
+    LightgalleryModule,
+    // MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    {provide: TitleStrategy, useClass: CustomPageTitleStrategy},
+  ],
   bootstrap: [
     AppComponent
   ]
