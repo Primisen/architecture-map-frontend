@@ -7,7 +7,8 @@ export interface Architect {
     surname: string;
     middleName: string;
     yearsOfLife: string;
-    workDescription: string;
+    shortWorkDescription: string;
+    biographicalArticle: string;
     image: ArchitectImage;
     constructions: Construction[];
 }
