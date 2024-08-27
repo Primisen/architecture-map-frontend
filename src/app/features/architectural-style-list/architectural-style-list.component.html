@@ -1,13 +1,28 @@
-<div class="container p-5">
-    <p class="font-sans font-normal text-base">Архітэктурныя стылі, узгаданыя ў аплікацыі. Пазней будзе дададзена апісанне кожнага з іх.</p>
-    <div class="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">
-        <nav class="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
-            <div role="button"
-                class="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-blue-gray-50 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-                *ngFor="let architecturalStyle of architecturalStyles">
-                {{architecturalStyle.name}}
-                {{architecturalStyle.description}}
-            </div>
-        </nav>
+<div class="container p-5 flex flex-wrap items-center justify-center">
+    <div>
+        <p class="font-sans font-normal text-base">Архітэктурныя стылі, узгаданыя ў аплікацыі</p>
+        <ul class="max-w-5xl divide-y divide-gray-200 dark:divide-gray-700">
+            <li class="py-3 sm:py-4" *ngFor="let architecturalStyle of architecturalStyles">
+                <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                    <div class="flex-shrink-0">
+                        <img class="w-72 h-72 object-cover" src={{architecturalStyle.demonstrativeImage.url}}
+                            alt="Neil image">
+                            
+                    </div>
+                    
+                    <div class="flex-1 min-w-full">
+                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                            {{architecturalStyle.name}} 
+                        </p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            {{architecturalStyle.shortDescription}}
+                        </p>
+                    </div>
+                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        {{architecturalStyle.yearsActive}}
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
 </div>
