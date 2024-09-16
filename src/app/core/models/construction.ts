@@ -7,7 +7,7 @@ import { Image } from "./image";
 export interface Construction {
     id: number;
     name: string;
-    buildingTime: string;
+    buildingDate: string;
     address: Address;
     architecturalStyle: ArchitecturalStyle;
     architects: Architect[];

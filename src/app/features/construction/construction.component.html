@@ -13,10 +13,10 @@
       <p class="address">{{construction.address.street}}</p>
       <p class="address">{{construction.address.houseNumber}}</p>
 
-      <div *ngIf="construction.buildingTime.length; then buildingTime else noBuildingTime">
+      <div *ngIf="construction.buildingDate.length; then buildingTime else noBuildingTime">
       </div>
       <ng-template #buildingTime>
-        <p class="building-time">Час пабудовы: {{construction.buildingTime}}</p>
+        <p class="building-time">Час пабудовы: {{construction.buildingDate}}</p>
       </ng-template>
       <ng-template #noBuildingTime>
       </ng-template>

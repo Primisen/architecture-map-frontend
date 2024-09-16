@@ -1,5 +1,5 @@
 .background {
-	height: 80vh;
+	height: 70vh;
 	background:
 		linear-gradient(rgba(0, 0, 0, 0.6),
 			rgba(0, 0, 0, 0.6)),
@@ -36,7 +36,7 @@
 
 @media screen and (max-width: 1028px) {
 
-	.title {
+	.title {	
 		font-size: 30px;
 		line-height: 50px;
 		letter-spacing: 5px;

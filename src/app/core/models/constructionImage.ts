@@ -9,8 +9,8 @@ export interface ConstructionImage {
     construction: Construction;
     constructionId: number;
     architecturalStyleName: string;
-    addressDto: Address;
-    takenTime: string;
+    // addressDto: Address;
+    takenTime?: string;
     author: string;
-    description: string;
+    description?: string;
 }

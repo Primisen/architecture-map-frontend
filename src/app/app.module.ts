@@ -10,7 +10,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxGalleryModule } from '@rybos/ngx-gallery';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SimilarConstructionComponent } from './features/similar-construction/similar-construction.component';
 import { ConstructionImageMasonryComponent } from './shared/construction-image-masonry/construction-image-masonry.component';
@@ -28,6 +28,7 @@ import { PageNotFoundComponent } from './core/components/page-not-found/page-not
 import { CustomPageTitleStrategy } from './core/services/custom-page-title-strategy';
 import { ConstructionTitleResolver } from './core/services/construction-page-title-resolve';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SearchingWithFiltersComponent } from './features/searching-with-filters/searching-with-filters.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, title: 'Architecture Map' },
@@ -59,6 +60,7 @@ const appRoutes: Routes = [
     ContactsComponent,
     NavComponent,
     PageNotFoundComponent,
+    SearchingWithFiltersComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,8 @@ const appRoutes: Routes = [
     FormsModule,
     FontAwesomeModule,
     LightgalleryModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: TitleStrategy, useClass: CustomPageTitleStrategy},

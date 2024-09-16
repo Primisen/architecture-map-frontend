@@ -5,6 +5,5 @@ export interface Image {
     url: string;
     show: boolean;
     source: Source;
-    takenTime: string;
     author: string;
 }

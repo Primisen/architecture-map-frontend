@@ -1,5 +1,5 @@
-import { ArchitectImage } from "./architectImage";
 import { Construction } from "./construction";
+import { Image } from "./image";
 
 export interface Architect {
     id: number;
@@ -9,6 +9,6 @@ export interface Architect {
     yearsOfLife: string;
     shortWorkDescription: string;
     biographicalArticle: string;
-    image: ArchitectImage;
+    portraitImage: Image;
     constructions: Construction[];
 }
