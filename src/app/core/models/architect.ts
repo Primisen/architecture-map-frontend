@@ -10,5 +10,5 @@ export interface Architect {
     shortWorkDescription: string;
     biographicalArticle: string;
     portraitImage: Image;
-    constructions: Construction[];
+    construction: Construction[];
 }
