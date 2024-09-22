@@ -26,16 +26,16 @@
     </div>
   </article>
 
-  <!-- <app-searching-with-filters (searchParams)="onSearchParams($event)"></app-searching-with-filters>
+  <app-searching-with-filters (searchParams)="onSearchParams($event)"></app-searching-with-filters>
 
-  <div class="container flex justify-between items-center" *ngIf="!constructionImages[0]"><p>Нічога не знайдзена. Паспрабуйце змяніць умовы пошуку.</p></div> -->
+  <div class="container flex justify-between items-center" *ngIf="!constructionImages[0]"><p>Нічога не знайдзена. Паспрабуйце змяніць умовы пошуку.</p></div>
 
   <section class="content" infinite-scroll  [infiniteScrollDisabled]="!infiniteScrollEnabled"  [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000"
     (scrolled)="onScroll()">
     <app-construction-image-masonry [constructionImages]="constructionImages" [loading]="loading" />
   </section>
 
-  <!-- <footer class="bg-zinc-800 text-white py-4 mt-16">
+  <footer class="bg-zinc-800 text-white py-4 mt-16">
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap justify-between items-center">
         <div class="w-full md:w-1/3 text-center md:text-left mb-4 md:mb-0">
@@ -43,7 +43,7 @@
         </div>
       </div>
     </div>
-  </footer> -->
+  </footer>
   
 
 </main>
