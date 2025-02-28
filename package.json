@@ -25,6 +25,7 @@
     "@angular/router": "^18.2.13",
     "@fortawesome/angular-fontawesome": "^0.15.0",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@ngx-translate/core": "^16.0.4",
     "@rybos/ngx-gallery": "^15.0.0",
     "angular-gtag": "^1.0.4",
     "flowbite": "^2.3.0",
