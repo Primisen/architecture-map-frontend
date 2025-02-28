@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule, TitleStrategy } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConstructionComponent } from './features/construction/construction.component';
@@ -43,45 +43,39 @@ const appRoutes: Routes = [
   { path: '**', component: PageNotFoundComponent, title: 'Старонка не знойдзена'}
 ];
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    ConstructionComponent,
-    HomeComponent,
-    SimilarConstructionComponent,
-    ConstructionImageMasonryComponent,
-    ArchitectComponent,
-    ArchitecturalStyleLinkComponent,
-    ArchitecturalStyleComponent,
-    ArchitectLinkComponent,
-    ArchitecturalStyleListComponent,
-    SourceListComponent,
-    ArchitectListComponent,
-    ContactsComponent,
-    NavComponent,
-    PageNotFoundComponent,
-    SearchingWithFiltersComponent,
-  ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(appRoutes),
-    HttpClientModule,
-    AppRoutingModule,
-    InfiniteScrollModule,
-    NgxMasonryModule,
-    BrowserAnimationsModule,
-    NgxGalleryModule,
-    FormsModule,
-    FontAwesomeModule,
-    LightgalleryModule,
-    MatProgressSpinnerModule,
-    ReactiveFormsModule
-  ],
-  providers: [
-    {provide: TitleStrategy, useClass: CustomPageTitleStrategy},
-  ],
-  bootstrap: [
-    AppComponent
-  ]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        ConstructionComponent,
+        HomeComponent,
+        SimilarConstructionComponent,
+        ConstructionImageMasonryComponent,
+        ArchitectComponent,
+        ArchitecturalStyleLinkComponent,
+        ArchitecturalStyleComponent,
+        ArchitectLinkComponent,
+        ArchitecturalStyleListComponent,
+        SourceListComponent,
+        ArchitectListComponent,
+        ContactsComponent,
+        NavComponent,
+        PageNotFoundComponent,
+        SearchingWithFiltersComponent,
+    ],
+    bootstrap: [
+        AppComponent
+    ], imports: [BrowserModule,
+        RouterModule.forRoot(appRoutes),
+        AppRoutingModule,
+        InfiniteScrollModule,
+        NgxMasonryModule,
+        BrowserAnimationsModule,
+        NgxGalleryModule,
+        FormsModule,
+        FontAwesomeModule,
+        LightgalleryModule,
+        MatProgressSpinnerModule,
+        ReactiveFormsModule], providers: [
+        { provide: TitleStrategy, useClass: CustomPageTitleStrategy },
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 export class AppModule { }
