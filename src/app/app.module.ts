@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core'
+import { APP_INITIALIZER, NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { Routes, RouterModule, TitleStrategy } from '@angular/router'
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
+import { HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { ConstructionComponent } from './features/construction/construction.component'
@@ -29,7 +29,8 @@ import { CustomPageTitleStrategy } from './core/services/custom-page-title-strat
 import { ConstructionTitleResolver } from './core/services/construction-page-title-resolve'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { SearchingWithFiltersComponent } from './features/searching-with-filters/searching-with-filters.component'
-import { TranslateModule } from '@ngx-translate/core'
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core'
+import { translateHttpLoaderFactory } from './core/i18n/translate-loader.factory'
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, title: 'Architecture Map' },
@@ -78,7 +79,26 @@ const appRoutes: Routes = [
         MatProgressSpinnerModule,
         ReactiveFormsModule,
         TranslateModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: translateHttpLoaderFactory,
+                deps: [HttpClient],
+            },
+        }),
     ],
-    providers: [{ provide: TitleStrategy, useClass: CustomPageTitleStrategy }, provideHttpClient(withInterceptorsFromDi())],
+    providers: [
+        { provide: TitleStrategy, useClass: CustomPageTitleStrategy },
+        provideHttpClient(withInterceptorsFromDi()),
+        {
+            provide: APP_INITIALIZER,
+            useFactory: (translateService: TranslateService) => () => {
+                translateService.setDefaultLang('be')
+                translateService.use('be')
+            },
+            deps: [TranslateService],
+            multi: true,
+        },
+    ],
 })
 export class AppModule {}
