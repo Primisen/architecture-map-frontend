@@ -9,6 +9,7 @@ jobs:
   build:
     # using Ubuntu
     runs-on: ubuntu-latest
+    environment: hetzner
     defaults:
       run:
         working-directory: ./
