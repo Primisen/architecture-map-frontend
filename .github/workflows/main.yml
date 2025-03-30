@@ -35,6 +35,6 @@ jobs:
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY}}
           SOURCE: "dist/architecture-map-frontend/"
-          REMOTE_HOST: ${{ env.REMOTE_HOST}}
-          REMOTE_USER: ${{ env.REMOTE_USER}}
+          REMOTE_HOST: ${{ vars.REMOTE_HOST}}
+          REMOTE_USER: ${{ vars.REMOTE_USER}}
           TARGET: "/opt/architecture-map-belarus/front/"
