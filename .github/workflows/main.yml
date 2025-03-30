@@ -3,14 +3,13 @@ name: Deploy frontend to EC2
 on:
   push:
     branches: [master]
-  pull_request:
-    branches: [master]
   workflow_dispatch:
 
 jobs:
   build:
     # using Ubuntu
     runs-on: ubuntu-latest
+    environment: hetzner
     defaults:
       run:
         working-directory: ./
