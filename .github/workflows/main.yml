@@ -1,4 +1,4 @@
-name: Deploy frontend to EC2
+name: Deploy frontend to server
 
 on:
     push:
@@ -30,7 +30,7 @@ jobs:
               run: npm install -g @angular/cli > /dev/null
             - name: NPM build Angular Production
               run: npm run ci:build
-            - name: Deploy to EC2 instance
+            - name: Deploy to server
               uses: easingthemes/ssh-deploy@v2.1.5
               with:
                   SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY}}
