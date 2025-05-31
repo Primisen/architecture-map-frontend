@@ -1,10 +1,9 @@
-name: Deploy to EC2
+name: Deploy frontend to EC2
 
 on:
     push:
         branches: [master]
-    pull_request:
-        branches: [master]
+    workflow_dispatch:
 
 jobs:
     build:
@@ -36,6 +35,6 @@ jobs:
               with:
                   SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY}}
                   SOURCE: 'dist/architecture-map-frontend/'
-                  REMOTE_HOST: ${{ secrets.REMOTE_HOST}}
-                  REMOTE_USER: ${{ secrets.REMOTE_USER}}
+                  REMOTE_HOST: ${{ vars.REMOTE_HOST}}
+                  REMOTE_USER: ${{ vars.REMOTE_USER}}
                   TARGET: '/opt/architecture-map-belarus/front/'
