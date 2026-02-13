@@ -14,12 +14,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { SimilarConstructionComponent } from './features/construction/components/similar-construction/similar-construction.component'
 import { ConstructionImageMasonryComponent } from './shared/construction-image-masonry/construction-image-masonry.component'
-import { ArchitectComponent } from './features/construction/components/architect/architect.component'
-import { ArchitecturalStyleLinkComponent } from './features/construction/components/architectural-style/components/architectural-style-link/architectural-style-link.component'
-import { ArchitecturalStyleComponent } from './features/construction/components/architectural-style/architectural-style.component'
-import { ArchitectLinkComponent } from './features/construction/components/architect/components/architect-link/architect-link.component'
+import { ConstructionArchitectComponent } from './features/construction/components/construction-architect/construction-architect.component'
+import { ArchitecturalStyleLinkComponent } from './features/construction/components/construction-architectural-style/components/architectural-style-link/architectural-style-link.component'
+import { ConstructionArchitecturalStyleComponent } from './features/construction/components/construction-architectural-style/construction-architectural-style.component'
+import { ArchitectLinkComponent } from './features/construction/components/construction-architect/components/architect-link/architect-link.component'
 import { ArchitecturalStylesComponent } from './features/architectural-styles/architectural-styles.component'
-import { SourceListComponent } from './features/source-list/source-list.component'
+import { SourcesComponent } from './features/sources/sources.component'
 import { ArchitectsComponent } from './features/architects/architects.component'
 import { ContactsComponent } from './features/contacts/contacts.component'
 import { NavComponent } from './core/components/nav/nav.component'
@@ -28,7 +28,7 @@ import { PageNotFoundComponent } from './core/components/page-not-found/page-not
 import { CustomPageTitleStrategy } from './core/services/custom-page-title-strategy'
 import { ConstructionTitleResolver } from './core/services/construction-page-title-resolve'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
-import { SearchingWithFiltersComponent } from './features/searching-with-filters/searching-with-filters.component'
+import { SearchingComponent } from './features/searching/searching.component'
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core'
 import { translateHttpLoaderFactory } from './core/i18n/translate-loader.factory'
 
@@ -36,10 +36,10 @@ const appRoutes: Routes = [
     { path: '', component: HomeComponent, title: 'Architecture Map' },
     { path: 'constructions/:constructionId/:imageId', component: ConstructionComponent, title: ConstructionTitleResolver },
     { path: 'constructions/:constructionId', component: ConstructionComponent, title: ConstructionTitleResolver },
-    { path: 'architectural-styles/:id', component: ArchitecturalStyleComponent },
-    { path: 'architects/:id', component: ArchitectComponent },
+    { path: 'architectural-styles/:id', component: ConstructionArchitecturalStyleComponent },
+    { path: 'architects/:id', component: ConstructionArchitectComponent },
     { path: 'architectural-styles', component: ArchitecturalStylesComponent, title: 'Архітэктурныя стылі' },
-    { path: 'sources', component: SourceListComponent, title: 'Крыніцы' },
+    { path: 'sources', component: SourcesComponent, title: 'Крыніцы' },
     { path: 'architects', component: ArchitectsComponent, title: 'Архітэктары' },
     { path: 'contacts', component: ContactsComponent, title: 'Адваротная сувязь' },
     { path: '**', component: PageNotFoundComponent, title: 'Старонка не знойдзена' },
@@ -52,17 +52,17 @@ const appRoutes: Routes = [
         HomeComponent,
         SimilarConstructionComponent,
         ConstructionImageMasonryComponent,
-        ArchitectComponent,
+        ConstructionArchitectComponent,
         ArchitecturalStyleLinkComponent,
-        ArchitecturalStyleComponent,
+        ConstructionArchitecturalStyleComponent,
         ArchitectLinkComponent,
         ArchitecturalStylesComponent,
-        SourceListComponent,
+        SourcesComponent,
         ArchitectsComponent,
         ContactsComponent,
         NavComponent,
         PageNotFoundComponent,
-        SearchingWithFiltersComponent,
+        SearchingComponent,
     ],
     bootstrap: [AppComponent],
     imports: [

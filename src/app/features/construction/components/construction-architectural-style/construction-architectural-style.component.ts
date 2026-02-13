@@ -6,11 +6,11 @@ import { ArchitecturalStyle } from '../../../../core/models/architecturalStyle'
 import { ARCHITECTURAL_STYLES_URL } from '../../../../core/constants/URL'
 
 @Component({
-    selector: 'app-architectural-style',
-    templateUrl: './architectural-style.component.html',
-    styleUrls: ['./architectural-style.component.css'],
+    selector: 'app-construction-architectural-style',
+    templateUrl: './construction-architectural-style.component.html',
+    styleUrls: ['./construction-architectural-style.component.css'],
 })
-export class ArchitecturalStyleComponent {
+export class ConstructionArchitecturalStyleComponent {
     public architecturalStyle!: ArchitecturalStyle
 
     constructor(

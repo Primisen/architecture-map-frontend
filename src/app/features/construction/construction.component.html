@@ -1,55 +1,47 @@
 <div class="content">
+    <div class="construction-info">
+        <div class="common-info">
+            <!-- <app-architectural-style-link [architecturalStyle]="construction.architecturalStyle" /> -->
 
-  <div class="construction-info">
+            <h1>{{ construction.name }}</h1>
+            <p class="address">{{ construction.address.region }}</p>
+            <p class="address">{{ construction.address.district }}</p>
+            <p class="address">{{ construction.address.locality }}</p>
+            <p class="address">{{ construction.address.street }}</p>
+            <p class="address">{{ construction.address.houseNumber }}</p>
 
-    <div class="common-info">
+            <div *ngIf="construction.buildingDate.length; then buildingTime; else noBuildingTime"></div>
+            <ng-template #buildingTime>
+                <p class="building-time">Час пабудовы: {{ construction.buildingDate }}</p>
+            </ng-template>
+            <ng-template #noBuildingTime> </ng-template>
 
-      <app-architectural-style-link [architecturalStyle]="construction.architecturalStyle" />
+            <div *ngIf="construction.architects.length; then architects; else noArchitects"></div>
+            <ng-template #architects>
+                <p>Архітэктары:</p>
+                <div *ngFor="let architect of construction.architects">
+                    <app-architect-link [architect]="architect" />
+                </div>
+            </ng-template>
 
-      <h1>{{construction.name}}</h1>
-      <p class="address">{{construction.address.region}}</p>
-      <p class="address">{{construction.address.district}}</p>
-      <p class="address">{{construction.address.locality}}</p>
-      <p class="address">{{construction.address.street}}</p>
-      <p class="address">{{construction.address.houseNumber}}</p>
-
-      <div *ngIf="construction.buildingDate.length; then buildingTime else noBuildingTime">
-      </div>
-      <ng-template #buildingTime>
-        <p class="building-time">Час пабудовы: {{construction.buildingDate}}</p>
-      </ng-template>
-      <ng-template #noBuildingTime>
-      </ng-template>
-
-      <div *ngIf="construction.architects.length; then architects else noArchitects">
-      </div>
-      <ng-template #architects>
-        <p>Архітэктары:</p>
-        <div *ngFor="let architect of construction.architects">
-          <app-architect-link [architect]="architect" />
+            <ng-template #noArchitects> </ng-template>
         </div>
-      </ng-template>
-
-      <ng-template #noArchitects>
-      </ng-template>
     </div>
 
-  </div>
+    <div class="gallery">
+        <lightgallery [settings]="settings" [onInit]="onInit">
+            <a *ngFor="let item of construction.images" class="gallery-item" [attr.href]="item.url" data-sub-html="#source">
+                <div id="source" style="display: none">
+                    <h4>
+                        Крыніца здымку - <a href="{{ item.source.url }}"> {{ item.source.name }}</a>
+                    </h4>
+                </div>
+                <img class="img-responsive" src="{{ item.url }}" />
+            </a>
+        </lightgallery>
+    </div>
 
-  <div class="gallery">
-    <lightgallery [settings]="settings" [onInit]="onInit">
-      <a *ngFor="let item of construction.images" class="gallery-item" [attr.href]="item.url" data-sub-html="#source">
+    <p class="description">{{ construction.description }}</p>
 
-        <div id="source" style="display:none">
-          <h4>Крыніца здымку - <a href='{{item.source.url}}'> {{item.source.name}}</a></h4>
-        </div>
-        <img class="img-responsive" src="{{ item.url }}" />
-     
-      </a>
-    </lightgallery>
-  </div>
-
-  <p class="description">{{construction.description}}</p>
-
-  <app-similar-construction [constructionId]="construction.id" />
+    <app-similar-construction [constructionId]="construction.id" />
 </div>

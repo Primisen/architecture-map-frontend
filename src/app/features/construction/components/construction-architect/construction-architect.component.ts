@@ -6,11 +6,11 @@ import { Observable } from 'rxjs'
 import { ARCHITECTS_URL } from '../../../../core/constants/URL'
 
 @Component({
-    selector: 'app-architect',
-    templateUrl: './architect.component.html',
-    styleUrls: ['./architect.component.css'],
+    selector: 'app-construction-architect',
+    templateUrl: './construction-architect.component.html',
+    styleUrls: ['./construction-architect.component.css'],
 })
-export class ArchitectComponent {
+export class ConstructionArchitectComponent {
     public architect!: Architect
 
     constructor(
