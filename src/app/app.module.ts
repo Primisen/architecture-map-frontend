@@ -18,7 +18,7 @@ import { ArchitectComponent } from './features/construction/components/architect
 import { ArchitecturalStyleLinkComponent } from './features/construction/components/architectural-style/components/architectural-style-link/architectural-style-link.component'
 import { ArchitecturalStyleComponent } from './features/construction/components/architectural-style/architectural-style.component'
 import { ArchitectLinkComponent } from './features/construction/components/architect/components/architect-link/architect-link.component'
-import { ArchitecturalStyleListComponent } from './features/architectural-style-list/architectural-style-list.component'
+import { ArchitecturalStylesComponent } from './features/architectural-styles/architectural-styles.component'
 import { SourceListComponent } from './features/source-list/source-list.component'
 import { ArchitectsComponent } from './features/architects/architects.component'
 import { ContactsComponent } from './features/contacts/contacts.component'
@@ -38,7 +38,7 @@ const appRoutes: Routes = [
     { path: 'constructions/:constructionId', component: ConstructionComponent, title: ConstructionTitleResolver },
     { path: 'architectural-styles/:id', component: ArchitecturalStyleComponent },
     { path: 'architects/:id', component: ArchitectComponent },
-    { path: 'architectural-styles', component: ArchitecturalStyleListComponent, title: 'Архітэктурныя стылі' },
+    { path: 'architectural-styles', component: ArchitecturalStylesComponent, title: 'Архітэктурныя стылі' },
     { path: 'sources', component: SourceListComponent, title: 'Крыніцы' },
     { path: 'architects', component: ArchitectsComponent, title: 'Архітэктары' },
     { path: 'contacts', component: ContactsComponent, title: 'Адваротная сувязь' },
@@ -56,7 +56,7 @@ const appRoutes: Routes = [
         ArchitecturalStyleLinkComponent,
         ArchitecturalStyleComponent,
         ArchitectLinkComponent,
-        ArchitecturalStyleListComponent,
+        ArchitecturalStylesComponent,
         SourceListComponent,
         ArchitectsComponent,
         ContactsComponent,

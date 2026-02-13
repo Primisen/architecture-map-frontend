@@ -5,7 +5,7 @@ import { Architect } from '../../core/models/architect'
 import { ARCHITECTS_URL } from '../../core/constants/URL'
 
 @Component({
-    selector: 'app-architect-list',
+    selector: 'app-architects',
     templateUrl: './architects.component.html',
     styleUrls: ['./architects.component.css'],
 })
