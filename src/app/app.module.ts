@@ -12,15 +12,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgxGalleryModule } from '@rybos/ngx-gallery'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
-import { SimilarConstructionComponent } from './features/similar-construction/similar-construction.component'
+import { SimilarConstructionComponent } from './features/construction/components/similar-construction/similar-construction.component'
 import { ConstructionImageMasonryComponent } from './shared/construction-image-masonry/construction-image-masonry.component'
-import { ArchitectComponent } from './features/architect/architect.component'
-import { ArchitecturalStyleLinkComponent } from './features/architectural-style-link/architectural-style-link.component'
-import { ArchitecturalStyleComponent } from './features/architectural-style/architectural-style.component'
-import { ArchitectLinkComponent } from './features/architect-link/architect-link.component'
+import { ArchitectComponent } from './features/construction/components/architect/architect.component'
+import { ArchitecturalStyleLinkComponent } from './features/construction/components/architectural-style/components/architectural-style-link/architectural-style-link.component'
+import { ArchitecturalStyleComponent } from './features/construction/components/architectural-style/architectural-style.component'
+import { ArchitectLinkComponent } from './features/construction/components/architect/components/architect-link/architect-link.component'
 import { ArchitecturalStyleListComponent } from './features/architectural-style-list/architectural-style-list.component'
 import { SourceListComponent } from './features/source-list/source-list.component'
-import { ArchitectListComponent } from './features/architect-list/architect-list.component'
+import { ArchitectsComponent } from './features/architects/architects.component'
 import { ContactsComponent } from './features/contacts/contacts.component'
 import { NavComponent } from './core/components/nav/nav.component'
 import { LightgalleryModule } from 'lightgallery/angular'
@@ -40,7 +40,7 @@ const appRoutes: Routes = [
     { path: 'architects/:id', component: ArchitectComponent },
     { path: 'architectural-styles', component: ArchitecturalStyleListComponent, title: 'Архітэктурныя стылі' },
     { path: 'sources', component: SourceListComponent, title: 'Крыніцы' },
-    { path: 'architects', component: ArchitectListComponent, title: 'Архітэктары' },
+    { path: 'architects', component: ArchitectsComponent, title: 'Архітэктары' },
     { path: 'contacts', component: ContactsComponent, title: 'Адваротная сувязь' },
     { path: '**', component: PageNotFoundComponent, title: 'Старонка не знойдзена' },
 ]
@@ -58,7 +58,7 @@ const appRoutes: Routes = [
         ArchitectLinkComponent,
         ArchitecturalStyleListComponent,
         SourceListComponent,
-        ArchitectListComponent,
+        ArchitectsComponent,
         ContactsComponent,
         NavComponent,
         PageNotFoundComponent,
