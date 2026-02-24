@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, inject } from '@angular/core'
 import { Architect } from '../../../../core/models/architect'
 import { ActivatedRoute } from '@angular/router'
 import { HttpClient } from '@angular/common/http'
@@ -12,11 +12,10 @@ import { ARCHITECTS_URL } from '../../../../core/constants/URL'
 })
 export class ConstructionArchitectComponent {
     public architect!: Architect
+    private activatedRoute = inject(ActivatedRoute)
+    private httpClient = inject(HttpClient)
 
-    constructor(
-        private activatedRoute: ActivatedRoute,
-        private httpClient: HttpClient,
-    ) {
+    constructor() {
         const id = this.activatedRoute.snapshot.params['id']
         this.getArchitecturalStyle(id)
     }

@@ -1,21 +1,22 @@
-<div class="container p-5 flex flex-wrap items-center justify-center ">
+<div class="container p-5 flex flex-wrap items-center justify-center">
     <div>
         <ul class="max-w-2xl divide-y divide-gray-200 dark:divide-gray-700">
-            <li class="py-3 sm:py-4" *ngFor="let source of sources">
-                <div class="flex items-center space-x-4 rtl:space-x-reverse">
-                    <div class="flex-1 min-w-full">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            <a role="button" href={{source.url}}>
-                                {{source.name}}
-                            </a>
-                        </p>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
-                            {{source.description}}
-                            
-                        </p>
+            @for (source of sources; track source.id) {
+                <li class="py-3 sm:py-4">
+                    <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                        <div class="flex-1 min-w-full">
+                            <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                <a role="button" href="{{ source.url }}">
+                                    {{ source.name }}
+                                </a>
+                            </p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                                {{ source.description }}
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>
+            }
         </ul>
 
         <!-- <div class="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">
@@ -27,6 +28,5 @@
                 </a>
             </nav>
         </div> -->
-        
     </div>
 </div>

@@ -1,27 +1,26 @@
-import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, RouterStateSnapshot } from "@angular/router";
-import { Observable, of, switchMap } from "rxjs";
-import { ConstructionService } from "./construction/construction.service";
-import { Construction } from "../models/construction";
+import { inject, Injectable } from '@angular/core'
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router'
+import { Observable, of, switchMap } from 'rxjs'
+import { ConstructionService } from './construction/construction.service'
+import { Construction } from '../models/construction'
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
-export class ConstructionTitleResolver  {
+export class ConstructionTitleResolver {
+    private constructionService = inject(ConstructionService)
 
-  constructor(private constructionService: ConstructionService) {}
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): string | Observable<string> | Promise<string> {
+        const constructionId = route.paramMap.get('constructionId')
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): string | Observable<string> | Promise<string> {
-    const constructionId = route.paramMap.get('constructionId');
+        if (!constructionId) {
+            return of('Канструкцыі')
+        }
 
-    if (!constructionId) {
-      return of('Канструкцыі');
+        return this.constructionService.getConstruction(constructionId).pipe(
+            switchMap((constructionData: Construction) => {
+                return of(constructionData.name)
+            }),
+        )
     }
-
-    return this.constructionService.getConstruction(constructionId).pipe(
-      switchMap((constructionData: Construction) => {
-        return of(constructionData.name);
-      })
-    );
-  }
 }

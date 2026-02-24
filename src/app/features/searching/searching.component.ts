@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http'
-import { Component, EventEmitter, Output } from '@angular/core'
+import { Component, EventEmitter, inject, Output } from '@angular/core'
 import { FormControl, FormGroup } from '@angular/forms'
 import { Observable } from 'rxjs/internal/Observable'
 import { ARCHITECTURAL_STYLES_URL, SEARCH_CONSTRUCTIONS_URL } from 'src/app/core/constants/URL'
@@ -20,13 +20,13 @@ export class SearchingComponent {
 
     foundConstructions: Construction[] = []
 
-    searchQuery: string = ''
-    selectedRegion: string = ''
-    selectedDistrict: string = ''
-    centuryFrom: string = ''
-    centuryTo: string = ''
+    searchQuery = ''
+    selectedRegion = ''
+    selectedDistrict = ''
+    centuryFrom = ''
+    centuryTo = ''
 
-    regions: { [key in 'Мінская вобласць' | 'Брэсцкая вобласць' | 'Гомельская вобласць' | 'Віцебская вобласць' | 'Гродзенская вобласць' | 'Магілёўская вобласць']: string[] } = {
+    regions: Record<'Мінская вобласць' | 'Брэсцкая вобласць' | 'Гомельская вобласць' | 'Віцебская вобласць' | 'Гродзенская вобласць' | 'Магілёўская вобласць', string[]> = {
         'Мінская вобласць': [
             'Барысаўскі раён',
             'Бярэзінскі раён',
@@ -161,7 +161,9 @@ export class SearchingComponent {
 
     districts: string[] = []
 
-    constructor(private httpClient: HttpClient) {
+    private httpClient = inject(HttpClient)
+
+    constructor() {
         this.getArchitecturalStyles()
     }
 

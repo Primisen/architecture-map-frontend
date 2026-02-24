@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http'
-import { Component } from '@angular/core'
+import { Component, inject } from '@angular/core'
 import { Observable } from 'rxjs'
 import { ARCHITECTURAL_STYLES_URL } from '../../core/constants/URL'
 import { ArchitecturalStyle } from '../../core/models/architecturalStyle'
@@ -12,8 +12,9 @@ import { ArchitecturalStyle } from '../../core/models/architecturalStyle'
 export class ArchitecturalStylesComponent {
     architecturalStyles: ArchitecturalStyle[] = []
     private architecturalStylesUrl = ARCHITECTURAL_STYLES_URL
+    private httpClient = inject(HttpClient)
 
-    constructor(private httpClient: HttpClient) {
+    constructor() {
         this.getArchitecturalStyles()
     }
 

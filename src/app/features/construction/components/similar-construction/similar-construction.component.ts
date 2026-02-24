@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, inject, Input, OnInit } from '@angular/core'
 import { Observable } from 'rxjs'
 import { HttpClient } from '@angular/common/http'
 import { GET_SIMILAR_CONSTRUCTION_IMAGES_URL } from '../../../../core/constants/URL'
@@ -10,11 +10,10 @@ import { ConstructionImage } from '../../../../core/models/constructionImage'
     styleUrls: ['./similar-construction.component.css'],
 })
 export class SimilarConstructionComponent implements OnInit {
-    @Input() constructionId: number = 0
+    @Input() constructionId = 0
     similarConstructionImages: ConstructionImage[] = []
     loading = true
-
-    constructor(private httpClient: HttpClient) {}
+    private httpClient = inject(HttpClient)
 
     ngOnInit() {
         this.findSimilarConstructions(this.constructionId)

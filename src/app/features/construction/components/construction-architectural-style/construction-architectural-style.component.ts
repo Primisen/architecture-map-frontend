@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http'
-import { Component } from '@angular/core'
+import { Component, inject } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { Observable } from 'rxjs'
 import { ArchitecturalStyle } from '../../../../core/models/architecturalStyle'
@@ -12,11 +12,10 @@ import { ARCHITECTURAL_STYLES_URL } from '../../../../core/constants/URL'
 })
 export class ConstructionArchitecturalStyleComponent {
     public architecturalStyle!: ArchitecturalStyle
+    private activatedRoute = inject(ActivatedRoute)
+    private httpClient = inject(HttpClient)
 
-    constructor(
-        private activatedRoute: ActivatedRoute,
-        private httpClient: HttpClient,
-    ) {
+    constructor() {
         const id = this.activatedRoute.snapshot.params['id']
         this.getArchitecturalStyle(id)
     }

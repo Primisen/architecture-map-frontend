@@ -1,104 +1,110 @@
 <div class="mx-auto p-4 max-w-4xl">
     <div class="border border-gray-300 rounded-lg shadow-md divide-y divide-gray-200 w-full">
-      
-      <form [formGroup]="searchConstructionForm" (submit)="search()">
-        <details class="group">
-        <summary class="flex justify-between items-center p-4 cursor-pointer list-none bg-gray-50 rounded-t-lg">
-          <!-- <h3 class="text-xl font-semibold text-gray-800">Пошук з параметрамі</h3> -->
-          <h3 class="text-xl font-semibold text-gray-800 text-uppercase slogo">Пашыраны пошук</h3>
-          <span class="transform transition-transform duration-300 group-open:rotate-180 text-gray-600">▼</span>
-        </summary>
-        <div class="p-4 space-y-6">
-          <div>
-            <label for="searchStyle" class="block text-sm font-medium text-gray-700 mb-2">Пошук па архітэктурным стылі:</label>
-            <!-- <input
+        <form [formGroup]="searchConstructionForm" (submit)="search()">
+            <details class="group">
+                <summary class="flex justify-between items-center p-4 cursor-pointer list-none bg-gray-50 rounded-t-lg">
+                    <!-- <h3 class="text-xl font-semibold text-gray-800">Пошук з параметрамі</h3> -->
+                    <h3 class="text-xl font-semibold text-gray-800 text-uppercase slogo">Пашыраны пошук</h3>
+                    <span class="transform transition-transform duration-300 group-open:rotate-180 text-gray-600">▼</span>
+                </summary>
+                <div class="p-4 space-y-6">
+                    <div>
+                        <label for="searchStyle" class="block text-sm font-medium text-gray-700 mb-2">Пошук па архітэктурным стылі:</label>
+                        <!-- <input
               type="text"
               id="searchStyle"
               placeholder="Увядзіце назву стылю"
               class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
             /> -->
-            <select
-            id="searchStyle"
-            formControlName="architecturalStyleId"
-            class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-          >
-            <option value="">Выберыце архітэктурны стыль</option>
-            <option *ngFor="let architecturalStyle of architecturalStyles" [value]="architecturalStyle.id">
-              {{ architecturalStyle.name }}
-            </option>
-          </select>
-          </div>
-          
-          <div>
-            <label for="regionSelect" class="block text-sm font-medium text-gray-700 mb-2">Вобласць:</label>
-            <select
-              id="regionSelect"
-              formControlName="region"
-              class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              (change)="updateDistricts($event)"
-            >
-              <option value="">Выберыце вобласць</option>
-              <option value="Брэсцкая вобласць">Брэсцкая вобласць</option>
-              <option value="Віцебская вобласць">Віцебская вобласць</option>
-              <option value="Гомельская вобласць">Гомельская вобласць</option>
-              <option value="Гродзенская вобласць">Гродзенская вобласць</option>
-              <option value="Магілёўская вобласць">Магілёўская вобласць</option>
-              <option value="Мінская вобласць">Мінская вобласць</option>
-            </select>
-          </div>
-  
-          <div *ngIf="districts.length > 0">
-            <label for="districtSelect" class="block text-sm font-medium text-gray-700 mb-2">Раён:</label>
-            <select
-              id="districtSelect"
-              formControlName="district"
-              class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-            >
-              <option value="">Выберыце раён</option>
-              <option *ngFor="let district of districts" [value]="district">
-                {{ district }}
-              </option>
-            </select>
-          </div>
-  
-          <div class="flex gap-4">
-            <div class="flex-1">
-              <label for="yearFrom" class="block text-sm font-medium text-gray-700 mb-2">Стагоддзе ад:</label>
-              <input
-                id="yearFrom"
-                type="text"
-                formControlName="buildingCenturyFrom"
-                (input)="validateCentury($event)"
-                placeholder="Напрыклад, 11"
-                class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              />
-            </div>
-  
-            <div class="flex-1">
-              <label for="yearTo" class="block text-sm font-medium text-gray-700 mb-2">Стагоддзе па:</label>
-              <input
-                id="yearTo"
-                type="text"
-                formControlName="buildingCenturyTo"
-                (input)="validateCentury($event)"
-                placeholder="Напрыклад, 17"
-                class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              />
-            </div>
-          </div>
-  
-          <!-- Кнопка "Шукаць" -->
-          <div class="flex justify-center mt-4">
-            <button
-              type="submit"
-              class="px-6 py-2 bg-zinc-600 text-white font-semibold rounded-md shadow-sm hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
-            >
-              Шукаць
-            </button>
-          </div>
-        </div>
-      </details>
-      </form>
+                        <select
+                            id="searchStyle"
+                            formControlName="architecturalStyleId"
+                            class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                        >
+                            <option value="">Выберыце архітэктурны стыль</option>
+
+                            @for (architecturalStyle of architecturalStyles; track architecturalStyle.id) {
+                                <option [value]="architecturalStyle.id">
+                                    {{ architecturalStyle.name }}
+                                </option>
+                            }
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="regionSelect" class="block text-sm font-medium text-gray-700 mb-2">Вобласць:</label>
+                        <select
+                            id="regionSelect"
+                            formControlName="region"
+                            class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            (change)="updateDistricts($event)"
+                        >
+                            <option value="">Выберыце вобласць</option>
+                            <option value="Брэсцкая вобласць">Брэсцкая вобласць</option>
+                            <option value="Віцебская вобласць">Віцебская вобласць</option>
+                            <option value="Гомельская вобласць">Гомельская вобласць</option>
+                            <option value="Гродзенская вобласць">Гродзенская вобласць</option>
+                            <option value="Магілёўская вобласць">Магілёўская вобласць</option>
+                            <option value="Мінская вобласць">Мінская вобласць</option>
+                        </select>
+                    </div>
+
+                    @if (districts.length > 0) {
+                        <div>
+                            <label for="districtSelect" class="block text-sm font-medium text-gray-700 mb-2">Раён:</label>
+                            <select
+                                id="districtSelect"
+                                formControlName="district"
+                                class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            >
+                                <option value="">Выберыце раён</option>
+
+                                @for (district of districts; track district) {
+                                    <option [value]="district">
+                                        {{ district }}
+                                    </option>
+                                }
+                            </select>
+                        </div>
+                    }
+
+                    <div class="flex gap-4">
+                        <div class="flex-1">
+                            <label for="yearFrom" class="block text-sm font-medium text-gray-700 mb-2">Стагоддзе ад:</label>
+                            <input
+                                id="yearFrom"
+                                type="text"
+                                formControlName="buildingCenturyFrom"
+                                (input)="validateCentury($event)"
+                                placeholder="Напрыклад, 11"
+                                class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            />
+                        </div>
+
+                        <div class="flex-1">
+                            <label for="yearTo" class="block text-sm font-medium text-gray-700 mb-2">Стагоддзе па:</label>
+                            <input
+                                id="yearTo"
+                                type="text"
+                                formControlName="buildingCenturyTo"
+                                (input)="validateCentury($event)"
+                                placeholder="Напрыклад, 17"
+                                class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Кнопка "Шукаць" -->
+                    <div class="flex justify-center mt-4">
+                        <button
+                            type="submit"
+                            class="px-6 py-2 bg-zinc-600 text-white font-semibold rounded-md shadow-sm hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+                        >
+                            Шукаць
+                        </button>
+                    </div>
+                </div>
+            </details>
+        </form>
     </div>
-  </div>
-  
+</div>

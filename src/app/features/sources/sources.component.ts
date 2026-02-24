@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, inject } from '@angular/core'
 import { Source } from '../../core/models/source'
 import { SOURCES_URL } from '../../core/constants/URL'
 import { HttpClient } from '@angular/common/http'
@@ -12,8 +12,9 @@ import { Observable } from 'rxjs'
 export class SourcesComponent {
     sources: Source[] = []
     private sourcesUrl = SOURCES_URL
+    private httpClient = inject(HttpClient)
 
-    constructor(private httpClient: HttpClient) {
+    constructor() {
         this.getSources()
     }
 
