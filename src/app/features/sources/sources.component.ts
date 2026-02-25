@@ -17,7 +17,7 @@ export class SourcesComponent implements OnInit {
     }
 
     private loadSources() {
-        this.apiService.get<Source[]>(SOURCES_URL).subscribe(sources => {
+        this.apiService.get<Source[]>(SOURCES_URL).subscribe((sources) => {
             this.sources.set(sources.sort((a, b) => a.name.localeCompare(b.name)))
         })
     }

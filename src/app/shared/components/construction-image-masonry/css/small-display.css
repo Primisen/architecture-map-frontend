@@ -1,88 +1,86 @@
-@media screen and (max-width:1000px) {
+@media screen and (max-width: 1000px) {
+    ngx-masonry {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
 
-	ngx-masonry {
-		background-color: rgba(0, 0, 0, 0.2);
-	}
+    .masonry-item {
+        width: 100%;
+        margin-top: 5%;
+    }
 
-	.masonry-item {
-		width: 100%;
-		margin-top: 5%;
-	}
+    img {
+        filter: brightness(50%);
+        box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    }
 
-	img {
-		filter: brightness(50%);
-		box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-	}
+    .building-architect-style {
+        position: absolute;
+        width: 100%;
+        top: 4%;
+        color: #f8f8f8;
+        font-family: 'Raleway', sans-serif;
+        font-size: 15px;
+        font-weight: 300;
+        letter-spacing: 5px;
+        line-height: 32px;
+        text-align: center;
+        z-index: 5000;
+        text-transform: uppercase;
+    }
 
-	.building-architect-style {
-		position: absolute;
-		width: 100%;
-		top: 4%;
-		color: #f8f8f8;
-		font-family: 'Raleway', sans-serif;
-		font-size: 15px;
-		font-weight: 300;
-		letter-spacing: 5px;
-		line-height: 32px;
-		text-align: center;
-		z-index: 5000;
-		text-transform: uppercase;
-	}
+    .building-name {
+        visibility: hidden;
+        position: absolute;
+        top: 4%;
+    }
 
-	.building-name {
-		visibility: hidden;
-		position: absolute;
-		top: 4%;
-	}
+    .building-address {
+        position: absolute;
+        width: 100%;
+        bottom: 15%;
+        z-index: 4000;
+        color: #eee;
+        font-family: 'Raleway', sans-serif;
+        font-size: 15px;
+        font-weight: 300;
+        letter-spacing: 4px;
+        text-align: left;
+        text-transform: uppercase;
+        text-align: center;
+    }
 
-	.building-address{
-		position: absolute;
-		width: 100%;
-		bottom: 15%;
-		z-index: 4000;
-		color: #eee;
-		font-family: 'Raleway', sans-serif;
-		font-size: 15px;
-		font-weight: 300;
-		letter-spacing: 4px;
-		text-align: left;
-		text-transform: uppercase;
-		text-align: center;
-	}
+    .building-address p {
+        margin: 0;
+        text-align: center;
+    }
 
-	.building-address p {
-		margin: 0;
-		text-align: center;
-	}
+    .building-address .district {
+        /* visibility: hidden; */
+        display: none;
+    }
 
-	.building-address .district {
-		/* visibility: hidden; */
-		display: none;
-	}
+    .building-address .locality {
+        /* visibility: hidden; */
+        display: none;
+    }
 
-	.building-address .locality {
-		/* visibility: hidden; */
-		display: none;
-	}
+    .source-link {
+        position: absolute;
+        width: 100%;
+        bottom: 5%;
+        text-align: center;
+        text-decoration: none;
+        color: #eee;
+        font-family: 'Raleway', sans-serif;
+        font-size: 10px;
+        line-height: 12px;
+        font-weight: 300;
+        letter-spacing: 2px;
+        text-align: center;
+        z-index: 4000;
+    }
 
-	.source-link {
-		position: absolute;
-		width: 100%;
-		bottom: 5%;
-		text-align: center;
-		text-decoration: none;
-		color: #eee;
-		font-family: "Raleway", sans-serif;
-		font-size: 10px;
-		line-height: 12px;
-		font-weight: 300;
-		letter-spacing: 2px;
-		text-align: center;
-		z-index: 4000;
-	}
-
-	.author {
-		visibility: hidden;
-	}
-
+    .author {
+        visibility: hidden;
+    }
 }

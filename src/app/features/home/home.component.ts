@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
     parseFromConstructionToConstructionImages(findedConstructions: Construction[]): ConstructionImage[] {
         const constructionImages: ConstructionImage[] = []
 
-        findedConstructions.forEach(construction => {
+        findedConstructions.forEach((construction) => {
             const image: ConstructionImage = {
                 id: construction.images[0].id,
                 url: construction.images[0].url,
@@ -65,16 +65,18 @@ export class HomeComponent implements OnInit {
 
     getRandomConstructionImages() {
         this.loading = true
-        this.apiService.getWithParams(this.url, this.param).subscribe((randomConstructionImages: ConstructionImage[]) => {
-            this.loading = true
+        this.apiService
+            .getWithParams(this.url, this.param)
+            .subscribe((randomConstructionImages: ConstructionImage[]) => {
+                this.loading = true
 
-            this.constructionImages.push(...randomConstructionImages)
+                this.constructionImages.push(...randomConstructionImages)
 
-            this.gotImagesId = randomConstructionImages.map(image => image.id)
+                this.gotImagesId = randomConstructionImages.map((image) => image.id)
 
-            this.param = new HttpParams({ fromObject: { usedId: this.gotImagesId } })
-            this.loading = false
-        })
+                this.param = new HttpParams({ fromObject: { usedId: this.gotImagesId } })
+                this.loading = false
+            })
     }
 
     onScroll(): void {

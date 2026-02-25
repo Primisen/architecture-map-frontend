@@ -1,5 +1,4 @@
 @media screen and (min-width: 1000px) {
-
     .content {
         padding-top: 8rem;
         margin-left: 20%;
@@ -10,7 +9,7 @@
         width: 100%;
         column-width: 40em;
     }
-    
+
     .gallery-item {
         margin-top: 0.5em;
         display: inline-block;
@@ -36,7 +35,6 @@
         line-height: 60px;
         letter-spacing: 5px;
     }
-
 
     .description {
         margin-top: 4%;

@@ -17,7 +17,7 @@ export class ArchitecturalStylesComponent implements OnInit {
     }
 
     private loadArchitecturalStyles() {
-        this.apiService.get<ArchitecturalStyle[]>(ARCHITECTURAL_STYLES_URL).subscribe(architecturalStyles => {
+        this.apiService.get<ArchitecturalStyle[]>(ARCHITECTURAL_STYLES_URL).subscribe((architecturalStyles) => {
             this.architecturalStyles.set(architecturalStyles.sort((a, b) => a.name.localeCompare(b.name)))
         })
     }

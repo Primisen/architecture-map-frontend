@@ -1,99 +1,98 @@
 @media screen and (min-width: 1000px) {
+    .masonry-item {
+        width: 31.5%;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
 
-	.masonry-item {
-		width: 31.5%;
-		margin-top: 10px;
-		margin-left: 10px;
-	}
+    /* .foggin*/
+    .foggin:hover {
+        display: block;
+    }
 
-	/* .foggin*/
-	.foggin:hover {
-		display: block;
-	}
+    .foggin:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+    }
 
-	.foggin:after {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		background: rgba(0, 0, 0, .7);
-		opacity: 0;
-	}
+    .foggin:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+    }
 
-	.foggin:before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		opacity: 0;
-	}
+    .foggin:hover:before,
+    .foggin:hover:after {
+        opacity: 1;
+    }
 
-	.foggin:hover:before,
-	.foggin:hover:after {
-		opacity: 1;
-	}
+    /* .foggin end*/
 
-	/* .foggin end*/
+    /* architectural-style */
+    .building-architect-style {
+        position: absolute;
+        width: 100%;
+        left: 6%;
+        top: 4%;
+        opacity: 0;
+        z-index: 4000;
+        color: #f8f8f8;
+        font-family: 'Raleway', sans-serif;
+        font-size: 15px;
+        font-weight: 300;
+        letter-spacing: 5px;
+        line-height: 32px;
+        margin: 0 0 24px;
+        text-transform: uppercase;
+    }
 
-	/* architectural-style */
-	.building-architect-style {
-		position: absolute;
-		width: 100%;
-		left: 6%;
-		top: 4%;
-		opacity: 0;
-		z-index: 4000;
-		color: #f8f8f8;
-		font-family: 'Raleway', sans-serif;
-		font-size: 15px;
-		font-weight: 300;
-		letter-spacing: 5px;
-		line-height: 32px;
-		margin: 0 0 24px;
-		text-transform: uppercase;
-	}
+    .foggin:hover .building-architect-style {
+        opacity: 1;
+    }
 
-	.foggin:hover .building-architect-style {
-		opacity: 1;
-	}
+    /* architectural-style end */
 
-	/* architectural-style end */
+    /* building-name */
+    .building-name {
+        position: absolute;
+        width: 90%;
+        left: 6%;
+        bottom: 50%;
+        opacity: 0;
+        z-index: 4000;
+        color: #ffffff;
+        font-family: 'Raleway', sans-serif;
+        font-size: calc(0.9em + 0.4vw);
+        font-weight: 1600;
+        line-height: 35px;
+        margin: 0 0 24px;
+        text-align: left;
+        text-transform: uppercase;
+    }
 
-	/* building-name */
-	.building-name {
-		position: absolute;
-		width: 90%;
-		left: 6%;
-		bottom: 50%;
-		opacity: 0;
-		z-index: 4000;
-		color: #ffffff;
-		font-family: 'Raleway', sans-serif;
-		font-size: calc(0.9em + 0.4vw);
-		font-weight: 1600;
-		line-height: 35px;
-		margin: 0 0 24px;
-		text-align: left;
-		text-transform: uppercase;
-	}
+    .building-name span {
+        font-size: 15px;
+    }
 
-	.building-name span {
-		font-size: 15px;
-	}
+    .foggin:hover .building-name {
+        opacity: 1;
+    }
 
-	.foggin:hover .building-name {
-		opacity: 1;
-	}
+    /* building name end */
 
-	/* building name end */
-
-	/* building-address */
-	.building-address {
-		/* position: absolute;
+    /* building-address */
+    .building-address {
+        /* position: absolute;
 		width: 100%;
 		left: 6%;
 		bottom: 30%;
@@ -106,25 +105,24 @@
 		text-align: left;
 		text-transform: uppercase; */
 
+        position: absolute;
+        width: 100%;
+        left: 6%;
+        bottom: 30%;
+        opacity: 0;
+        z-index: 4000;
+        color: #ffffff;
+        font-family: 'Raleway', sans-serif;
+        /* font-size: 12px; */
+        /* font-size: 0.45vw; */
+        /* font-size: calc(.1em + 0.45vw); */
+        font-size: calc(0.5em + 0.2vw);
+        text-align: left;
+        text-transform: uppercase;
+        font-weight: 400;
+        letter-spacing: 2px;
 
-		position: absolute;
-		width: 100%;
-		left: 6%;
-		bottom: 30%;
-		opacity: 0;
-		z-index: 4000;
-		color: #ffffff;
-		font-family: 'Raleway', sans-serif;
-		/* font-size: 12px; */
-		/* font-size: 0.45vw; */
-		/* font-size: calc(.1em + 0.45vw); */
-		font-size: calc(0.5em + 0.2vw);
-		text-align: left;
-		text-transform: uppercase;
-		font-weight: 400;
-		letter-spacing: 2px;
-
-		/* 
+        /* 
 		width: 100%;
 		left: 6%;
 		top: 4%;
@@ -139,69 +137,69 @@
 		margin: 0 0 24px;
 		text-transform: uppercase; 
 		*/
-	}
+    }
 
-	.building-address p {
-		margin: 0;
-	}
+    .building-address p {
+        margin: 0;
+    }
 
-	.foggin:hover .building-address {
-		opacity: 1;
-	}
+    .foggin:hover .building-address {
+        opacity: 1;
+    }
 
-	/* building-address end */
+    /* building-address end */
 
-	/* source-link */
-	.source-link {
-		position: absolute;
-		width: 90%;
-		left: 6%;
-		bottom: 12%;
-		/* margin: 0 0 24px; */
-		color: #f8f8f8;
-		text-align: left;
-		text-decoration: none;
-		font-family: "Gill Sans", sans-serif;
-		/* font-size: 0.4vw; */
-		font-size: calc(0.5em + 0.2vw);
-		/* font-size: 12px; */
-		line-height: 20px;
-		letter-spacing: 2px;
-		opacity: 0;
-		z-index: 4000;
-	}
+    /* source-link */
+    .source-link {
+        position: absolute;
+        width: 90%;
+        left: 6%;
+        bottom: 12%;
+        /* margin: 0 0 24px; */
+        color: #f8f8f8;
+        text-align: left;
+        text-decoration: none;
+        font-family: 'Gill Sans', sans-serif;
+        /* font-size: 0.4vw; */
+        font-size: calc(0.5em + 0.2vw);
+        /* font-size: 12px; */
+        line-height: 20px;
+        letter-spacing: 2px;
+        opacity: 0;
+        z-index: 4000;
+    }
 
-	.foggin:hover .source-link {
-		opacity: 1;
-	}
+    .foggin:hover .source-link {
+        opacity: 1;
+    }
 
-	.source-link:hover {
-		font-size: calc(0.6em + 0.2vw);
-	}
+    .source-link:hover {
+        font-size: calc(0.6em + 0.2vw);
+    }
 
-	/* source-link end*/
+    /* source-link end*/
 
-	/* author */
-	.author {
-		position: absolute;
-		width: 90%;
-		left: 6%;
-		bottom: 4%;
-		opacity: 0;
-		z-index: 4000;
-		text-align: left;
-		text-decoration: none;
-		color: #f8f8f8;
-		font-family: "Gill Sans", sans-serif;
-		font-size: calc(0.5em + 0.2vw);
-		line-height: 0.4vw;
-		letter-spacing: 2px;
-		/* margin: 0 0 24px; */
-	}
+    /* author */
+    .author {
+        position: absolute;
+        width: 90%;
+        left: 6%;
+        bottom: 4%;
+        opacity: 0;
+        z-index: 4000;
+        text-align: left;
+        text-decoration: none;
+        color: #f8f8f8;
+        font-family: 'Gill Sans', sans-serif;
+        font-size: calc(0.5em + 0.2vw);
+        line-height: 0.4vw;
+        letter-spacing: 2px;
+        /* margin: 0 0 24px; */
+    }
 
-	.foggin:hover .author {
-		opacity: 1;
-	}
+    .foggin:hover .author {
+        opacity: 1;
+    }
 
-	/* author end */
+    /* author end */
 }

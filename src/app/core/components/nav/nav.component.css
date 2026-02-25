@@ -1,48 +1,48 @@
-@media screen and (min-width:1000px) {
-  .navbar {
-    background: #272727;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    display: flex;
-    /* align-items: center; */
-    /* padding-left: 16rem; */
-    height: 4rem;
-    box-shadow: 2px, 2px;
-  }
+@media screen and (min-width: 1000px) {
+    .navbar {
+        background: #272727;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        display: flex;
+        /* align-items: center; */
+        /* padding-left: 16rem; */
+        height: 4rem;
+        box-shadow: 2px, 2px;
+    }
 
-  .navbar a {
-    /* padding-right: 10vh; */
-    color: #f6f4e6;
-    text-decoration: none;
-    font-size: 1.2em;
-    text-transform: uppercase;
-    font-weight: 500;
-    display: inline-block;
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-    font-family: "Montserrat", sans-serif;
-  }
+    .navbar a {
+        /* padding-right: 10vh; */
+        color: #f6f4e6;
+        text-decoration: none;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        font-weight: 500;
+        display: inline-block;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        font-family: 'Montserrat', sans-serif;
+    }
 }
 
 @media screen and (max-width: 1000px) {
-  .navbar {
-    /* background: #272727; */
-    /* width: 100%; */
-    /* background-color: rgba(0, 0, 0, 0.85); */
-    display: grid;
-    /* height: 4rem; */
-    /* box-shadow: 2px, 2px; */
-  }
+    .navbar {
+        /* background: #272727; */
+        /* width: 100%; */
+        /* background-color: rgba(0, 0, 0, 0.85); */
+        display: grid;
+        /* height: 4rem; */
+        /* box-shadow: 2px, 2px; */
+    }
 
-  .navbar a {
-    /* color: #f6f4e6; */
-    /* text-decoration: none; */
-    font-size: 1.2em;
-    text-transform: uppercase;
-    font-weight: 500;
-    /* display: inline-block; */
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-    font-family: "Montserrat", sans-serif;
-  }
+    .navbar a {
+        /* color: #f6f4e6; */
+        /* text-decoration: none; */
+        font-size: 1.2em;
+        text-transform: uppercase;
+        font-weight: 500;
+        /* display: inline-block; */
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        font-family: 'Montserrat', sans-serif;
+    }
 }

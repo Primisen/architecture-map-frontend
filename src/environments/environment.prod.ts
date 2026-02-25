@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
-  backendUrl: "https://api.architecture-map.by"
-  // backendUrl: "http://localhost:8080"
-};
+    production: true,
+    backendUrl: 'https://api.architecture-map.by',
+    // backendUrl: "http://localhost:8080"
+}

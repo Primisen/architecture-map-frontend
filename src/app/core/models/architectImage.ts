@@ -1,5 +1,3 @@
-import { Image } from "./image";
+import { Image } from './image'
 
-export interface ArchitectImage extends Image{
-    
-}
+export interface ArchitectImage extends Image {}

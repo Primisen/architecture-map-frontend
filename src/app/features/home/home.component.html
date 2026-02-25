@@ -29,7 +29,14 @@
 
     <!-- <div class="container flex justify-between items-center" *ngIf="!constructionImages[0]"><p>Нічога не знайдзена. Паспрабуйце змяніць умовы пошуку.</p></div> -->
 
-    <section class="content" infinite-scroll [infiniteScrollDisabled]="!infiniteScrollEnabled" [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScroll()">
+    <section
+        class="content"
+        infinite-scroll
+        [infiniteScrollDisabled]="!infiniteScrollEnabled"
+        [infiniteScrollDistance]="2"
+        [infiniteScrollThrottle]="1000"
+        (scrolled)="onScroll()"
+    >
         <app-construction-image-masonry [constructionImages]="constructionImages" [loading]="loading" />
     </section>
 

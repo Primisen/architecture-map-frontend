@@ -51,7 +51,7 @@ export class SearchingComponent implements OnInit {
     }
 
     getArchitecturalStyles() {
-        this.apiSercice.get<ArchitecturalStyle[]>(ARCHITECTURAL_STYLES_URL).subscribe(architecturalStyle => {
+        this.apiSercice.get<ArchitecturalStyle[]>(ARCHITECTURAL_STYLES_URL).subscribe((architecturalStyle) => {
             this.architecturalStyles.set(architecturalStyle.sort((a, b) => a.name.localeCompare(b.name)))
         })
     }
@@ -76,6 +76,6 @@ export class SearchingComponent implements OnInit {
             params = params.set('buildingCenturyTo', this.searchConstructionForm.value.buildingCenturyTo.toString())
         }
 
-        this.httpClient.get(SEARCH_CONSTRUCTIONS_URL, { params }).subscribe(answer => this.searchParams.emit(answer))
+        this.httpClient.get(SEARCH_CONSTRUCTIONS_URL, { params }).subscribe((answer) => this.searchParams.emit(answer))
     }
 }

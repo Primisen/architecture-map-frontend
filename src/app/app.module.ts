@@ -34,7 +34,11 @@ import { translateHttpLoaderFactory } from './core/i18n/translate-loader.factory
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, title: 'Architecture Map' },
-    { path: 'constructions/:constructionId/:imageId', component: ConstructionComponent, title: ConstructionTitleResolver },
+    {
+        path: 'constructions/:constructionId/:imageId',
+        component: ConstructionComponent,
+        title: ConstructionTitleResolver,
+    },
     { path: 'constructions/:constructionId', component: ConstructionComponent, title: ConstructionTitleResolver },
     { path: 'architectural-styles/:id', component: ConstructionArchitecturalStyleComponent },
     { path: 'architects/:id', component: ConstructionArchitectComponent },

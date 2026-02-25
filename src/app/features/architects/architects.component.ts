@@ -17,7 +17,7 @@ export class ArchitectsComponent implements OnInit {
     }
 
     private loadArchitects(): void {
-        this.apiService.get<Architect[]>(ARCHITECTS_URL).subscribe(architects => {
+        this.apiService.get<Architect[]>(ARCHITECTS_URL).subscribe((architects) => {
             this.architects.set(architects)
         })
     }

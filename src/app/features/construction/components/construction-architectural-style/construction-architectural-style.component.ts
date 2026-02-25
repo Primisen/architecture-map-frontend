@@ -25,6 +25,6 @@ export class ConstructionArchitecturalStyleComponent {
     }
 
     getArchitecturalStyle(id: number) {
-        this.getResource(ARCHITECTURAL_STYLES_URL + id).subscribe(data => (this.architecturalStyle = data))
+        this.getResource(ARCHITECTURAL_STYLES_URL + id).subscribe((data) => (this.architecturalStyle = data))
     }
 }

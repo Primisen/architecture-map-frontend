@@ -87,12 +87,12 @@ export class ConstructionComponent implements AfterViewChecked, AfterViewInit {
     }
 
     getConstructionData() {
-        this.getResource(environment.backendUrl + '/constructions/' + this.id).subscribe(data => {
-            ;(this.construction = data),
-                (this.clickedImage = this.construction.images.find(element => element.id == this.imageId)),
-                (this.startIndex = this.construction.images.findIndex(image => {
+        this.getResource(environment.backendUrl + '/constructions/' + this.id).subscribe((data) => {
+            ;((this.construction = data),
+                (this.clickedImage = this.construction.images.find((element) => element.id == this.imageId)),
+                (this.startIndex = this.construction.images.findIndex((image) => {
                     image.id == this.imageId
-                }))
+                })))
         })
     }
 

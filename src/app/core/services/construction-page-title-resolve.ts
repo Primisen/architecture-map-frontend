@@ -20,7 +20,7 @@ export class ConstructionTitleResolver {
         return this.constructionService.getConstruction(constructionId).pipe(
             switchMap((constructionData: Construction) => {
                 return of(constructionData.name)
-            }),
+            })
         )
     }
 }

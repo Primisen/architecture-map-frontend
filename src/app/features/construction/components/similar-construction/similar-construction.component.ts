@@ -21,8 +21,10 @@ export class SimilarConstructionComponent implements OnInit {
 
     private findSimilarConstructions(constructionId: number) {
         this.loading = true
-        this.apiService.get<ConstructionImage[]>(GET_SIMILAR_CONSTRUCTION_IMAGES_URL + constructionId).subscribe(images => {
-            this.similarConstructionImages.set(images)
-        })
+        this.apiService
+            .get<ConstructionImage[]>(GET_SIMILAR_CONSTRUCTION_IMAGES_URL + constructionId)
+            .subscribe((images) => {
+                this.similarConstructionImages.set(images)
+            })
     }
 }
