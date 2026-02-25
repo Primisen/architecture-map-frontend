@@ -1,30 +1,24 @@
-import { HttpClient } from '@angular/common/http'
-import { Component, inject } from '@angular/core'
-import { Observable } from 'rxjs'
+import { Component, inject, OnInit, signal } from '@angular/core'
 import { Architect } from '../../core/models/architect'
 import { ARCHITECTS_URL } from '../../core/constants/URL'
+import { ApiService } from 'src/app/core/services/api.service'
 
 @Component({
     selector: 'app-architects',
     templateUrl: './architects.component.html',
     styleUrls: ['./architects.component.css'],
 })
-export class ArchitectsComponent {
-    architects: Architect[] = []
-    private architectsUrl = ARCHITECTS_URL
-    private httpClient = inject(HttpClient)
+export class ArchitectsComponent implements OnInit {
+    architects = signal<Architect[]>([])
+    private apiService = inject(ApiService)
 
-    constructor() {
-        this.getArchitects()
+    ngOnInit() {
+        this.loadArchitects()
     }
 
-    getArchitects() {
-        this.getResource(this.architectsUrl).subscribe((architects: Architect[]) => {
-            this.architects.push(...architects)
+    private loadArchitects(): void {
+        this.apiService.get<Architect[]>(ARCHITECTS_URL).subscribe(architects => {
+            this.architects.set(architects)
         })
-    }
-
-    getResource(url: string): Observable<any> {
-        return this.httpClient.get(url)
     }
 }

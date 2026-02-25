@@ -1,37 +1,37 @@
 <div class="container">
-    <div *ngFor="let architect of architects">
-        <!-- <a href="/architects/{{architect.id}}"> -->
+    @for (architect of architects(); track architect.id) {
+        <div>
+            <section class="mt-10 group/item hover:bg-slate-100">
+                <div class="image-container">
+                    <img src="{{ architect.portraitImage.url }}" alt="" />
+                </div>
 
-        <section class="mt-10 group/item hover:bg-slate-100">
-            <div class="image-container">
-                <img src="{{ architect.portraitImage.url }}" alt="" />
-            </div>
+                <div class="justify-start p-6">
+                    <h1 class="mb-2 text-xl font-medium">
+                        {{ architect.name }}
+                        {{ architect.middleName }}
+                        {{ architect.surname }}
+                    </h1>
 
-            <div class="justify-start p-6">
-                <h1 class="mb-2 text-xl font-medium">
-                    {{ architect.name }}
-                    {{ architect.middleName }}
-                    {{ architect.surname }}
-                </h1>
+                    <p class="text-xs text-surface/75 dark:text-neutral-300">
+                        {{ architect.yearsOfLife }}
+                    </p>
+                    <p class="mb-4 text-base">
+                        {{ architect.shortWorkDescription }}
+                    </p>
 
-                <p class="text-xs text-surface/75 dark:text-neutral-300">
-                    {{ architect.yearsOfLife }}
-                </p>
-                <p class="mb-4 text-base">
-                    {{ architect.shortWorkDescription }}
-                </p>
-
-                <div>
-                    Архітэктар такіх праектаў, як:
-                    <div *ngFor="let construction of architect.construction">
-                        <a href="/constructions/{{ construction.id }}">
-                            {{ construction.name }}
-                        </a>
+                    <div>
+                        Архітэктар такіх праектаў, як:
+                        @for (construction of architect.construction; track construction.id) {
+                            <div>
+                                <a href="/constructions/{{ construction.id }}">
+                                    {{ construction.name }}
+                                </a>
+                            </div>
+                        }
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- </a> -->
-    </div>
+            </section>
+        </div>
+    }
 </div>

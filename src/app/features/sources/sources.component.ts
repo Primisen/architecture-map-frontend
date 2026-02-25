@@ -1,30 +1,24 @@
-import { Component, inject } from '@angular/core'
+import { Component, inject, OnInit, signal } from '@angular/core'
 import { Source } from '../../core/models/source'
 import { SOURCES_URL } from '../../core/constants/URL'
-import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs'
+import { ApiService } from 'src/app/core/services/api.service'
 
 @Component({
     selector: 'app-sources',
     templateUrl: './sources.component.html',
     styleUrls: ['./sources.component.css'],
 })
-export class SourcesComponent {
-    sources: Source[] = []
-    private sourcesUrl = SOURCES_URL
-    private httpClient = inject(HttpClient)
+export class SourcesComponent implements OnInit {
+    sources = signal<Source[]>([])
+    private apiService = inject(ApiService)
 
-    constructor() {
-        this.getSources()
+    ngOnInit() {
+        this.loadSources()
     }
 
-    private getSources() {
-        this.getResource(this.sourcesUrl).subscribe((sources: Source[]) => {
-            this.sources = sources.sort((a, b) => a.name.localeCompare(b.name))
+    private loadSources() {
+        this.apiService.get<Source[]>(SOURCES_URL).subscribe(sources => {
+            this.sources.set(sources.sort((a, b) => a.name.localeCompare(b.name)))
         })
-    }
-
-    private getResource(url: string): Observable<any> {
-        return this.httpClient.get(url)
     }
 }

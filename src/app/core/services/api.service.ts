@@ -8,8 +8,8 @@ import { Observable } from 'rxjs'
 export class ApiService {
     private httpClient = inject(HttpClient)
 
-    get(url: string): Observable<any> {
-        return this.httpClient.get(url)
+    get<T>(url: string): Observable<T> {
+        return this.httpClient.get<T>(url)
     }
 
     getWithParams(url: string, params: HttpParams): Observable<any> {

@@ -1,169 +1,33 @@
 import { HttpClient, HttpParams } from '@angular/common/http'
-import { Component, EventEmitter, inject, Output } from '@angular/core'
+import { Component, EventEmitter, inject, OnInit, Output, signal } from '@angular/core'
 import { FormControl, FormGroup } from '@angular/forms'
-import { Observable } from 'rxjs/internal/Observable'
 import { ARCHITECTURAL_STYLES_URL, SEARCH_CONSTRUCTIONS_URL } from 'src/app/core/constants/URL'
+import { VOBLASCS } from 'src/app/core/constants/voblascs'
 import { ArchitecturalStyle } from 'src/app/core/models/architecturalStyle'
 import { Construction } from 'src/app/core/models/construction'
+import { ApiService } from 'src/app/core/services/api.service'
 
 @Component({
     selector: 'app-searching',
     templateUrl: './searching.component.html',
     styleUrls: ['./searching.component.css'],
 })
-export class SearchingComponent {
+//Need to rewrite
+export class SearchingComponent implements OnInit {
     @Output() searchParams = new EventEmitter<any>()
 
-    getArchitecturalStylesUrl = ARCHITECTURAL_STYLES_URL
-    searchConstructionUrl = SEARCH_CONSTRUCTIONS_URL
-    architecturalStyles: ArchitecturalStyle[] = []
+    architecturalStyles = signal<ArchitecturalStyle[]>([])
 
     foundConstructions: Construction[] = []
 
-    searchQuery = ''
-    selectedRegion = ''
-    selectedDistrict = ''
-    centuryFrom = ''
-    centuryTo = ''
-
-    regions: Record<'Мінская вобласць' | 'Брэсцкая вобласць' | 'Гомельская вобласць' | 'Віцебская вобласць' | 'Гродзенская вобласць' | 'Магілёўская вобласць', string[]> = {
-        'Мінская вобласць': [
-            'Барысаўскі раён',
-            'Бярэзінскі раён',
-            'Валожынскі раён',
-            'Вілейскі раён',
-            'Дзяржынскі раён',
-            'Капыльскі раён',
-            'Клецкі раён',
-            'Крупскі раён',
-            'Лагойскі раён',
-            'Любанскі раён',
-            'Маладзечанскі раён',
-            'Мінскі раён',
-            'Мядзельскі раён',
-            'Нясвіжскі раён',
-            'Пухавіцкі раён',
-            'Салігорскі раён',
-            'Слуцкі раён',
-            'Смалявіцкі раён',
-            'Старадарожскі раён',
-            'Стаўбцоўскі раён',
-            'Уздзенскі раён',
-            'Чэрвеньскі раён',
-        ],
-        'Брэсцкая вобласць': [
-            'Баранавіцкі раён',
-            'Брэсцкі раён',
-            'Бярозаўскі раён',
-            'Ганцавіцкі раён',
-            'Драгічынскі раён',
-            'Жабінкаўскі раён',
-            'Іванаўскі раён',
-            'Івацэвіцкі раён',
-            'Камянецкі раён',
-            'Кобрынскі раён',
-            'Лунінецкі раён',
-            'Ляхавіцкі раён',
-            'Маларыцкі раён',
-            'Пінскі раён',
-            'Пружанскі раён',
-            'Столінскі раён',
-        ],
-        'Віцебская вобласць': [
-            'Аршанскі раён',
-            'Бешанковіцкі раён',
-            'Браслаўскі раён',
-            'Верхнядзвінскі раён',
-            'Віцебскі раён',
-            'Гарадоцкі раён',
-            'Глыбоцкі раён',
-            'Докшыцкі раён',
-            'Дубровенскі раён',
-            'Лепельскі раён',
-            'Лёзненскі раён',
-            'Мёрскі раён',
-            'Пастаўскі раён',
-            'Полацкі раён',
-            'Расонскі раён',
-            'Сенненскі раён',
-            'Талачынскі раён',
-            'Ушацкі раён',
-            'Чашніцкі раён',
-            'Шаркоўшчынскі раён',
-            'Шумілінскі раён',
-        ],
-        'Гомельская вобласць': [
-            'Акцябрскі раён',
-            'Брагінскі раён',
-            'Буда-Кашалёўскі раён',
-            'Веткаўскі раён',
-            'Гомельскі раён',
-            'Добрушскі раён',
-            'Ельскі раён',
-            'Жлобінскі раён',
-            'Жыткавіцкі раён',
-            'Калінкавіцкі раён',
-            'Кармянскі раён',
-            'Лельчыцкі раён',
-            'Лоеўскі раён',
-            'Мазырскі раён',
-            'Нараўлянскі раён',
-            'Петрыкаўскі раён',
-            'Рагачоўскі раён',
-            'Рэчыцкі раён',
-            'Светлагорскі раён',
-            'Хойніцкі раён',
-            'Чачэрскі раён',
-        ],
-        'Гродзенская вобласць': [
-            'Астравецкі раён',
-            'Ашмянскі раён',
-            'Бераставіцкі раён',
-            'Ваўкавыскі раён',
-            'Воранаўскі раён',
-            'Гродзенскі раён',
-            'Дзятлаўскі раён',
-            'Зэльвенскі раён',
-            'Іўеўскі раён',
-            'Карэліцкі раён',
-            'Лідскі раён',
-            'Мастоўскі раён',
-            'Навагрудскі раён',
-            'Свіслацкі раён',
-            'Слонімскі раён',
-            'Смаргонскі раён',
-            'Шчучынскі раён',
-        ],
-        'Магілёўская вобласць': [
-            'Асіповіцкі раён',
-            'Бабруйскі раён',
-            'Быхаўскі раён',
-            'Бялыніцкі раён',
-            'Глускі раён',
-            'Горацкі раён',
-            'Дрыбінскі раён',
-            'Касцюковіцкі раён',
-            'Кіраўскі раён',
-            'Клімавіцкі раён',
-            'Клічаўскі раён',
-            'Краснапольскі раён',
-            'Круглянскі раён',
-            'Крычаўскі раён',
-            'Магілёўскі раён',
-            'Мсціслаўскі раён',
-            'Слаўгарадскі раён',
-            'Хоцімскі раён',
-            'Чавускі раён',
-            'Чэрыкаўскі раён',
-            'Шклоўскі раён',
-        ],
-    }
+    readonly voblascs = VOBLASCS
 
     districts: string[] = []
 
     private httpClient = inject(HttpClient)
+    private apiSercice = inject(ApiService)
 
-    constructor() {
+    ngOnInit() {
         this.getArchitecturalStyles()
     }
 
@@ -178,7 +42,7 @@ export class SearchingComponent {
     updateDistricts(event: Event) {
         const selectElement = event.target as HTMLSelectElement
         const region = selectElement.value
-        this.districts = this.regions[region as keyof typeof this.regions] || []
+        this.districts = this.voblascs[region as keyof typeof this.voblascs] || []
     }
 
     validateCentury(event: Event) {
@@ -186,17 +50,9 @@ export class SearchingComponent {
         input.value = input.value.replace(/[^0-9]/g, '')
     }
 
-    getResource(resourceUrl: string): Observable<any> {
-        return this.httpClient.get(resourceUrl)
-    }
-
-    getResourceWithParams(resourceUrl: string, params: HttpParams): Observable<any> {
-        return this.httpClient.get(resourceUrl, { params })
-    }
-
     getArchitecturalStyles() {
-        this.getResource(this.getArchitecturalStylesUrl).subscribe((architecturalStyle: ArchitecturalStyle[]) => {
-            this.architecturalStyles = architecturalStyle.sort((a, b) => a.name.localeCompare(b.name))
+        this.apiSercice.get<ArchitecturalStyle[]>(ARCHITECTURAL_STYLES_URL).subscribe(architecturalStyle => {
+            this.architecturalStyles.set(architecturalStyle.sort((a, b) => a.name.localeCompare(b.name)))
         })
     }
 
@@ -220,6 +76,6 @@ export class SearchingComponent {
             params = params.set('buildingCenturyTo', this.searchConstructionForm.value.buildingCenturyTo.toString())
         }
 
-        this.httpClient.get(this.searchConstructionUrl, { params }).subscribe(answer => this.searchParams.emit(answer))
+        this.httpClient.get(SEARCH_CONSTRUCTIONS_URL, { params }).subscribe(answer => this.searchParams.emit(answer))
     }
 }

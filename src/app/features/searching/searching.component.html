@@ -23,7 +23,7 @@
                         >
                             <option value="">Выберыце архітэктурны стыль</option>
 
-                            @for (architecturalStyle of architecturalStyles; track architecturalStyle.id) {
+                            @for (architecturalStyle of architecturalStyles(); track architecturalStyle.id) {
                                 <option [value]="architecturalStyle.id">
                                     {{ architecturalStyle.name }}
                                 </option>

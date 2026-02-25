@@ -1,30 +1,24 @@
-import { HttpClient } from '@angular/common/http'
-import { Component, inject } from '@angular/core'
-import { Observable } from 'rxjs'
+import { Component, inject, OnInit, signal } from '@angular/core'
 import { ARCHITECTURAL_STYLES_URL } from '../../core/constants/URL'
 import { ArchitecturalStyle } from '../../core/models/architecturalStyle'
+import { ApiService } from 'src/app/core/services/api.service'
 
 @Component({
     selector: 'app-architectural-styles',
     templateUrl: './architectural-styles.component.html',
     styleUrls: ['./architectural-styles.component.css'],
 })
-export class ArchitecturalStylesComponent {
-    architecturalStyles: ArchitecturalStyle[] = []
-    private architecturalStylesUrl = ARCHITECTURAL_STYLES_URL
-    private httpClient = inject(HttpClient)
+export class ArchitecturalStylesComponent implements OnInit {
+    architecturalStyles = signal<ArchitecturalStyle[]>([])
+    private apiService = inject(ApiService)
 
-    constructor() {
-        this.getArchitecturalStyles()
+    ngOnInit() {
+        this.loadArchitecturalStyles()
     }
 
-    getArchitecturalStyles() {
-        this.getResource(this.architecturalStylesUrl).subscribe((architecturalStyles: ArchitecturalStyle[]) => {
-            this.architecturalStyles = architecturalStyles.sort((a, b) => a.name.localeCompare(b.name))
+    private loadArchitecturalStyles() {
+        this.apiService.get<ArchitecturalStyle[]>(ARCHITECTURAL_STYLES_URL).subscribe(architecturalStyles => {
+            this.architecturalStyles.set(architecturalStyles.sort((a, b) => a.name.localeCompare(b.name)))
         })
-    }
-
-    getResource(url: string): Observable<any> {
-        return this.httpClient.get(url)
     }
 }

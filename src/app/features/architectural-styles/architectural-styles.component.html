@@ -2,25 +2,27 @@
     <div class="w-full">
         <p class="font-sans font-normal text-base text-center md:text-left">Архітэктурныя стылі, узгаданыя ў аплікацыі</p>
         <ul class="max-w-5xl divide-y divide-gray-200 dark:divide-gray-700">
-            <li class="py-3 sm:py-4" *ngFor="let architecturalStyle of architecturalStyles">
-                <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
-                    <div class="flex-shrink-0 w-full sm:w-72 h-48 sm:h-72">
-                        <img class="w-full h-full object-cover" src="{{architecturalStyle.demonstrativeImage.url}}" alt="Neil image">
+            @for (architecturalStyle of architecturalStyles(); track architecturalStyle.id) {
+                <li class="py-3 sm:py-4">
+                    <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
+                        <div class="flex-shrink-0 w-full sm:w-72 h-48 sm:h-72">
+                            <img class="w-full h-full object-cover" src="{{ architecturalStyle.demonstrativeImage.url }}" alt="Neil image" />
+                        </div>
+
+                        <div class="flex-1 min-w-full">
+                            <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                {{ architecturalStyle.name }}
+                            </p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                                {{ architecturalStyle.shortDescription }}
+                            </p>
+                        </div>
+                        <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                            {{ architecturalStyle.yearsActive }}
+                        </div>
                     </div>
-                    
-                    <div class="flex-1 min-w-full">
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
-                            {{architecturalStyle.name}}
-                        </p>
-                        <p class="text-sm text-gray-500 dark:text-gray-400">
-                            {{architecturalStyle.shortDescription}}
-                        </p>
-                    </div>
-                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                        {{architecturalStyle.yearsActive}}
-                    </div>
-                </div>
-            </li>
+                </li>
+            }
         </ul>
     </div>
 </div>
