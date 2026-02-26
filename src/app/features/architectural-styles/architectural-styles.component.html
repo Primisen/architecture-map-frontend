@@ -6,16 +6,12 @@
         <ul class="max-w-5xl divide-y divide-gray-200 dark:divide-gray-700">
             @for (architecturalStyle of architecturalStyles(); track architecturalStyle.id) {
                 <li class="py-3 sm:py-4">
-                    <div
-                        class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 rtl:space-x-reverse"
-                    >
-                        <div class="flex-shrink-0 w-full sm:w-72 h-48 sm:h-72">
-                            <img
-                                class="w-full h-full object-cover"
-                                src="{{ architecturalStyle.demonstrativeImage.url }}"
-                                alt="Neil image"
-                            />
-                        </div>
+                    <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                        <img
+                            class="w-full h-full object-cover flex-shrink-0 w-full sm:w-72 h-48 sm:h-72"
+                            [src]="architecturalStyle.demonstrativeImage.url"
+                            alt=""
+                        />
 
                         <div class="flex-1 min-w-full">
                             <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
@@ -25,9 +21,9 @@
                                 {{ architecturalStyle.shortDescription }}
                             </p>
                         </div>
-                        <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                        <span class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
                             {{ architecturalStyle.yearsActive }}
-                        </div>
+                        </span>
                     </div>
                 </li>
             }

@@ -8,6 +8,7 @@ import { ApiService } from 'src/app/core/services/api.service'
     templateUrl: './architects.component.html',
     styleUrls: ['./architects.component.css'],
 })
+//This component requires fixing, then refactoring
 export class ArchitectsComponent implements OnInit {
     architects = signal<Architect[]>([])
     private apiService = inject(ApiService)
