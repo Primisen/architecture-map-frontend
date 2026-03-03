@@ -1,0 +1,32 @@
+{
+    "PAGE_TITLES": {
+        "ARCHITECTURAL_STYLES": "Architekturnyja styli",
+        "SOURCES": "Krynicy",
+        "ARCHITECTS": "Architektary",
+        "CONTACTS": "Advarotnaja suviaź",
+        "PAGE_NOT_FOUND": "Staronka nie znojdziena"
+    },
+    "CONTACTS": {
+        "COMMON": "Prajekt nie zjaŭlajecca kamiercyjnym i stvorany vyklučna z intaresu da rodnaj biełaruskaj architektury.",
+        "EMAIL": "Kali vy zaŭvažyli pamyłku, u vas jość pytańnie ci prapanova, pišycie na architecture.map.belarus@gmail.com"
+    },
+    "ARCHITECTS": {
+        "CONSTRUCTION_LIST": "Architektar takich prajektaŭ, jak"
+    },
+    "ARCHITECTURAL_STYLES": {
+        "DESCRIPTION": "Architekturnyja styli, uzhadanyja ŭ aplikacyi"
+    },
+    "CONSTRUCTION": {
+        "SIMILAR": "Padobnaje",
+        "BUILDING_TIME": "Čas pabudovy",
+        "ARCHITECTS": "Architektary",
+        "IMAGE_SOURCE": "Krynica zdymku"
+    },
+    "HOME_PAGE": {
+        "SLOGAN": "Hladzi, natchniajsia, vandruj",
+        "CONSTRUCTION_OVERVIEW_IMAGE": {
+            "IMAGE_SOURCE": "Krynica zdymku",
+            "AUTHOR": "Aŭtar zdymku"
+        }
+    }
+}

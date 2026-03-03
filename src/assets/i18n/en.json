@@ -1,0 +1,32 @@
+{
+    "PAGE_TITLES": {
+        "ARCHITECTURAL_STYLES": "Architectural styles",
+        "SOURCES": "Sources",
+        "ARCHITECTS": "Architects",
+        "CONTACTS": "Contacts",
+        "PAGE_NOT_FOUND": "Page is not found"
+    },
+    "CONTACTS": {
+        "COMMON": "This project is non-commercial and was created purely out of interest in Belarusian architecture.",
+        "EMAIL": "If you notice an error or have a question or suggestion, please contact us at architecture.map.belarus@gmail.com"
+    },
+    "ARCHITECTS": {
+        "CONSTRUCTION_LIST": "Architect of such projects as"
+    },
+    "ARCHITECTURAL_STYLES": {
+        "DESCRIPTION": "Architectural styles included in the app"
+    },
+    "CONSTRUCTION": {
+        "SIMILAR": "Similar",
+        "BUILDING_TIME": "Building time",
+        "ARCHITECTS": "Architects",
+        "IMAGE_SOURCE": "Image source"
+    },
+    "HOME_PAGE": {
+        "SLOGAN": "Watch. Get inspired. Travel.",
+        "CONSTRUCTION_OVERVIEW_IMAGE": {
+            "IMAGE_SOURCE": "Image source",
+            "AUTHOR": "Photo by"
+        }
+    }
+}

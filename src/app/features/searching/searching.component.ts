@@ -12,7 +12,7 @@ import { ApiService } from 'src/app/core/services/api.service'
     templateUrl: './searching.component.html',
     styleUrls: ['./searching.component.css'],
 })
-//Need to complete implementation. Code can be completely rewrited, not much sense refactoring it now
+//Need to complete implementation. Code can be completely rewrited, not much sense refactoring it now, add i18n
 export class SearchingComponent implements OnInit {
     @Output() searchParams = new EventEmitter<any>()
 
