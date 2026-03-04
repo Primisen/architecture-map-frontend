@@ -1,4 +1,11 @@
 {
+    "NAVBAR": {
+        "HOME": "На галоўную",
+        "ARCHITECTURAL_STYLES": "Архітэктурныя стылі",
+        "ARCHITECTS": "Архітэктары",
+        "SOURCES": "Крыніцы",
+        "CONTACTS": "Адваротная сувязь"
+    },
     "PAGE_TITLES": {
         "ARCHITECTURAL_STYLES": "Архітэктурныя стылі",
         "SOURCES": "Крыніцы",
@@ -23,10 +30,11 @@
         "IMAGE_SOURCE": "Крыніца здымку"
     },
     "HOME_PAGE": {
+        "SITE_NAME": "Belarus Architecture Map",
         "SLOGAN": "Глядзі, натхняйся, вандруй",
         "CONSTRUCTION_OVERVIEW_IMAGE": {
-            "IMAGE_SOURCE": "Крыніца здымку",
-            "AUTHOR": "Аўтар здымку"
+            "IMAGE_SOURCE": "Крыніца здымку: ",
+            "AUTHOR": "Аўтар здымку: "
         }
     }
 }

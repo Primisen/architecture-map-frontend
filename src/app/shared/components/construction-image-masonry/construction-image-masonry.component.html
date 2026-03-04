@@ -14,10 +14,14 @@
                         {{ image.construction.address.locality }}
                     </p>
                 </div>
-                <a class="source-link" href="{{ image.source.url }}">Крыніца здымку: {{ image.source.name }}</a>
+                <a class="source-link" href="{{ image.source.url }}"
+                    >{{ 'HOME_PAGE.CONSTRUCTION_OVERVIEW_IMAGE.IMAGE_SOURCE' | translate }} {{ image.source.name }}</a
+                >
 
                 @if (image.author) {
-                    <p class="author">Аўтар здымку: {{ image.author }}</p>
+                    <p class="author">
+                        {{ 'HOME_PAGE.CONSTRUCTION_OVERVIEW_IMAGE.AUTHOR' | translate }} {{ image.author }}
+                    </p>
                 }
             </a>
         </article>

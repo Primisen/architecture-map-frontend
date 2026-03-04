@@ -98,7 +98,9 @@ const appRoutes: Routes = [
             provide: APP_INITIALIZER,
             useFactory: (translateService: TranslateService) => () => {
                 translateService.setDefaultLang('be')
-                translateService.use('en')
+                translateService.use(
+                    translateService.getDefaultLang().match(/en|be/) ? translateService.getDefaultLang() : 'be'
+                )
             },
             deps: [TranslateService],
             multi: true,

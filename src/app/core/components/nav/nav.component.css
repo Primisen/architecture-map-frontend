@@ -22,6 +22,30 @@
         transition: all 0.2s ease-in-out;
         font-family: 'Montserrat', sans-serif;
     }
+
+    .navbar button {
+        /* padding-right: 10vh; */
+        color: #f6f4e6;
+        text-decoration: none;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        font-weight: 500;
+        /* display: inline-block; */
+        -webkit-transition: all 0.2s ease-in-out;
+        /* transition: all 0.2s ease-in-out; */
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .language-switcher {
+        display: flex;
+        align-items: center;
+    }
+
+    .language-switcher span {
+        color: #f6f4e6;
+        font-size: 1.2em;
+        font-family: 'Montserrat', sans-serif;
+    }
 }
 
 @media screen and (max-width: 1000px) {

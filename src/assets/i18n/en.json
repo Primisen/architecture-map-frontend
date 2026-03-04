@@ -1,4 +1,11 @@
 {
+    "NAVBAR": {
+        "HOME": "Home",
+        "ARCHITECTURAL_STYLES": "Architectural styles",
+        "ARCHITECTS": "Architects",
+        "SOURCES": "Sources",
+        "CONTACTS": "Contacts"
+    },
     "PAGE_TITLES": {
         "ARCHITECTURAL_STYLES": "Architectural styles",
         "SOURCES": "Sources",
@@ -23,10 +30,11 @@
         "IMAGE_SOURCE": "Image source"
     },
     "HOME_PAGE": {
-        "SLOGAN": "Watch. Get inspired. Travel.",
+        "SITE_NAME": "Belarus Architecture Map",
+        "SLOGAN": "Watch, Get inspired, Travel",
         "CONSTRUCTION_OVERVIEW_IMAGE": {
-            "IMAGE_SOURCE": "Image source",
-            "AUTHOR": "Photo by"
+            "IMAGE_SOURCE": "Image source: ",
+            "AUTHOR": "Photo by: "
         }
     }
 }

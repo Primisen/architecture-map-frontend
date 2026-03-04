@@ -1,4 +1,11 @@
 {
+    "NAVBAR": {
+        "HOME": "Na hałoŭnuju",
+        "ARCHITECTURAL_STYLES": "Architekturnyja styli",
+        "ARCHITECTS": "Architektary",
+        "SOURCES": "Krynicy",
+        "CONTACTS": "Advarotnaja suviaź"
+    },
     "PAGE_TITLES": {
         "ARCHITECTURAL_STYLES": "Architekturnyja styli",
         "SOURCES": "Krynicy",
@@ -23,10 +30,11 @@
         "IMAGE_SOURCE": "Krynica zdymku"
     },
     "HOME_PAGE": {
+        "SITE_NAME": "Belarus Architecture Map",
         "SLOGAN": "Hladzi, natchniajsia, vandruj",
         "CONSTRUCTION_OVERVIEW_IMAGE": {
-            "IMAGE_SOURCE": "Krynica zdymku",
-            "AUTHOR": "Aŭtar zdymku"
+            "IMAGE_SOURCE": "Krynica zdymku: ",
+            "AUTHOR": "Aŭtar zdymku: "
         }
     }
 }
