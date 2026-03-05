@@ -30,7 +30,7 @@ import { ConstructionTitleResolver } from './core/services/construction-page-tit
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { SearchingComponent } from './features/searching/searching.component'
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core'
-import { translateHttpLoaderFactory } from './core/i18n/translate-loader.factory'
+import { translateHttpLoaderFactory, translateInitializerFactory } from './core/i18n/translate-loader.factory'
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, title: 'Architecture Map' },
@@ -96,12 +96,7 @@ const appRoutes: Routes = [
         provideHttpClient(withInterceptorsFromDi()),
         {
             provide: APP_INITIALIZER,
-            useFactory: (translateService: TranslateService) => () => {
-                translateService.setDefaultLang('be')
-                translateService.use(
-                    translateService.getDefaultLang().match(/en|be/) ? translateService.getDefaultLang() : 'be'
-                )
-            },
+            useFactory: translateInitializerFactory,
             deps: [TranslateService],
             multi: true,
         },

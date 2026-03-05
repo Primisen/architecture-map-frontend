@@ -1,7 +1,7 @@
 import { HttpParams } from '@angular/common/http'
 import { Component, inject, OnChanges, OnInit, SimpleChanges } from '@angular/core'
 import { ConstructionImage } from '../../core/models/constructionImage'
-import { IMAGES_URL } from '../../core/constants/URL'
+import { IMAGES_URL } from '../../core/constants/URL.constants'
 import { ApiService } from 'src/app/core/services/api.service'
 import { Construction } from 'src/app/core/models/construction'
 

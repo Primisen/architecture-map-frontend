@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core'
 import { TranslateService } from '@ngx-translate/core'
+import { I18N_STORAGE_KEY } from '../../constants/i18n.constants'
 
 @Component({
     selector: 'app-nav',
@@ -22,7 +23,8 @@ export class NavComponent {
         this.isMenuOpen = !this.isMenuOpen
     }
 
-    switchLanguage(lang: string): void {
-        this.translate.use(lang)
+    switchLanguage(language: string): void {
+        this.translate.use(language)
+        localStorage.setItem(I18N_STORAGE_KEY, language)
     }
 }

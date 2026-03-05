@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core'
 import { Architect } from '../../core/models/architect'
-import { ARCHITECTS_URL } from '../../core/constants/URL'
+import { ARCHITECTS_URL } from '../../core/constants/URL.constants'
 import { ApiService } from 'src/app/core/services/api.service'
 
 @Component({

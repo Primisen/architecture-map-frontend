@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { Observable } from 'rxjs'
 import { ArchitecturalStyle } from '../../../../core/models/architecturalStyle'
-import { ARCHITECTURAL_STYLES_URL } from '../../../../core/constants/URL'
+import { ARCHITECTURAL_STYLES_URL } from '../../../../core/constants/URL.constants'
 
 @Component({
     selector: 'app-construction-architectural-style',

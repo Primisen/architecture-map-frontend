@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core'
 import { Source } from '../../core/models/source'
-import { SOURCES_URL } from '../../core/constants/URL'
+import { SOURCES_URL } from '../../core/constants/URL.constants'
 import { ApiService } from 'src/app/core/services/api.service'
 
 @Component({

@@ -3,7 +3,7 @@ import { Architect } from '../../../../core/models/architect'
 import { ActivatedRoute } from '@angular/router'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
-import { ARCHITECTS_URL } from '../../../../core/constants/URL'
+import { ARCHITECTS_URL } from '../../../../core/constants/URL.constants'
 
 @Component({
     selector: 'app-construction-architect',

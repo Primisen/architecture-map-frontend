@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { inject, Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
-import { CONSTRUCTIONS_URL } from '../../constants/URL'
+import { CONSTRUCTIONS_URL } from '../../constants/URL.constants'
 import { Construction } from '../../models/construction'
 
 @Injectable({

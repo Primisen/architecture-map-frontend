@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core'
-import { ARCHITECTURAL_STYLES_URL } from '../../core/constants/URL'
+import { ARCHITECTURAL_STYLES_URL } from '../../core/constants/URL.constants'
 import { ArchitecturalStyle } from '../../core/models/architecturalStyle'
 import { ApiService } from 'src/app/core/services/api.service'
 

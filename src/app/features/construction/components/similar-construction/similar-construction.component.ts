@@ -1,5 +1,5 @@
 import { Component, inject, Input, OnInit, signal } from '@angular/core'
-import { GET_SIMILAR_CONSTRUCTION_IMAGES_URL } from '../../../../core/constants/URL'
+import { GET_SIMILAR_CONSTRUCTION_IMAGES_URL } from '../../../../core/constants/URL.constants'
 import { ConstructionImage } from '../../../../core/models/constructionImage'
 import { ApiService } from 'src/app/core/services/api.service'
 
