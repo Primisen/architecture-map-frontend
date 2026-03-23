@@ -12,13 +12,15 @@
 
             <div *ngIf="construction.buildingDate.length; then buildingTime; else noBuildingTime"></div>
             <ng-template #buildingTime>
-                <p class="building-time">Час пабудовы: {{ construction.buildingDate }}</p>
+                <p class="building-time">
+                    {{ 'CONSTRUCTION.BUILDING_TIME' | translate }} {{ construction.buildingDate }}
+                </p>
             </ng-template>
             <ng-template #noBuildingTime> </ng-template>
 
             <div *ngIf="construction.architects.length; then architects; else noArchitects"></div>
             <ng-template #architects>
-                <p>Архітэктары:</p>
+                <p>{{ 'CONSTRUCTION.ARCHITECTS' | translate }}</p>
                 <div *ngFor="let architect of construction.architects">
                     <app-architect-link [architect]="architect" />
                 </div>
@@ -38,7 +40,8 @@
             >
                 <div id="source" style="display: none">
                     <h4>
-                        Крыніца здымку - <a href="{{ item.source.url }}"> {{ item.source.name }}</a>
+                        {{ 'CONSTRUCTION.IMAGE_SOURCE' | translate }}
+                        <a href="{{ item.source.url }}"> {{ item.source.name }}</a>
                     </h4>
                 </div>
                 <img class="img-responsive" src="{{ item.url }}" alt="" />
