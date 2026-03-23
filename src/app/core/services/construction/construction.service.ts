@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { inject, Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
-import { CONSTRUCTIONS_URL } from '../../constants/URL.constants'
+import { URL } from '../../constants/URL.constants'
 import { Construction } from '../../models/construction'
 
 @Injectable({
@@ -15,6 +15,6 @@ export class ConstructionService {
     }
 
     getConstruction(constructionId: string): Observable<Construction> {
-        return this.httpClient.get<Construction>(CONSTRUCTIONS_URL + constructionId)
+        return this.httpClient.get<Construction>(URL.CONSTRUCTIONS + constructionId)
     }
 }

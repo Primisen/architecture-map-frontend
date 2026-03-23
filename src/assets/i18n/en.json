@@ -11,7 +11,8 @@
         "SOURCES": "Sources",
         "ARCHITECTS": "Architects",
         "CONTACTS": "Contacts",
-        "PAGE_NOT_FOUND": "Page is not found"
+        "PAGE_NOT_FOUND": "Page is not found",
+        "HOME": "Architecture Map"
     },
     "CONTACTS": {
         "COMMON": "This project is non-commercial and was created purely out of interest in Belarusian architecture.",

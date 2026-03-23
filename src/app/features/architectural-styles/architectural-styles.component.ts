@@ -1,5 +1,5 @@
 import { Component, inject, OnInit, signal } from '@angular/core'
-import { ARCHITECTURAL_STYLES_URL } from '../../core/constants/URL.constants'
+import { URL } from '../../core/constants/URL.constants'
 import { ArchitecturalStyle } from '../../core/models/architecturalStyle'
 import { ApiService } from 'src/app/core/services/api.service'
 
@@ -17,7 +17,7 @@ export class ArchitecturalStylesComponent implements OnInit {
     }
 
     private loadArchitecturalStyles() {
-        this.apiService.get<ArchitecturalStyle[]>(ARCHITECTURAL_STYLES_URL).subscribe((architecturalStyles) => {
+        this.apiService.get<ArchitecturalStyle[]>(URL.ARCHITECTURAL_STYLES).subscribe((architecturalStyles) => {
             this.architecturalStyles.set(architecturalStyles.sort((a, b) => a.name.localeCompare(b.name)))
         })
     }

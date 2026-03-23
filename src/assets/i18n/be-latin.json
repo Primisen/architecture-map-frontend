@@ -11,7 +11,8 @@
         "SOURCES": "Krynicy",
         "ARCHITECTS": "Architektary",
         "CONTACTS": "Advarotnaja suviaź",
-        "PAGE_NOT_FOUND": "Staronka nie znojdziena"
+        "PAGE_NOT_FOUND": "Staronka nie znojdziena",
+        "HOME": "Architecture Map"
     },
     "CONTACTS": {
         "COMMON": "Prajekt nie zjaŭlajecca kamiercyjnym i stvorany vyklučna z intaresu da rodnaj biełaruskaj architektury.",

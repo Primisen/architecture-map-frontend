@@ -1,0 +1,15 @@
+export const APP_ROUTES = {
+    ARCHITECTURAL_STYLES: 'architectural-styles',
+    ARCHITECTURAL_STYLES_BY_ID: 'architectural-styles/:id',
+    ARCHITECTS: 'architects',
+    ARCHIECTS_BY_ID: 'architects/:id',
+    CONSTRUCTIONS: 'constructions',
+    CONSTRUCTIONS_BY_ID: 'constructions/:constructionId',
+    CONSTRUCTION_IMAGE: 'constructions/:constructionId/:imageId',
+    CONTACTS: 'contacts',
+    HOME: '',
+    IMAGES: 'construction-images',
+    GET_SIMILAR_CONSTRUCTION_IMAGES: '/construction-images/similar/',
+    SOURCES: 'sources',
+    SEARCH_CONSTRUCTIONS: '/search/constructions',
+} as const

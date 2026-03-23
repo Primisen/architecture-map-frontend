@@ -1,6 +1,6 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
-import { Routes, RouterModule, TitleStrategy } from '@angular/router'
+import { RouterModule, TitleStrategy } from '@angular/router'
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
@@ -26,28 +26,11 @@ import { NavComponent } from './core/components/nav/nav.component'
 import { LightgalleryModule } from 'lightgallery/angular'
 import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component'
 import { CustomPageTitleStrategy } from './core/services/custom-page-title-strategy'
-import { ConstructionTitleResolver } from './core/services/construction-page-title-resolve'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { SearchingComponent } from './features/searching/searching.component'
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core'
 import { translateHttpLoaderFactory, translateInitializerFactory } from './core/i18n/translate-loader.factory'
-
-const appRoutes: Routes = [
-    { path: '', component: HomeComponent, title: 'Architecture Map' },
-    {
-        path: 'constructions/:constructionId/:imageId',
-        component: ConstructionComponent,
-        title: ConstructionTitleResolver,
-    },
-    { path: 'constructions/:constructionId', component: ConstructionComponent, title: ConstructionTitleResolver },
-    { path: 'architectural-styles/:id', component: ConstructionArchitecturalStyleComponent },
-    { path: 'architects/:id', component: ConstructionArchitectComponent },
-    { path: 'architectural-styles', component: ArchitecturalStylesComponent, title: 'Архітэктурныя стылі' },
-    { path: 'sources', component: SourcesComponent, title: 'Крыніцы' },
-    { path: 'architects', component: ArchitectsComponent, title: 'Архітэктары' },
-    { path: 'contacts', component: ContactsComponent, title: 'Адваротная сувязь' },
-    { path: '**', component: PageNotFoundComponent, title: 'Старонка не знойдзена' },
-]
+import { appRoutes } from './app.app-routes'
 
 @NgModule({
     declarations: [

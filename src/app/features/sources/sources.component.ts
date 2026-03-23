@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core'
 import { Source } from '../../core/models/source'
-import { SOURCES_URL } from '../../core/constants/URL.constants'
+import { URL } from '../../core/constants/URL.constants'
 import { ApiService } from 'src/app/core/services/api.service'
 
 @Component({
@@ -17,7 +17,7 @@ export class SourcesComponent implements OnInit {
     }
 
     private loadSources() {
-        this.apiService.get<Source[]>(SOURCES_URL).subscribe((sources) => {
+        this.apiService.get<Source[]>(URL.SOURCES).subscribe((sources) => {
             this.sources.set(sources.sort((a, b) => a.name.localeCompare(b.name)))
         })
     }

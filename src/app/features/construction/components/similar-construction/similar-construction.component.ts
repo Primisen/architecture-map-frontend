@@ -1,5 +1,5 @@
 import { Component, inject, Input, OnInit, signal } from '@angular/core'
-import { GET_SIMILAR_CONSTRUCTION_IMAGES_URL } from '../../../../core/constants/URL.constants'
+import { URL } from '../../../../core/constants/URL.constants'
 import { ConstructionImage } from '../../../../core/models/constructionImage'
 import { ApiService } from 'src/app/core/services/api.service'
 
@@ -22,7 +22,7 @@ export class SimilarConstructionComponent implements OnInit {
     private findSimilarConstructions(constructionId: number) {
         this.loading = true
         this.apiService
-            .get<ConstructionImage[]>(GET_SIMILAR_CONSTRUCTION_IMAGES_URL + constructionId)
+            .get<ConstructionImage[]>(URL.GET_SIMILAR_CONSTRUCTION_IMAGES + constructionId)
             .subscribe((images) => {
                 this.similarConstructionImages.set(images)
             })

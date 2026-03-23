@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core'
 import { Architect } from '../../core/models/architect'
-import { ARCHITECTS_URL } from '../../core/constants/URL.constants'
+import { URL } from '../../core/constants/URL.constants'
 import { ApiService } from 'src/app/core/services/api.service'
 
 @Component({
@@ -18,7 +18,7 @@ export class ArchitectsComponent implements OnInit {
     }
 
     private loadArchitects(): void {
-        this.apiService.get<Architect[]>(ARCHITECTS_URL).subscribe((architects) => {
+        this.apiService.get<Architect[]>(URL.ARCHITECTS).subscribe((architects) => {
             this.architects.set(architects)
         })
     }

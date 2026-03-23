@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { Component, EventEmitter, inject, OnInit, Output, signal } from '@angular/core'
 import { FormControl, FormGroup } from '@angular/forms'
-import { ARCHITECTURAL_STYLES_URL, SEARCH_CONSTRUCTIONS_URL } from 'src/app/core/constants/URL.constants'
+import { URL } from 'src/app/core/constants/URL.constants'
 import { VOBLASCS } from 'src/app/core/constants/voblascs.constants'
 import { ArchitecturalStyle } from 'src/app/core/models/architecturalStyle'
 import { Construction } from 'src/app/core/models/construction'
@@ -51,7 +51,7 @@ export class SearchingComponent implements OnInit {
     }
 
     getArchitecturalStyles() {
-        this.apiSercice.get<ArchitecturalStyle[]>(ARCHITECTURAL_STYLES_URL).subscribe((architecturalStyle) => {
+        this.apiSercice.get<ArchitecturalStyle[]>(URL.ARCHITECTURAL_STYLES).subscribe((architecturalStyle) => {
             this.architecturalStyles.set(architecturalStyle.sort((a, b) => a.name.localeCompare(b.name)))
         })
     }
@@ -76,6 +76,6 @@ export class SearchingComponent implements OnInit {
             params = params.set('buildingCenturyTo', this.searchConstructionForm.value.buildingCenturyTo.toString())
         }
 
-        this.httpClient.get(SEARCH_CONSTRUCTIONS_URL, { params }).subscribe((answer) => this.searchParams.emit(answer))
+        this.httpClient.get(URL.SEARCH_CONSTRUCTIONS, { params }).subscribe((answer) => this.searchParams.emit(answer))
     }
 }

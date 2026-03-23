@@ -3,7 +3,7 @@ import { Architect } from '../../../../core/models/architect'
 import { ActivatedRoute } from '@angular/router'
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
-import { ARCHITECTS_URL } from '../../../../core/constants/URL.constants'
+import { URL } from '../../../../core/constants/URL.constants'
 
 @Component({
     selector: 'app-construction-architect',
@@ -25,6 +25,6 @@ export class ConstructionArchitectComponent {
     }
 
     getArchitecturalStyle(id: number) {
-        this.getResource(ARCHITECTS_URL + id).subscribe((data) => (this.architect = data))
+        this.getResource(URL.ARCHITECTS + id).subscribe((data) => (this.architect = data))
     }
 }
