@@ -22,15 +22,14 @@
                 [ngClass]="{ hidden: !isMenuOpen, 'w-full': true, 'md:block': true, 'md:w-auto': true }"
                 id="navbar-default"
             >
-                <ul class="lg:flex lg:space-x-36">
+                <ul>
                     <li *ngFor="let item of menuItems">
-                        <a [routerLink]="item.link">{{ item.label }}</a>
+                        <a [routerLink]="item.link">{{ item.label | translate }}</a>
                     </li>
                     <li class="language-switcher">
-                        <!-- Hardcode (BE, EN) -->
-                        <button (click)="switchLanguage('be')">BE</button>
-                        <span> / </span>
-                        <button (click)="switchLanguage('en')">EN</button>
+                        <button *ngFor="let lang of languages" (click)="switchLanguage(lang.code)">
+                            {{ lang.label }}
+                        </button>
                     </li>
                 </ul>
             </div>

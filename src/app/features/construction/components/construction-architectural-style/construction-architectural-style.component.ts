@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router'
 import { Observable } from 'rxjs'
 import { ArchitecturalStyle } from '../../../../core/models/architecturalStyle'
 import { URL } from '../../../../core/constants/URL.constants'
+import { APP_ROUTES } from 'src/app/core/constants/routes.constants'
 
 @Component({
     selector: 'app-construction-architectural-style',
@@ -16,7 +17,7 @@ export class ConstructionArchitecturalStyleComponent {
     private httpClient = inject(HttpClient)
 
     constructor() {
-        const id = this.activatedRoute.snapshot.params['id']
+        const id = this.activatedRoute.snapshot.params[APP_ROUTES.ID]
         this.getArchitecturalStyle(id)
     }
 

@@ -3,3 +3,8 @@ export const I18N = {
     DEFAULT_LANGUAGE: 'be',
     SUPPORTED_LANGUAGES: /en|be/,
 } as const
+
+export const I18N_SUPPORTED_LANGUAGES_LIST = [
+    { code: 'be', label: 'BE' },
+    { code: 'en', label: 'EN' },
+] as const

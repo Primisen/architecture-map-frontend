@@ -12,4 +12,6 @@ export const APP_ROUTES = {
     GET_SIMILAR_CONSTRUCTION_IMAGES: '/construction-images/similar/',
     SOURCES: 'sources',
     SEARCH_CONSTRUCTIONS: '/search/constructions',
+    ID: 'id',
+    CONSTRUCTION_ID: 'constructionId',
 } as const

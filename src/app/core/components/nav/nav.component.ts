@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core'
 import { TranslateService } from '@ngx-translate/core'
-import { I18N } from '../../constants/i18n.constants'
+import { I18N, I18N_SUPPORTED_LANGUAGES_LIST } from '../../constants/i18n.constants'
+import { APP_ROUTES } from '../../constants/routes.constants'
 
 @Component({
     selector: 'app-nav',
@@ -9,14 +10,15 @@ import { I18N } from '../../constants/i18n.constants'
 })
 export class NavComponent {
     isMenuOpen = false
+    languages = I18N_SUPPORTED_LANGUAGES_LIST
     private translate = inject(TranslateService)
 
     menuItems = [
-        { label: 'На галоўную', link: '/' },
-        { label: 'Архітэктурныя стылі', link: '/architectural-styles' },
-        { label: 'Архітэктары', link: '/architects' },
-        { label: 'Крыніцы', link: '/sources' },
-        { label: 'Адваротная сувязь', link: '/contacts' },
+        { label: 'NAVBAR.HOME', link: '' },
+        { label: 'NAVBAR.ARCHITECTURAL_STYLES', link: APP_ROUTES.ARCHITECTURAL_STYLES },
+        { label: 'NAVBAR.ARCHITECTS', link: APP_ROUTES.ARCHITECTS },
+        { label: 'NAVBAR.SOURCES', link: APP_ROUTES.SOURCES },
+        { label: 'NAVBAR.CONTACTS', link: APP_ROUTES.CONTACTS },
     ]
 
     toggleMenu(): void {
