@@ -13,11 +13,7 @@ import { APP_ROUTES } from './core/constants/routes.constants'
 
 export const appRoutes: Routes = [
     { path: APP_ROUTES.HOME, component: HomeComponent, title: 'PAGE_TITLES.HOME' },
-    {
-        path: APP_ROUTES.CONSTRUCTION_IMAGE,
-        component: ConstructionComponent,
-        title: ConstructionTitleResolver,
-    },
+    { path: APP_ROUTES.CONSTRUCTION_IMAGE, component: ConstructionComponent, title: ConstructionTitleResolver },
     { path: APP_ROUTES.CONSTRUCTIONS_BY_ID, component: ConstructionComponent, title: ConstructionTitleResolver },
     { path: APP_ROUTES.ARCHITECTURAL_STYLES_BY_ID, component: ConstructionArchitecturalStyleComponent },
     { path: APP_ROUTES.ARCHIECTS_BY_ID, component: ConstructionArchitectComponent },
@@ -29,5 +25,5 @@ export const appRoutes: Routes = [
     { path: APP_ROUTES.SOURCES, component: SourcesComponent, title: 'PAGE_TITLES.SOURCES' },
     { path: APP_ROUTES.ARCHITECTS, component: ArchitectsComponent, title: 'PAGE_TITLES.ARCHITECTS' },
     { path: APP_ROUTES.CONTACTS, component: ContactsComponent, title: 'PAGE_TITLES.CONTACTS' },
-    { path: '**', component: PageNotFoundComponent, title: 'PAGE_TITLES.PAGE_NOT_FOUND' },
+    { path: APP_ROUTES.NOT_FOUND, component: PageNotFoundComponent, title: 'PAGE_TITLES.PAGE_NOT_FOUND' },
 ]

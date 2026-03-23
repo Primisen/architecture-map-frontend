@@ -14,4 +14,5 @@ export const APP_ROUTES = {
     SEARCH_CONSTRUCTIONS: '/search/constructions',
     ID: 'id',
     CONSTRUCTION_ID: 'constructionId',
+    NOT_FOUND: '**',
 } as const

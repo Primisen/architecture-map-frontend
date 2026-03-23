@@ -15,7 +15,7 @@ export class ConstructionTitleResolver {
         const constructionId = route.paramMap.get(APP_ROUTES.CONSTRUCTION_ID)
 
         if (!constructionId) {
-            return of('Канструкцыі')
+            return of(APP_ROUTES.NOT_FOUND)
         }
 
         return this.constructionService.getConstruction(constructionId).pipe(
