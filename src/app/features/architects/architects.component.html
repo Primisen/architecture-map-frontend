@@ -21,7 +21,7 @@
                     </p>
 
                     <div>
-                        Архітэктар такіх праектаў, як:
+                        {{ 'ARCHITECTS.CONSTRUCTIONS' | translate }}
                         @for (construction of architect.construction; track construction.id) {
                             <div>
                                 <a href="/constructions/{{ construction.id }}">

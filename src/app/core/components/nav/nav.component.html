@@ -27,9 +27,10 @@
                         <a [routerLink]="item.link">{{ item.label | translate }}</a>
                     </li>
                     <li class="language-switcher">
-                        <button *ngFor="let lang of languages" (click)="switchLanguage(lang.code)">
-                            {{ lang.label }}
-                        </button>
+                        <ng-container *ngFor="let lang of languages; let last = last">
+                            <button (click)="switchLanguage(lang.code)">{{ lang.label }}</button>
+                            <span *ngIf="!last">/</span>
+                        </ng-container>
                     </li>
                 </ul>
             </div>
