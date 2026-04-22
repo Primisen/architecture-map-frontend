@@ -1,10 +1,9 @@
 import { Component, inject } from '@angular/core'
 import { Architect } from '../../../../core/models/architect'
 import { ActivatedRoute } from '@angular/router'
-import { HttpClient } from '@angular/common/http'
-import { Observable } from 'rxjs'
 import { URL } from '../../../../core/constants/URL.constants'
 import { APP_ROUTES } from 'src/app/core/constants/routes.constants'
+import { ApiService } from 'src/app/core/services/api.service'
 
 @Component({
     selector: 'app-construction-architect',
@@ -14,18 +13,14 @@ import { APP_ROUTES } from 'src/app/core/constants/routes.constants'
 export class ConstructionArchitectComponent {
     public architect!: Architect
     private activatedRoute = inject(ActivatedRoute)
-    private httpClient = inject(HttpClient)
+    private apiService = inject(ApiService)
 
     constructor() {
         const id = this.activatedRoute.snapshot.params[APP_ROUTES.ID]
         this.getArchitecturalStyle(id)
     }
 
-    getResource(resourceUrl: string): Observable<any> {
-        return this.httpClient.get(resourceUrl)
-    }
-
     getArchitecturalStyle(id: number) {
-        this.getResource(URL.ARCHITECTS + id).subscribe((data) => (this.architect = data))
+        this.apiService.get<Architect>(URL.ARCHITECTS + id).subscribe((data) => (this.architect = data))
     }
 }

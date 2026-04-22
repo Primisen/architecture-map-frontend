@@ -1,20 +1,15 @@
-import { HttpClient } from '@angular/common/http'
 import { inject, Injectable } from '@angular/core'
-import { Observable } from 'rxjs'
 import { URL } from '../../constants/URL.constants'
 import { Construction } from '../../models/construction'
+import { ApiService } from '../api.service'
 
 @Injectable({
     providedIn: 'root',
 })
 export class ConstructionService {
-    private httpClient = inject(HttpClient)
+    private apiService = inject(ApiService)
 
-    getResource(resourceUrl: string): Observable<any> {
-        return this.httpClient.get(resourceUrl)
-    }
-
-    getConstruction(constructionId: string): Observable<Construction> {
-        return this.httpClient.get<Construction>(URL.CONSTRUCTIONS + constructionId)
+    getConstruction(constructionId: string) {
+        return this.apiService.get<Construction>(URL.CONSTRUCTIONS + constructionId)
     }
 }

@@ -1,10 +1,9 @@
-import { HttpClient } from '@angular/common/http'
 import { Component, inject } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { Observable } from 'rxjs'
 import { ArchitecturalStyle } from '../../../../core/models/architecturalStyle'
 import { URL } from '../../../../core/constants/URL.constants'
 import { APP_ROUTES } from 'src/app/core/constants/routes.constants'
+import { ApiService } from 'src/app/core/services/api.service'
 
 @Component({
     selector: 'app-construction-architectural-style',
@@ -14,18 +13,16 @@ import { APP_ROUTES } from 'src/app/core/constants/routes.constants'
 export class ConstructionArchitecturalStyleComponent {
     public architecturalStyle!: ArchitecturalStyle
     private activatedRoute = inject(ActivatedRoute)
-    private httpClient = inject(HttpClient)
+    private apiService = inject(ApiService)
 
     constructor() {
         const id = this.activatedRoute.snapshot.params[APP_ROUTES.ID]
         this.getArchitecturalStyle(id)
     }
 
-    getResource(resourceUrl: string): Observable<any> {
-        return this.httpClient.get(resourceUrl)
-    }
-
     getArchitecturalStyle(id: number) {
-        this.getResource(URL.ARCHITECTURAL_STYLES + id).subscribe((data) => (this.architecturalStyle = data))
+        this.apiService
+            .get<ArchitecturalStyle>(URL.ARCHITECTURAL_STYLES + id)
+            .subscribe((data) => (this.architecturalStyle = data))
     }
 }

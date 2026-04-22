@@ -1,7 +1,5 @@
-import { HttpClient } from '@angular/common/http'
 import { Component, ElementRef, ViewChild, AfterViewChecked, AfterViewInit, inject } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
-import { Observable } from 'rxjs'
 import { Construction } from '../../core/models/construction'
 import { ConstructionImage } from '../../core/models/constructionImage'
 import { environment } from 'src/environments/environment'
@@ -10,6 +8,7 @@ import lgZoom from 'lightgallery/plugins/zoom'
 import { LightGallery } from 'lightgallery/lightgallery'
 import lgThumbnail from 'lightgallery/plugins/thumbnail'
 import lightGallery from 'lightgallery' // Правільны імпарт
+import { ApiService } from 'src/app/core/services/api.service'
 
 @Component({
     selector: 'app-construction',
@@ -50,7 +49,7 @@ export class ConstructionComponent implements AfterViewChecked, AfterViewInit {
     }
 
     private activatedRoute = inject(ActivatedRoute)
-    private _http = inject(HttpClient)
+    private apiService = inject(ApiService)
     private _elementRef = inject(ElementRef)
 
     constructor() {
@@ -82,12 +81,8 @@ export class ConstructionComponent implements AfterViewChecked, AfterViewInit {
         this.lightGallery = detail.instance
     }
 
-    getResource(resourceUrl: string): Observable<any> {
-        return this._http.get(resourceUrl)
-    }
-
     getConstructionData() {
-        this.getResource(environment.backendUrl + '/constructions/' + this.id).subscribe((data) => {
+        this.apiService.get<Construction>(environment.backendUrl + '/constructions/' + this.id).subscribe((data) => {
             ;((this.construction = data),
                 (this.clickedImage = this.construction.images.find((element) => element.id == this.imageId)),
                 (this.startIndex = this.construction.images.findIndex((image) => {
